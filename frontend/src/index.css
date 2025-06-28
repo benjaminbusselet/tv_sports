@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.tab {
+  cursor: pointer;
+  color: #cccccc;
+}
+
+.tab--active {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  font-weight: bold;
+}
+
+main.container {
+  padding: 1rem;
+}

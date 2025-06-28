@@ -1,0 +1,4 @@
+name              = "rss-proxy"
+main              = "index.js"
+compatibility_date = "2025-06-21"
+account_id         = "ede39c65159d9a40a765247eb73db38d"
