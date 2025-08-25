@@ -1,0 +1,67 @@
+[
+  {
+    "id": "football_ligue1",
+    "type": "competition",
+    "sport": "football",
+    "name": "Ligue 1",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/league/ligue-1.ics",
+    "defaultBroadcasters": ["Ligue 1+", "beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_laliga",
+    "type": "competition",
+    "sport": "football",
+    "name": "LaLiga",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/league/primera-division.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_premier_league",
+    "type": "competition",
+    "sport": "football",
+    "name": "Premier League",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/league/premier-league.ics",
+    "defaultBroadcasters": ["Canal+"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_serie_a",
+    "type": "competition",
+    "sport": "football",
+    "name": "Serie A",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/league/serie-a.ics",
+    "defaultBroadcasters": ["DAZN"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_bundesliga",
+    "type": "competition",
+    "sport": "football",
+    "name": "Bundesliga",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/league/bundesliga.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  }
+]

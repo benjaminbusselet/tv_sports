@@ -1,0 +1,121 @@
+#!/usr/bin/env node
+/* eslint-env node */
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const ymd = process.argv[2];
+const KEEP = process.argv.includes("--keep");
+if (!/^\d{8}$/.test(ymd || "")) {
+  console.error("Usage: node scripts/merge.js YYYYMMDD [--keep]");
+  process.exit(1);
+}
+
+const pData = "public/data",
+  pConf = "config";
+const tryRead = async (paths) => {
+  for (const p of paths) {
+    try {
+      return JSON.parse(await fs.readFile(p, "utf-8"));
+    } catch {}
+  }
+  return [];
+};
+
+const ics = await tryRead([
+  path.join(pData, `ics_${ymd}.json`),
+  path.join(pData, `ics-${ymd}.json`),
+]);
+const epg = await tryRead([
+  path.join(pData, `epg_${ymd}.json`),
+  path.join(pData, `epg-${ymd}.json`),
+]);
+const teams = await tryRead([path.join(pConf, "teams.json")]);
+
+const norm = (s) =>
+  String(s || "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+const tms = (s) => new Date(s).getTime();
+const near = (a, b, ms = 60 * 60 * 1000) =>
+  a && b && Math.abs(tms(a) - tms(b)) <= ms;
+const isSat17Paris = (iso) => {
+  const p = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Paris",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(new Date(iso));
+  const m = Object.fromEntries(p.map((x) => [x.type, x.value]));
+  return m.weekday === "Sat" && m.hour === "17";
+};
+
+// alias -> nom ICS par compétition
+const idx = {};
+for (const [comp, map] of Object.entries(teams || {})) {
+  const m = (idx[comp] = {});
+  for (const [team, aliases] of Object.entries(map || {})) {
+    m[norm(team)] = team;
+    for (const a of aliases || []) m[norm(a)] = team;
+  }
+}
+const mapEpg = (comp, p) => {
+  const m = idx[comp] || {};
+  const h = m[norm(p.epgHome)],
+    a = m[norm(p.epgAway)];
+  return h && a ? { ch: p.channel, h, a, st: p.start } : null;
+};
+
+const out = [];
+for (const ev of ics || []) {
+  const comp = ev.competition,
+    H = norm(ev.home),
+    A = norm(ev.away);
+  const cand = (epg || [])
+    .map((p) => mapEpg(comp, p))
+    .filter(Boolean)
+    .filter((x) => {
+      const same =
+        (norm(x.h) === H && norm(x.a) === A) ||
+        (norm(x.h) === A && norm(x.a) === H);
+      return same && near(ev.start, x.st);
+    })
+    .sort(
+      (x, y) =>
+        Math.abs(tms(x.st) - tms(ev.start)) -
+        Math.abs(tms(y.st) - tms(ev.start))
+    );
+
+  let chan = cand[0]?.ch || "";
+  if (!chan) {
+    if (comp === "Serie A") chan = "DAZN";
+    else if (comp === "Ligue 1")
+      chan = isSat17Paris(ev.start) ? "beIN SPORTS 1" : "Ligue 1+";
+  }
+
+  out.push({
+    uid: ev.uid,
+    title: ev.title,
+    start: ev.start,
+    end: ev.end,
+    sport: ev.sport,
+    competition: comp,
+    home: ev.home,
+    away: ev.away,
+    broadcasters: chan ? [chan] : [],
+  });
+}
+
+await fs.mkdir(pData, { recursive: true });
+const outFile = path.join(pData, `progs_${ymd}.json`);
+await fs.writeFile(outFile, JSON.stringify(out, null, 2), "utf-8");
+console.log(`✔ wrote ${outFile} (${out.length} events)`);
+
+// --keep reconnu (aucune suppression ici)
+if (!KEEP) {
+  /* placeholder */
+}
