@@ -1,5 +1,57 @@
 [
   {
+    "id": "team_france_football",
+    "type": "team",
+    "sport": "football",
+    "name": "France",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/team/france.ics",
+    "defaultBroadcasters": ["TF1", "M6"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "team_espagne",
+    "type": "team",
+    "sport": "football",
+    "name": "Espagne",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/team/spain.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "team_barcelone",
+    "type": "team",
+    "sport": "football",
+    "name": "FC Barcelone",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/team/barcelona.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "team_om",
+    "type": "team",
+    "sport": "football",
+    "name": "Olympique Marseille",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/team/marseille.ics",
+    "defaultBroadcasters": ["Ligue 1+", "Canal+"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
     "id": "football_ligue1",
     "type": "competition",
     "sport": "football",
@@ -59,6 +111,32 @@
     "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/bundesliga.ics",
     "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "team_toulouse_rugby",
+    "type": "team",
+    "sport": "rugby",
+    "name": "Stade Toulousain",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/team/toulouse-rugby.ics",
+    "defaultBroadcasters": ["Canal+"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "team_france_rugby",
+    "type": "team",
+    "sport": "rugby",
+    "name": "France Rugby",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/team/france-rugby.ics",
+    "defaultBroadcasters": ["TF1", "France 2"],
     "notifications": {
       "enabled": false,
       "advance": 30

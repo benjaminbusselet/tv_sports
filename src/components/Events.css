@@ -1,0 +1,57 @@
+.events-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.02);
+    margin-bottom: 0.5rem;
+
+    .card {
+        padding: 1rem;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.02);
+        margin-bottom: 0.5rem;
+    }
+
+    .event-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+    }
+
+    .event-line h3 {
+        margin: 0;
+        flex: 1;
+        font-size: 1rem;
+        font-weight: normal;
+    }
+
+    .broadcasters {
+        color: #666;
+        font-size: 0.9em;
+        white-space: nowrap;
+        padding-left: 1rem;
+        border-left: 1px solid #ddd;
+    }
+
+    .sectionTitle {
+        text-align: left;
+        font-weight: bold;
+        margin: 1.5rem 0 0.5rem 0;
+        color: #666;
+    }
+
+    .dayTitle {
+        text-align: left;
+        font-weight: bold;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.2rem;
+        text-transform: capitalize;
+    }
+}

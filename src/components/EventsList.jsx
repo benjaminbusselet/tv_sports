@@ -1,6 +1,8 @@
+import "./Events.css";
+
 export default function EventsList({ events = [] }) {
   return (
-    <div>
+    <div className="events-container">
       {events.map((ev) => {
         const time = ev.start
           ? new Date(ev.start).toLocaleTimeString("fr-FR", {
@@ -12,8 +14,13 @@ export default function EventsList({ events = [] }) {
           <article key={ev.uid || ev.start + ev.title} className="card">
             <div className="event-line">
               <h3>
-                <span className="event-time">{time}</span> - <span className="event-title">{ev.title}</span>
+                {time} - {ev.title}
               </h3>
+              <div className="broadcasters">
+                {ev.broadcasters?.length > 0
+                  ? ev.broadcasters.join(", ")
+                  : "\u00A0"}
+              </div>
             </div>
           </article>
         );

@@ -1,1 +1,85 @@
-[]
+[
+  {
+    "uid": "jKAmnyw7NlwtY8QadS2LkIC4C8A6zVGhOEKRbY1S@maak-agenda.nl",
+    "title": "Cremonese - US Sassuolo",
+    "start": "2025-08-29T16:30:00.000Z",
+    "end": "2025-08-29T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Cremonese",
+    "away": "US Sassuolo",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "1LP8Lb1iPKQCA6fwFuQGgxaSVKxtjEIBh1zbBMdK@maak-agenda.nl",
+    "title": "Elche CF - Levante",
+    "start": "2025-08-29T17:30:00.000Z",
+    "end": "2025-08-29T19:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Elche CF",
+    "away": "Levante",
+    "broadcasters": []
+  },
+  {
+    "uid": "cRGqrattBSMCaHWwLCWQjUKMletB3ZnVMxA2HBr5@maak-agenda.nl",
+    "title": "Hamburger SV - FC St. Pauli",
+    "start": "2025-08-29T18:30:00.000Z",
+    "end": "2025-08-29T20:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Hamburger SV",
+    "away": "FC St. Pauli",
+    "broadcasters": []
+  },
+  {
+    "uid": "8V4Fwe1lC7YQNGKZ8cz6LOG7ULu9L4oGNnIAzjwh@maak-agenda.nl",
+    "title": "Lens - Stade Brestois 29",
+    "start": "2025-08-29T18:45:00.000Z",
+    "end": "2025-08-29T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Lens",
+    "away": "Stade Brestois 29",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "vv1T6L2HVQKd5ojOt5uIbTZRrOiHBCaaNItjXc65@maak-agenda.nl",
+    "title": "Lecce - AC Milan",
+    "start": "2025-08-29T18:45:00.000Z",
+    "end": "2025-08-29T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Lecce",
+    "away": "AC Milan",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "DcYUsDWyHLH20WBeRqKm37eR4QJLmAFwnLzUpPwd@maak-agenda.nl",
+    "title": "Aston Villa - Crystal Palace",
+    "start": "2025-08-29T19:00:00.000Z",
+    "end": "2025-08-29T20:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Aston Villa",
+    "away": "Crystal Palace",
+    "broadcasters": []
+  },
+  {
+    "uid": "iTMf9yXurAwV9dILDiDYPt6SNNNZKCz0QhIae1ZL@maak-agenda.nl",
+    "title": "Valencia - Getafe",
+    "start": "2025-08-29T19:30:00.000Z",
+    "end": "2025-08-29T21:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Valencia",
+    "away": "Getafe",
+    "broadcasters": []
+  }
+]

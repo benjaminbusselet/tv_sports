@@ -1,3 +1,5 @@
+import "./Events.css";
+
 const COMP_ORDER = [
   "Ligue 1",
   "La Liga",
@@ -68,6 +70,11 @@ export default function EventsGrouped({ events = [] }) {
                 {" - "}
                 {ev.title}
               </h3>
+              <div className="broadcasters">
+                {ev.broadcasters?.length > 0
+                  ? ev.broadcasters.join(", ")
+                  : "\u00A0"}
+              </div>
             </div>
           </article>
         );
@@ -75,5 +82,5 @@ export default function EventsGrouped({ events = [] }) {
     });
   });
 
-  return <div>{elts}</div>;
+  return <div className="events-container">{elts}</div>;
 }

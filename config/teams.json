@@ -15,13 +15,16 @@
     "Olympique Lyonnais": [],
     "Olympique Marseille": [],
     "Paris FC": [
-      "Paris FC"
+      "Paris FC",
+      "Pafos FC"
     ],
     "Paris Saint-Germain": [],
     "RC Strasbourg": [],
     "Stade Brestois 29": [],
     "Stade Rennais": [],
-    "Toulouse": []
+    "Toulouse": [
+      "Toulouse"
+    ]
   },
   "LaLiga": {
     "Athletic de Bilbao": [
@@ -33,7 +36,9 @@
     "CA Osasuna": [
       "Osasuna"
     ],
-    "Celta de Vigo": [],
+    "Celta de Vigo": [
+      "Celta Vigo"
+    ],
     "Deportivo Alavés": [],
     "Elche CF": [
       "Elche"

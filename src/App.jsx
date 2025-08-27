@@ -1,56 +1,74 @@
 import { useEffect, useMemo, useState } from "react";
 import "./styles.css";
 import SportsTabs from "./components/SportsTabs.jsx";
-import TeamSelect from "./components/TeamSelect.jsx";
 import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
 import EventsGrouped from "./components/EventsGrouped.jsx";
 import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
+import LoadingSpinner from "./components/LoadingSpinner.jsx";
+import { useNotifications } from "./hooks/useNotifications.js";
+import { fetchEvents } from "./services/api.js";
+import "./components/LoadingSpinner.css";
 
 export default function App() {
   const [sport, setSport] = useState("football");
-  const [team, setTeam] = useState("all");
   const [day, setDay] = useState(() => {
     const t = new Date();
     t.setHours(0, 0, 0, 0);
     return dayKey(t);
   });
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // TODO API: fetch /events?sport or ?team + ?day
   useEffect(() => {
-    setEvents([]); // reset while loading
-    // Placeholder: on branchera l’API réelle à l’étape suivante
-    // Pour visualiser le squelette, on met 2 faux matchs “aujourd’hui”
-    const today = new Date();
-    today.setHours(18, 45, 0, 0);
-    const mock = [
-      {
-        uid: "1",
-        title: "Rennes vs Marseille",
-        start: today.toISOString(),
-        competition: "Ligue 1",
-      },
-      {
-        uid: "2",
-        title: "Barça vs Sevilla",
-        start: new Date(today.getTime() + 3600000).toISOString(),
-        competition: "La Liga",
-      },
-    ];
-    setTimeout(() => setEvents(mock), 150);
-  }, [sport, team, day]);
+    let isCancelled = false;
+    setLoading(true);
+    setError(null);
+
+    async function loadEvents() {
+      try {
+        console.log("Fetching events for:", { day, sport });
+        const data = await fetchEvents({ day, sport });
+        console.log("Received events:", data);
+        if (!isCancelled) {
+          setEvents(data);
+        }
+      } catch (error) {
+        console.error("Failed to load events:", error);
+        if (!isCancelled) {
+          setError(error.message);
+          setEvents([]);
+        }
+      } finally {
+        if (!isCancelled) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadEvents();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [sport, day]);
 
   // Filtrage par jour (le serveur le fera plus tard ; on garde ici pour le squelette)
   const dayEvents = useMemo(() => {
     if (!events?.length) return [];
+    console.log("Filtering events for day:", day);
     const k = day;
-    return events.filter((ev) => {
+    const filtered = events.filter((ev) => {
       if (!ev.start) return false;
       const d = new Date(ev.start);
-      return dayKey(d) === k;
+      const eventKey = dayKey(d);
+      console.log("Event date:", eventKey, "looking for:", k);
+      return eventKey === k;
     });
+    console.log("Filtered events:", filtered);
+    return filtered;
   }, [events, day]);
 
   // Compteurs pour la frise (7 jours) – simple, sur le set en mémoire
@@ -65,7 +83,8 @@ export default function App() {
     return map;
   }, [events]);
 
-  const showGrouped = sport === "football" && team === "all";
+  const showGrouped = sport === "football";
+  const { permission, enableNotifications } = useNotifications();
 
   return (
     <>
@@ -77,19 +96,28 @@ export default function App() {
         }}
       >
         <h1>TV Sports</h1>
-        <ThemeSwitcher />
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+          {permission !== "granted" && (
+            <button
+              className="notifyBtn"
+              onClick={() => enableNotifications(events)}
+            >
+              Activer les notifications
+            </button>
+          )}
+          <ThemeSwitcher />
+        </div>
       </header>
       <div className="container">
         <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
-        <SportsTabs
-          value={sport}
-          onChange={(s) => {
-            setSport(s);
-            setTeam("all");
-          }}
-        />
-        <TeamSelect sport={sport} value={team} onChange={setTeam} />
-        {showGrouped ? (
+        <SportsTabs value={sport} onChange={setSport} />
+        {error ? (
+          <div className="error-message">Erreur : {error}</div>
+        ) : loading ? (
+          <LoadingSpinner />
+        ) : dayEvents.length === 0 ? (
+          <div className="no-events">Aucun événement pour ce jour</div>
+        ) : showGrouped ? (
           <EventsGrouped events={dayEvents} />
         ) : (
           <EventsList events={dayEvents} />

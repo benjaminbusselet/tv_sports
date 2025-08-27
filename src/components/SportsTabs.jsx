@@ -1,7 +1,7 @@
 export default function SportsTabs({ value, onChange }) {
   const sports = [
     { id: "football", label: "Football" },
-    { id: "rugby", label: "Rugby" },
+    { id: "teams", label: "Équipes" },
     { id: "f1", label: "F1" },
     { id: "ufc", label: "UFC" },
   ];

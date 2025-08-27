@@ -240,6 +240,21 @@ select {
     font-weight: 800;
 }
 
+/* Bouton notifications */
+.notifyBtn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #334155;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.notifyBtn:hover {
+    opacity: 0.9;
+}
+
 /* Ligne événement avec heure et titre (une seule ligne) */
 .card .event-line {
     display: flex;

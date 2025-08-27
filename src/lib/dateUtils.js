@@ -1,6 +1,9 @@
 export function dayKey(d) {
   const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-  return x.toISOString();
+  const y = x.getFullYear();
+  const m = String(x.getMonth() + 1).padStart(2, "0");
+  const day = String(x.getDate()).padStart(2, "0");
+  return `${y}${m}${day}`;
 }
 
 export function dayLabel(d) {

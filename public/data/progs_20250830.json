@@ -1,1 +1,258 @@
-[]
+[
+  {
+    "uid": "ZF698EcLSyoOP331wSJ3tTy1KMX28N1GWzStuO9J@maak-agenda.nl",
+    "title": "Chelsea - Fulham",
+    "start": "2025-08-30T11:30:00.000Z",
+    "end": "2025-08-30T13:15:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Chelsea",
+    "away": "Fulham",
+    "broadcasters": []
+  },
+  {
+    "uid": "5EBha08q7f6afN0juBSE7LygkJY3wC6B07nBqs1Y@maak-agenda.nl",
+    "title": "RB Leipzig - 1.FC Heidenheim",
+    "start": "2025-08-30T13:30:00.000Z",
+    "end": "2025-08-30T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "RB Leipzig",
+    "away": "1.FC Heidenheim",
+    "broadcasters": []
+  },
+  {
+    "uid": "vvOx8rzULBUiex2HnUxjuDjiNdnxQPYPnUP735j8@maak-agenda.nl",
+    "title": "Werder Bremen - Bayer Leverkusen",
+    "start": "2025-08-30T13:30:00.000Z",
+    "end": "2025-08-30T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Werder Bremen",
+    "away": "Bayer Leverkusen",
+    "broadcasters": []
+  },
+  {
+    "uid": "gi540qe6VMHLFVNlkwumOnaABiULLLFUxmsM2ixu@maak-agenda.nl",
+    "title": "1899 Hoffenheim - Eintracht Frankfurt",
+    "start": "2025-08-30T13:30:00.000Z",
+    "end": "2025-08-30T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "1899 Hoffenheim",
+    "away": "Eintracht Frankfurt",
+    "broadcasters": []
+  },
+  {
+    "uid": "BDvBXG2oWWBQd6sXKa7lAKB4ydtA0DSdJarSCFzE@maak-agenda.nl",
+    "title": "VfB Stuttgart - Borussia Mönchengladbach",
+    "start": "2025-08-30T13:30:00.000Z",
+    "end": "2025-08-30T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "VfB Stuttgart",
+    "away": "Borussia Mönchengladbach",
+    "broadcasters": []
+  },
+  {
+    "uid": "eq112yK0iU57vc6WU9b6fT8AgHCZvTFeXoGpG6vG@maak-agenda.nl",
+    "title": "Manchester United - Burnley FC",
+    "start": "2025-08-30T14:00:00.000Z",
+    "end": "2025-08-30T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Manchester United",
+    "away": "Burnley FC",
+    "broadcasters": []
+  },
+  {
+    "uid": "fo296zjATeQeiNOzSjFDwoEIIoyOkgDpQnqPs96V@maak-agenda.nl",
+    "title": "Sunderland - Brentford FC",
+    "start": "2025-08-30T14:00:00.000Z",
+    "end": "2025-08-30T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Sunderland",
+    "away": "Brentford FC",
+    "broadcasters": []
+  },
+  {
+    "uid": "wfUkGpNS0NvCpQNsFHIPbtwwfvWoFlJJOS2EMdrZ@maak-agenda.nl",
+    "title": "Tottenham Hotspur - AFC Bournemouth",
+    "start": "2025-08-30T14:00:00.000Z",
+    "end": "2025-08-30T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Tottenham Hotspur",
+    "away": "AFC Bournemouth",
+    "broadcasters": []
+  },
+  {
+    "uid": "ukxkl9LKEjpeMLQF2It5ss66Ec58lQHVFX8gkjmL@maak-agenda.nl",
+    "title": "Wolverhampton Wanderers - Everton",
+    "start": "2025-08-30T14:00:00.000Z",
+    "end": "2025-08-30T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Wolverhampton Wanderers",
+    "away": "Everton",
+    "broadcasters": []
+  },
+  {
+    "uid": "zzGdNY57qrx0spa75mHbg8l7pFQ24ZoNVD45GlLa@maak-agenda.nl",
+    "title": "Deportivo Alavés - Atlético Madrid",
+    "start": "2025-08-30T15:00:00.000Z",
+    "end": "2025-08-30T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Deportivo Alavés",
+    "away": "Atlético Madrid",
+    "broadcasters": []
+  },
+  {
+    "uid": "aKwdbGJdAOPZcZT7jJkJzwSxFprdXxzRBHUFtfmp@maak-agenda.nl",
+    "title": "Lorient - Lille",
+    "start": "2025-08-30T15:00:00.000Z",
+    "end": "2025-08-30T16:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Lorient",
+    "away": "Lille",
+    "broadcasters": [
+      "beIN SPORTS 1"
+    ]
+  },
+  {
+    "uid": "lgMTod0C9MSFTTvOSU6hQaQTYYGtUJTi4fWMICOf@maak-agenda.nl",
+    "title": "FC Augsburg - Bayern München",
+    "start": "2025-08-30T16:30:00.000Z",
+    "end": "2025-08-30T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "FC Augsburg",
+    "away": "Bayern München",
+    "broadcasters": []
+  },
+  {
+    "uid": "jRFcuwoX61JxjuYhs9CI4ew5YGekm9JyDRf61Obq@maak-agenda.nl",
+    "title": "Leeds United - Newcastle United",
+    "start": "2025-08-30T16:30:00.000Z",
+    "end": "2025-08-30T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Leeds United",
+    "away": "Newcastle United",
+    "broadcasters": []
+  },
+  {
+    "uid": "Ry34OC5c3eiq223JrE8Zu5koNeqZ7DuLfN5V9EgN@maak-agenda.nl",
+    "title": "Bologna - Como",
+    "start": "2025-08-30T16:30:00.000Z",
+    "end": "2025-08-30T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Bologna",
+    "away": "Como",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "eD3WalTlDICZELK4MML3ld37tfhJBjXKvNGsJWIj@maak-agenda.nl",
+    "title": "Parma - Atalanta",
+    "start": "2025-08-30T16:30:00.000Z",
+    "end": "2025-08-30T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Parma",
+    "away": "Atalanta",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "k5X2hpOik5ENFJkGhHc8a5OXJlPLDWc58FneuH7m@maak-agenda.nl",
+    "title": "Real Oviedo - Real Sociedad",
+    "start": "2025-08-30T17:00:00.000Z",
+    "end": "2025-08-30T18:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Oviedo",
+    "away": "Real Sociedad",
+    "broadcasters": []
+  },
+  {
+    "uid": "gkfx0u054VLUQsrPWjK9pRMTtR39gRhfdMKJrLBq@maak-agenda.nl",
+    "title": "FC Nantes - Auxerre",
+    "start": "2025-08-30T17:00:00.000Z",
+    "end": "2025-08-30T18:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "FC Nantes",
+    "away": "Auxerre",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "mw8C9W8ioxM1TUEWCmjsMQZXnH87VeTGbiL0Q0yf@maak-agenda.nl",
+    "title": "Girona FC - Sevilla FC",
+    "start": "2025-08-30T17:30:00.000Z",
+    "end": "2025-08-30T19:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Girona FC",
+    "away": "Sevilla FC",
+    "broadcasters": []
+  },
+  {
+    "uid": "o6rTUEDhQgYd0KbgtEQhwA4uSuBCzSim3V5HeFPG@maak-agenda.nl",
+    "title": "Napoli - Cagliari",
+    "start": "2025-08-30T18:45:00.000Z",
+    "end": "2025-08-30T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Napoli",
+    "away": "Cagliari",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "wLsgc2kKmvNqSXIy63Uk3V4amw3yC0lwmz5Qh9MT@maak-agenda.nl",
+    "title": "Pisa - AS Roma",
+    "start": "2025-08-30T18:45:00.000Z",
+    "end": "2025-08-30T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Pisa",
+    "away": "AS Roma",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "2iRHnBaDW6g7uxIzFlMmies6wsF7sEnVsjVshNdz@maak-agenda.nl",
+    "title": "Toulouse - Paris Saint-Germain",
+    "start": "2025-08-30T19:05:00.000Z",
+    "end": "2025-08-30T20:50:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Toulouse",
+    "away": "Paris Saint-Germain",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "yNkXCAtla6025Gkt6HI1J14l6lcb6e6V1Pwi7McD@maak-agenda.nl",
+    "title": "Real Madrid - Real Mallorca",
+    "start": "2025-08-30T19:30:00.000Z",
+    "end": "2025-08-30T21:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Madrid",
+    "away": "Real Mallorca",
+    "broadcasters": []
+  }
+]
