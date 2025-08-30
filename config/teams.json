@@ -4,13 +4,19 @@
     "Angers SCO": [],
     "Auxerre": [],
     "FC Metz": [],
-    "FC Nantes": [],
+    "FC Nantes": [
+      "Vannes"
+    ],
     "Le Havre": [],
     "Lens": [
       "Leeds"
     ],
-    "Lille": [],
-    "Lorient": [],
+    "Lille": [
+      "Lille"
+    ],
+    "Lorient": [
+      "Lorient"
+    ],
     "OGC Nice": [],
     "Olympique Lyonnais": [],
     "Olympique Marseille": [],
@@ -31,7 +37,8 @@
       "Athletic Bilbao"
     ],
     "Atlético Madrid": [
-      "Atletico Madrid"
+      "Atletico Madrid",
+      "Atletico de Madrid"
     ],
     "CA Osasuna": [
       "Osasuna"
@@ -39,7 +46,9 @@
     "Celta de Vigo": [
       "Celta Vigo"
     ],
-    "Deportivo Alavés": [],
+    "Deportivo Alavés": [
+      "Deportivo Alaves"
+    ],
     "Elche CF": [
       "Elche"
     ],
@@ -136,7 +145,9 @@
     "Wolverhampton Wanderers": []
   },
   "Serie A": {
-    "AC Milan": [],
+    "AC Milan": [
+      "AC Milan"
+    ],
     "AS Roma": [],
     "Atalanta": [],
     "Bologna": [
@@ -150,7 +161,9 @@
     "Hellas Verona FC": [],
     "Inter": [],
     "Juventus": [],
-    "Lecce": [],
+    "Lecce": [
+      "Lecce"
+    ],
     "Napoli": [],
     "Parma": [],
     "Pisa": [],
@@ -161,7 +174,8 @@
   },
   "Bundesliga": {
     "1. FC Union Berlin": [
-      "Union Berlin"
+      "Union Berlin",
+      "FC Union Berlin"
     ],
     "1.FC Heidenheim": [],
     "1.FC Köln": [
@@ -180,7 +194,8 @@
     ],
     "Eintracht Frankfurt": [],
     "FC Augsburg": [
-      "Augsbourg"
+      "Augsbourg",
+      "FC Augsbourg"
     ],
     "FC St. Pauli": [
       "FC St. Pauli",

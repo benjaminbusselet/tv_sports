@@ -55,31 +55,43 @@ export default function App() {
     };
   }, [sport, day]);
 
-  // Filtrage par jour (le serveur le fera plus tard ; on garde ici pour le squelette)
+  // ✅ CORRECTION : Suppression du double filtrage par date
+  // Les événements sont déjà filtrés par jour côté serveur (progs_YYYYMMDD.json)
   const dayEvents = useMemo(() => {
     if (!events?.length) return [];
-    console.log("Filtering events for day:", day);
-    const k = day;
-    const filtered = events.filter((ev) => {
-      if (!ev.start) return false;
-      const d = new Date(ev.start);
-      const eventKey = dayKey(d);
-      console.log("Event date:", eventKey, "looking for:", k);
-      return eventKey === k;
-    });
-    console.log("Filtered events:", filtered);
-    return filtered;
-  }, [events, day]);
+    console.log("Events ready for display:", events.length);
 
-  // Compteurs pour la frise (7 jours) – simple, sur le set en mémoire
+    // Simple validation : garder seulement les événements valides
+    const validEvents = events.filter((ev) => {
+      if (!ev || !ev.start) {
+        console.warn("Invalid event (missing start):", ev);
+        return false;
+      }
+      return true;
+    });
+
+    console.log("Valid events after filtering:", validEvents.length);
+    return validEvents;
+  }, [events]);
+
+  // Compteurs pour la frise (7 jours) – calculé sur tous les événements disponibles
   const countsByDay = useMemo(() => {
     const map = {};
+
+    // Pour les compteurs, on peut garder la logique de groupement par jour
+    // car on veut afficher le nombre d'événements sur plusieurs jours
     for (const ev of events) {
       if (!ev.start) continue;
-      const d = new Date(ev.start);
-      const k = dayKey(d);
-      map[k] = (map[k] || 0) + 1;
+      try {
+        const d = new Date(ev.start);
+        const k = dayKey(d);
+        map[k] = (map[k] || 0) + 1;
+      } catch (error) {
+        console.warn("Invalid date for event:", ev.start);
+      }
     }
+
+    console.log("Counts by day:", map);
     return map;
   }, [events]);
 

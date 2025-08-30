@@ -1,12 +1,5 @@
+import { useMemo } from "react";
 import "./Events.css";
-
-const COMP_ORDER = [
-  "Ligue 1",
-  "La Liga",
-  "Premier League",
-  "Serie A",
-  "Bundesliga",
-];
 
 function groupByDayAndCompetition(events) {
   const byDay = new Map();
@@ -32,6 +25,20 @@ function groupByDayAndCompetition(events) {
 }
 
 export default function EventsGrouped({ events = [] }) {
+  // Génération dynamique de l'ordre des compétitions
+  const competitionOrder = useMemo(() => {
+    const competitions = new Set();
+    events.forEach((ev) => {
+      if (ev.competition) {
+        competitions.add(ev.competition);
+      }
+    });
+
+    // Tri alphabétique par défaut
+    // Vous pouvez personnaliser cette logique selon vos besoins
+    return Array.from(competitions).sort((a, b) => a.localeCompare(b));
+  }, [events]);
+
   const elts = [];
   const byDay = groupByDayAndCompetition(events);
   const dayKeys = Array.from(byDay.keys()).sort(
@@ -49,15 +56,20 @@ export default function EventsGrouped({ events = [] }) {
         })}
       </div>
     );
+
     const byComp = byDay.get(k);
-    COMP_ORDER.forEach((comp) => {
+
+    // Utilisation de la liste dynamique au lieu de COMP_ORDER
+    competitionOrder.forEach((comp) => {
       const list = byComp.get(comp);
       if (!list || !list.length) return;
+
       elts.push(
         <div key={"comp-" + k + comp} className="sectionTitle">
           {comp}
         </div>
       );
+
       list.forEach((ev) => {
         elts.push(
           <article key={(ev.uid || "") + ev.start + ev.title} className="card">
