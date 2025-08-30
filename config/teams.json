@@ -4,155 +4,70 @@
     "Angers SCO": [],
     "Auxerre": [],
     "FC Metz": [],
-    "FC Nantes": [
-      "Vannes"
-    ],
+    "FC Nantes": [],
     "Le Havre": [],
-    "Lens": [
-      "Leeds"
-    ],
-    "Lille": [
-      "Lille"
-    ],
-    "Lorient": [
-      "Lorient"
-    ],
+    "Lens": [],
+    "Lille": ["Lille"],
+    "Lorient": ["Lorient"],
     "OGC Nice": [],
     "Olympique Lyonnais": [],
     "Olympique Marseille": [],
-    "Paris FC": [
-      "Paris FC",
-      "Pafos FC"
-    ],
+    "Paris FC": ["Paris FC"],
     "Paris Saint-Germain": [],
     "RC Strasbourg": [],
     "Stade Brestois 29": [],
     "Stade Rennais": [],
-    "Toulouse": [
-      "Toulouse"
-    ]
+    "Toulouse": ["Toulouse"]
   },
   "LaLiga": {
-    "Athletic de Bilbao": [
-      "Athletic Bilbao"
-    ],
-    "Atlético Madrid": [
-      "Atletico Madrid",
-      "Atletico de Madrid"
-    ],
-    "CA Osasuna": [
-      "Osasuna"
-    ],
-    "Celta de Vigo": [
-      "Celta Vigo"
-    ],
-    "Deportivo Alavés": [
-      "Deportivo Alaves"
-    ],
-    "Elche CF": [
-      "Elche"
-    ],
-    "Espanyol": [],
-    "FC Barcelona": [
-      "FC Barcelone"
-    ],
-    "Getafe": [
-      "Getafe"
-    ],
-    "Girona FC": [
-      "Gerone"
-    ],
-    "Levante": [
-      "Levante"
-    ],
-    "Rayo Vallecano": [
-      "Rayo Vallecano"
-    ],
-    "Real Betis": [],
-    "Real Madrid": [
-      "Real Madrid"
-    ],
-    "Real Mallorca": [],
-    "Real Oviedo": [
-      "Real Oviedo"
-    ],
-    "Real Sociedad": [
-      "Real Sociedad"
-    ],
-    "Sevilla FC": [
-      "FC Seville"
-    ],
-    "Valencia": [
-      "Valence"
-    ],
-    "Villarreal": [
-      "Villarreal"
-    ]
+    "Athletic de Bilbao": ["Athletic Bilbao"],
+    "Atlético Madrid": ["Atletico de Madrid"],
+    "CA Osasuna": ["Osasuna"],
+    "Celta de Vigo": ["Celta Vigo"],
+    "Deportivo Alavés": ["Deportivo Alaves"],
+    "Elche CF": ["Elche"],
+    "Espanyol": ["Espanyol Barcelone"],
+    "FC Barcelona": ["FC Barcelone"],
+    "Getafe": ["Getafe"],
+    "Girona FC": ["Gerone"],
+    "Levante": ["Levante"],
+    "Rayo Vallecano": ["Rayo Vallecano"],
+    "Real Betis": ["Betis Seville"],
+    "Real Madrid": ["Real Madrid"],
+    "Real Mallorca": ["Majorque"],
+    "Real Oviedo": ["Real Oviedo"],
+    "Real Sociedad": ["Real Sociedad"],
+    "Sevilla FC": ["FC Seville"],
+    "Valencia": ["Valence"],
+    "Villarreal": ["Villarreal"]
   },
   "Premier League": {
-    "AFC Bournemouth": [],
-    "Arsenal": [
-      "Arsenal"
-    ],
-    "Aston Villa": [
-      "Aston Villa"
-    ],
-    "Brentford FC": [
-      "Brentford"
-    ],
-    "Brighton & Hove Albion FC": [
-      "Brighton and Hove Albion"
-    ],
-    "Burnley FC": [
-      "Burnley"
-    ],
-    "Chelsea": [
-      "Chelsea"
-    ],
-    "Crystal Palace": [
-      "Crystal Palace"
-    ],
-    "Everton": [
-      "Everton"
-    ],
-    "Fulham": [
-      "Fulham"
-    ],
-    "Leeds United": [],
-    "Liverpool": [
-      "Liverpool FC",
-      "Liverpool"
-    ],
-    "Manchester City": [
-      "Manchester City"
-    ],
-    "Manchester United": [
-      "Manchester United"
-    ],
-    "Newcastle United": [
-      "Newcastle United"
-    ],
-    "Nottingham Forest": [
-      "Nottingham Forest"
-    ],
-    "Sunderland": [
-      "Sunderland"
-    ],
-    "Tottenham Hotspur": [],
-    "West Ham United": [
-      "West Ham"
-    ],
-    "Wolverhampton Wanderers": []
+    "AFC Bournemouth": ["Bournemouth"],
+    "Arsenal": ["Arsenal"],
+    "Aston Villa": ["Aston Villa"],
+    "Brentford FC": ["Brentford"],
+    "Brighton & Hove Albion FC": ["Brighton and Hove Albion"],
+    "Burnley FC": ["Burnley"],
+    "Chelsea": ["Chelsea"],
+    "Crystal Palace": ["Crystal Palace"],
+    "Everton": ["Everton"],
+    "Fulham": ["Fulham"],
+    "Leeds United": ["Leeds"],
+    "Liverpool": ["Liverpool"],
+    "Manchester City": ["Manchester City"],
+    "Manchester United": ["Manchester United"],
+    "Newcastle United": ["Newcastle United"],
+    "Nottingham Forest": ["Nottingham Forest"],
+    "Sunderland": ["Sunderland"],
+    "Tottenham Hotspur": ["Tottenham"],
+    "West Ham United": ["West Ham"],
+    "Wolverhampton Wanderers": ["Wolverhampton"]
   },
   "Serie A": {
-    "AC Milan": [
-      "AC Milan"
-    ],
+    "AC Milan": ["AC Milan"],
     "AS Roma": [],
     "Atalanta": [],
-    "Bologna": [
-      "FC Cologne"
-    ],
+    "Bologna": ["FC Cologne"],
     "Cagliari": [],
     "Como": [],
     "Cremonese": [],
@@ -161,9 +76,7 @@
     "Hellas Verona FC": [],
     "Inter": [],
     "Juventus": [],
-    "Lecce": [
-      "Lecce"
-    ],
+    "Lecce": ["Lecce"],
     "Napoli": [],
     "Parma": [],
     "Pisa": [],
@@ -173,46 +86,23 @@
     "Udinese": []
   },
   "Bundesliga": {
-    "1. FC Union Berlin": [
-      "Union Berlin",
-      "FC Union Berlin"
-    ],
-    "1.FC Heidenheim": [],
-    "1.FC Köln": [
-      "FC Cologne"
-    ],
-    "1899 Hoffenheim": [],
-    "Bayer Leverkusen": [
-      "Bayer Leverkusen"
-    ],
-    "Bayern München": [],
-    "Borussia Dortmund": [
-      "Borussia Dortmund"
-    ],
-    "Borussia Mönchengladbach": [
-      "Borussia Monchengladbach"
-    ],
-    "Eintracht Frankfurt": [],
-    "FC Augsburg": [
-      "Augsbourg",
-      "FC Augsbourg"
-    ],
-    "FC St. Pauli": [
-      "FC St. Pauli",
-      "St. Pauli"
-    ],
-    "FSV Mainz 05": [
-      "Mayence"
-    ],
-    "Hamburger SV": [
-      "Hambourg"
-    ],
-    "RB Leipzig": [],
-    "SC Freiburg": [
-      "Fribourg"
-    ],
-    "VFL Wolfsburg": [],
-    "VfB Stuttgart": [],
-    "Werder Bremen": []
+    "1. FC Union Berlin": ["FC Union Berlin"],
+    "1.FC Heidenheim": ["Heidenheim"],
+    "1.FC Köln": ["FC Cologne"],
+    "1899 Hoffenheim": ["Hoffenheim"],
+    "Bayer Leverkusen": ["Bayer Leverkusen"],
+    "Bayern München": ["Bayern Munich"],
+    "Borussia Dortmund": ["Borussia Dortmund"],
+    "Borussia Mönchengladbach": ["Borussia Monchengladbach"],
+    "Eintracht Frankfurt": ["Eintracht Francfort"],
+    "FC Augsburg": ["Augsbourg", "FC Augsbourg"],
+    "FC St. Pauli": ["FC St. Pauli", "St. Pauli"],
+    "FSV Mainz 05": ["Mayence"],
+    "Hamburger SV": ["Hambourg"],
+    "RB Leipzig": ["Leipzig"],
+    "SC Freiburg": ["Fribourg"],
+    "VFL Wolfsburg": ["Wolfsburg"],
+    "VfB Stuttgart": ["Stuttgart"],
+    "Werder Bremen": ["Werder Breme"]
   }
 }

@@ -124,16 +124,7 @@ for (let i = 0; i < days.length; i++) {
     .catch(() => ({}));
   const beforeCnt = aliasCount(before);
 
-  // 4. CheckTeams
-  console.log(`  🔍 Checking teams...`);
-  if (!run("scripts/checkTeams.js", ymd)) {
-    console.error(`  ❌ CheckTeams failed for ${ymd}`);
-    daySuccess = false;
-  } else {
-    console.log(`  ✅ CheckTeams completed`);
-  }
-
-  // 5. Merge
+  // 4. Merge
   console.log(`  🔀 Merging data...`);
   if (!run("scripts/merge.js", ymd, keepArg)) {
     console.error(`  ❌ Merge failed for ${ymd}`);
@@ -142,7 +133,7 @@ for (let i = 0; i < days.length; i++) {
     console.log(`  ✅ Merge completed`);
   }
 
-  // 6. Vérification du fichier généré
+  // 5. Vérification du fichier généré
   const progsFile = path.join(outDir, `progs_${ymd}.json`);
   const exists = await checkFileExists(progsFile);
   const size = await getFileSize(progsFile);
@@ -162,7 +153,7 @@ for (let i = 0; i < days.length; i++) {
     daySuccess = false;
   }
 
-  // 7. Count alias changes
+  // 6. Count alias changes
   const after = await fs
     .readFile(teamsPath, "utf-8")
     .then(JSON.parse)
@@ -185,7 +176,7 @@ for (let i = 0; i < days.length; i++) {
   console.log("");
 }
 
-// 8. Purge (une seule fois à la fin)
+// 7. Purge (une seule fois à la fin)
 console.log(`🧹 Cleaning up files...`);
 const wantProgs = new Set(days.map((d) => `progs_${d}.json`));
 const files = await fs.readdir(outDir);
@@ -217,7 +208,7 @@ if (KEEP) {
 console.log(`🧹 Cleanup completed (${removedCount} files removed)`);
 console.log("");
 
-// 9. Résumé final
+// 8. Résumé final
 console.log(`🎉 Build completed!`);
 console.log(
   `📅 Period: ${start} → ${days.at(-1)} (${
