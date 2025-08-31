@@ -1,33 +1,33 @@
-# INSTRUCTIONS
+# INSTRUCTIONS DE DÉVELOPPEMENT
 
 ## Réponses attendues
 
-- Concis, explicite, factuel.
-- Ne rien inventer. Pas de code avant validation d’approche.
-- Quand code demandé : fournir le **fichier complet**.
+- Concis, explicite, factuel
+- Ne rien inventer - Pas de code avant validation d'approche
+- Code demandé : fournir le **fichier complet**
 
-## Formats & fichiers
+## Formats & conventions
 
-- Date unique : **YYYYMMDD** (jamais de tirets).
-- `public/data` :
-  - `ics_YYYYMMDD.json`
-  - `epg_YYYYMMDD.json`
-  - `progs_YYYYMMDD.json`
+- **Date unique :** YYYYMMDD (jamais de tirets)
+- **Fichiers data :** `public/data/` → `ics_*`, `epg_*`, `progs_*`
 
-## Règles projet
+## Règles métier
 
-- **ICS** : Fixtur.es = source de vérité.
-- **EPG** : Open-EPG, fenêtre **J-2 → J+2**.
-  - Cache brut : `epg-raw_france1.xml` (2h). 1 téléchargement/run.
-  - Si quota (302/limit), on réutilise le cache existant, sinon EPG vide pour le jour.
-- **teams.json** : clés ICS, alias ajoutés auto (append-only, jamais manuel).
-- **merge** : tolérance ±60min, alias via `teams.json`.
-  - Ligue 1 : défaut `Ligue 1+`, sauf samedi 17:00 (Europe/Paris) → `beIN SPORTS 1`.
-  - Serie A : défaut `DAZN`.
-  - PL / Bundesliga / LaLiga : pas de défaut.
-- **build.js** : pipeline unique (ICS → EPG → checkTeams → merge), purge fenêtre **T→T+7**.
-- Commande :
-  ```bash
-  node scripts/build.js [YYYYMMDD] --keep
-  ```
-  --keep conserve ics*/epg* ; sans --keep, seuls les 8 progs\_ restent.
+- **ICS (Fixtur.es) :** source de vérité
+- **EPG (Open-EPG) :** fenêtre J-2→J+2, cache 2h, quota 302→réutilise
+- **teams.json :** clés ICS, alias auto (append-only)
+- **Fusion :** tolérance ±60min via teams.json
+  - Ligue 1 : `Ligue 1+` (sauf sam 17h → `beIN SPORTS 1`)
+  - Serie A : `DAZN`
+  - PL/Bundesliga/LaLiga : pas de défaut
+- **Pipeline :** ICS → EPG → checkTeams → merge → purge T→T+7
+
+## Commande
+
+node scripts/build.js YYYYMMDD –keep
+
+`--keep` conserve fichiers intermédiaires | sans `--keep` garde 8 progs\_ seulement
+
+---
+
+_Guidelines pour maintenir cohérence et qualité du projet_
