@@ -1,13 +1,15 @@
 #!/usr/bin/env node
+
 /* eslint-env node */
-/* global process */
+
 /**
- * ICS Fetcher — Fixtur.es only (YYYYMMDD)
+ * ICS Fetcher - Fixtures only (YYYYMMDD)
  * - Lit config/icsSources.json (https)
  * - Parse VEVENT
  * - Filtre au jour Europe/Paris (YYYYMMDD), déduplique, trie
- * - --keep => écrit public/data/ics-YYYYMMDD.json
+ * - Compatible pipeline en mémoire + CLI debug
  */
+
 import fs from "node:fs/promises";
 import https from "node:https";
 import { fileURLToPath } from "node:url";
@@ -33,9 +35,10 @@ function httpGet(url) {
 }
 
 function parseICS(content) {
-  const lines = content.split(/\r?\n/),
-    out = [];
+  const lines = content.split(/\r?\n/);
+  const out = [];
   let ev = null;
+
   for (const line of lines) {
     if (line.startsWith("BEGIN:VEVENT")) {
       ev = {};
@@ -47,10 +50,13 @@ function parseICS(content) {
       continue;
     }
     if (!ev) continue;
+
     const i = line.indexOf(":");
     if (i === -1) continue;
-    const key = line.slice(0, i),
-      val = line.slice(i + 1).trim();
+
+    const key = line.slice(0, i);
+    const val = line.slice(i + 1).trim();
+
     if (key === "SUMMARY") ev.title = val;
     else if (key === "DESCRIPTION") ev.description = val;
     else if (key === "URL") ev.url = val;
@@ -59,21 +65,25 @@ function parseICS(content) {
     else if (key === "UID") ev.uid = val;
     else if (key === "LOCATION") ev.location = val;
   }
+
   return out;
 }
 
 function toISO(dt) {
   if (!dt) return null;
+
   let m = /^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})(Z)?$/.exec(dt);
   if (m) {
     const [, y, mo, d, h, mi, s] = m;
     return new Date(Date.UTC(+y, +mo - 1, +d, +h, +mi, +s)).toISOString();
   }
+
   m = /^(\d{4})(\d{2})(\d{2})$/.exec(dt);
   if (m) {
     const [, y, mo, d] = m;
     return new Date(Date.UTC(+y, +mo - 1, +d, 0, 0, 0)).toISOString();
   }
+
   return dt;
 }
 
@@ -82,6 +92,7 @@ function extractTeams(title = "") {
     .replace(/\s*\([^)]*\)\s*$/, "")
     .replace(/^⚽\s*/u, "")
     .trim();
+
   const parts = clean.split(/\s+(?:\/|v|vs|versus|–|—|-)\s+/i);
   return parts.length >= 2
     ? { home: parts[0].trim(), away: parts[1].trim() }
@@ -98,15 +109,17 @@ function parisYMD(iso) {
     day: "2-digit",
   });
   const [dd, mm, yy] = f.format(d).split("/");
-  return `${yy}${mm}${dd}`; // YYYYMMDD
+  return `${yy}${mm}${dd}`;
 }
 
 function stripAccents(s = "") {
   return s.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 }
+
 function nk(s = "") {
   return stripAccents(String(s).toLowerCase().trim());
 }
+
 function eventKey(ev) {
   return [nk(ev.competition), nk(ev.home), nk(ev.away), ev.start].join("|");
 }
@@ -124,9 +137,10 @@ function dedupeAndSort(items) {
     if (!base.location && ev.location) base.location = ev.location;
     if (!base.description && ev.description) base.description = ev.description;
   }
+
   return Array.from(map.values()).sort((a, b) => {
-    const ta = +new Date(a.start),
-      tb = +new Date(b.start);
+    const ta = +new Date(a.start);
+    const tb = +new Date(b.start);
     return ta === tb
       ? nk(a.competition).localeCompare(nk(b.competition))
       : ta - tb;
@@ -148,50 +162,53 @@ function norm(ev, source) {
   };
 }
 
+// ✅ FONCTION EXPORTÉE - Compatible Pipeline en Mémoire
 export async function fetchIcs(ymd) {
   if (!/^\d{8}$/.test(ymd || ""))
     throw new Error("fetchIcs(ymd): expected YYYYMMDD");
+
   const cfgPath = path.join(__dirname, "../config/icsSources.json");
   const sources = JSON.parse(await fs.readFile(cfgPath, "utf-8")).filter(
     (s) => s.enabled && s.url
   );
+
   const results = await Promise.allSettled(
     sources.map(async (s) =>
       parseICS(await httpGet(s.url)).map((ev) => norm(ev, s))
     )
   );
+
   const all = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
   const filtered = all.filter((ev) => parisYMD(ev.start) === ymd);
+
   return dedupeAndSort(filtered);
 }
 
+// ✅ PARTIE CLI - Interface Debug Simplifiée
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   (async () => {
     const ymd = process.argv[2];
     if (!/^\d{8}$/.test(ymd || "")) {
-      console.error("Usage: node scripts/ics.js YYYYMMDD [--keep]");
+      console.error("Usage: node scripts/ics.js YYYYMMDD");
       process.exit(1);
     }
+
+    console.log(`📊 Fetching ICS data for ${ymd}...`);
     const data = await fetchIcs(ymd);
-    const keep =
-      process.env.KEEP_INTERMEDIATE === "1" || process.argv.includes("--keep");
-    if (keep) {
-      const outDir = path.join(__dirname, "../public/data");
-      await fs.mkdir(outDir, { recursive: true });
-      const outFile = path.join(outDir, `ics-${ymd}.json`);
-      await fs.writeFile(outFile, JSON.stringify(data, null, 2), "utf-8");
-      console.log(
-        `✔ wrote ${path.relative(path.join(__dirname, "../../"), outFile)} (${
-          data.length
-        } events)`
-      );
-    } else {
-      console.log(
-        `ℹ ics.js: ${data.length} events for ${ymd} (not written; add --keep)`
-      );
+    console.log(`✅ ICS completed (${data.length} events)`);
+
+    // Affichage détaillé pour debug
+    if (data.length > 0) {
+      console.log("\n📋 Events found:");
+      data.slice(0, 5).forEach((ev, i) => {
+        console.log(`  ${i + 1}. ${ev.title} (${ev.competition})`);
+      });
+      if (data.length > 5) {
+        console.log(`  ... and ${data.length - 5} more events`);
+      }
     }
   })().catch((e) => {
-    console.error(e.message || String(e));
+    console.error("❌ Error:", e.message || String(e));
     process.exit(1);
   });
 }

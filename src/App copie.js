@@ -14,6 +14,8 @@ import "./components/LoadingSpinner.css";
 
 const teams = getTeamNames();
 
+console.log("Teams:", teams);
+
 export default function App() {
   const [sport, setSport] = useState("football");
   const [day, setDay] = useState(() => {

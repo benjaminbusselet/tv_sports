@@ -1,0 +1,211 @@
+[
+  {
+    "uid": "EdbdjfLCLcUeTw5gJZntsL0HgMIlb9QGTqLe1Rty@maak-agenda.nl",
+    "title": "Angers SCO - Stade Rennais",
+    "start": "2025-08-31T13:00:00.000Z",
+    "end": "2025-08-31T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Angers SCO",
+    "away": "Stade Rennais",
+    "broadcasters": ["Ligue 1+"]
+  },
+  {
+    "uid": "lsPjI0dxSxGqb7yUvK2viWtNLeRiD3qGN2NGQmFu@maak-agenda.nl",
+    "title": "Brighton & Hove Albion FC - Manchester City",
+    "start": "2025-08-31T13:00:00.000Z",
+    "end": "2025-08-31T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Brighton & Hove Albion FC",
+    "away": "Manchester City",
+    "broadcasters": ["Canal+ Foot"]
+  },
+  {
+    "uid": "W1LQAg2WrTk0NqWTIOa9MUb1uoqSjA3WvtUcVAsO@maak-agenda.nl",
+    "title": "Nottingham Forest - West Ham United",
+    "start": "2025-08-31T13:00:00.000Z",
+    "end": "2025-08-31T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Nottingham Forest",
+    "away": "West Ham United",
+    "broadcasters": []
+  },
+  {
+    "uid": "nmwdwab4ilowlFAGuVqm9B4dj3M1PXQ17ZCvcLUN@maak-agenda.nl",
+    "title": "VFL Wolfsburg - FSV Mainz 05",
+    "start": "2025-08-31T13:30:00.000Z",
+    "end": "2025-08-31T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "VFL Wolfsburg",
+    "away": "FSV Mainz 05",
+    "broadcasters": ["beIN SPORTS 3"]
+  },
+  {
+    "uid": "Zq6k7Xh6blP4zzfBFYjlJX1KG9hhyfFz6uFL6UJP@maak-agenda.nl",
+    "title": "Celta de Vigo - Villarreal",
+    "start": "2025-08-31T15:00:00.000Z",
+    "end": "2025-08-31T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Celta de Vigo",
+    "away": "Villarreal",
+    "broadcasters": ["beIN SPORTS MAX 4"]
+  },
+  {
+    "uid": "RQNy1CXaxHF5iqsxfSo9IOCfpOGiC0ekVwYUhkwH@maak-agenda.nl",
+    "title": "Le Havre - OGC Nice",
+    "start": "2025-08-31T15:15:00.000Z",
+    "end": "2025-08-31T17:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Le Havre",
+    "away": "OGC Nice",
+    "broadcasters": ["Ligue 1+"]
+  },
+  {
+    "uid": "dAbI7pasvDrYdbG8WfLZD8DUaZritH569hbLUSLB@maak-agenda.nl",
+    "title": "AS Monaco - RC Strasbourg",
+    "start": "2025-08-31T15:15:00.000Z",
+    "end": "2025-08-31T17:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "AS Monaco",
+    "away": "RC Strasbourg",
+    "broadcasters": ["Ligue 1+"]
+  },
+  {
+    "uid": "0NrrmebQUaL8yUURHcEayjzz8EEeu4y8vJs5aDW6@maak-agenda.nl",
+    "title": "Paris FC - FC Metz",
+    "start": "2025-08-31T15:15:00.000Z",
+    "end": "2025-08-31T17:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Paris FC",
+    "away": "FC Metz",
+    "broadcasters": ["Ligue 1+"]
+  },
+  {
+    "uid": "Sj2uMflcCg4cBHXhzYHI7GwdTfiDr0HqsYKllhfw@maak-agenda.nl",
+    "title": "Borussia Dortmund - 1. FC Union Berlin",
+    "start": "2025-08-31T15:30:00.000Z",
+    "end": "2025-08-31T17:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Borussia Dortmund",
+    "away": "1. FC Union Berlin",
+    "broadcasters": ["beIN SPORTS 2"]
+  },
+  {
+    "uid": "Ys3xHfs4fEf0eoUuor8omfayPopc3LTys5YzS6mM@maak-agenda.nl",
+    "title": "Liverpool - Arsenal",
+    "start": "2025-08-31T15:30:00.000Z",
+    "end": "2025-08-31T17:15:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Liverpool",
+    "away": "Arsenal",
+    "broadcasters": ["Canal+ Foot"]
+  },
+  {
+    "uid": "d5zDCvfFvrGbO4V4JD7OXfdZssj7WzF16cGUyldU@maak-agenda.nl",
+    "title": "FC Genoa - Juventus",
+    "start": "2025-08-31T16:30:00.000Z",
+    "end": "2025-08-31T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "FC Genoa",
+    "away": "Juventus",
+    "broadcasters": ["DAZN"]
+  },
+  {
+    "uid": "dMt11b0NBfg5giVUPV5LgHZHcVdWrGkCq9JhXG4n@maak-agenda.nl",
+    "title": "Torino - Fiorentina",
+    "start": "2025-08-31T16:30:00.000Z",
+    "end": "2025-08-31T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Torino",
+    "away": "Fiorentina",
+    "broadcasters": ["DAZN"]
+  },
+  {
+    "uid": "Pn3End6HlVelYaZHKeeWMthIneMcxhJNq7W8BEVc@maak-agenda.nl",
+    "title": "Real Betis - Athletic de Bilbao",
+    "start": "2025-08-31T17:00:00.000Z",
+    "end": "2025-08-31T18:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Betis",
+    "away": "Athletic de Bilbao",
+    "broadcasters": ["beIN SPORTS 1"]
+  },
+  {
+    "uid": "qQkwhgt4txnKQH2q2fq86tKanbt5MRD5gZZXt7BE@maak-agenda.nl",
+    "title": "1.FC Köln - SC Freiburg",
+    "start": "2025-08-31T17:30:00.000Z",
+    "end": "2025-08-31T19:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "1.FC Köln",
+    "away": "SC Freiburg",
+    "broadcasters": ["beIN SPORTS MAX 7"]
+  },
+  {
+    "uid": "jUEyyk16kRfEu8LHogDl3rtLSe74mRMAeoASvtSZ@maak-agenda.nl",
+    "title": "Espanyol - CA Osasuna",
+    "start": "2025-08-31T17:30:00.000Z",
+    "end": "2025-08-31T19:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Espanyol",
+    "away": "CA Osasuna",
+    "broadcasters": ["beIN SPORTS MAX 6"]
+  },
+  {
+    "uid": "CY1We3ZCrkgQSFTHOxZDsoyQKCqdcLtWBNEnBFzt@maak-agenda.nl",
+    "title": "Olympique Lyonnais - Olympique de Marseille",
+    "start": "2025-08-31T18:45:00.000Z",
+    "end": "2025-08-31T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Olympique Lyonnais",
+    "away": "Olympique de Marseille",
+    "broadcasters": ["Ligue 1+"]
+  },
+  {
+    "uid": "vMdVVb4Wym5jQhFT2xT7YF7Jnn0E932cxY2i999j@maak-agenda.nl",
+    "title": "Inter - Udinese",
+    "start": "2025-08-31T18:45:00.000Z",
+    "end": "2025-08-31T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Inter",
+    "away": "Udinese",
+    "broadcasters": ["DAZN"]
+  },
+  {
+    "uid": "GarqxNehij2IZj0vUOHTbSNoofTgW2qyM5W9VUNx@maak-agenda.nl",
+    "title": "S.S. Lazio - Hellas Verona FC",
+    "start": "2025-08-31T18:45:00.000Z",
+    "end": "2025-08-31T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "S.S. Lazio",
+    "away": "Hellas Verona FC",
+    "broadcasters": ["DAZN"]
+  },
+  {
+    "uid": "jMQVQX3EyAmoNIMS8w4ZZmz4KYxBBvqrTIlncVOO@maak-agenda.nl",
+    "title": "Rayo Vallecano - FC Barcelona",
+    "start": "2025-08-31T19:30:00.000Z",
+    "end": "2025-08-31T21:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Rayo Vallecano",
+    "away": "FC Barcelona",
+    "broadcasters": ["beIN SPORTS 1"]
+  }
+]

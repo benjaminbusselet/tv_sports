@@ -1,5 +1,14 @@
 #!/usr/bin/env node
+
 /* eslint-env node */
+
+/**
+ * EPG Fetcher - Open-EPG (YYYYMMDD)
+ * - Télécharge et parse le XML EPG depuis Open-EPG
+ * - Filtre au jour demandé, trie, déduplique
+ * - Compatible pipeline en mémoire + CLI debug
+ */
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,7 +28,6 @@ const parser = new XMLParser({
   attributeNamePrefix: "@_",
 });
 
-// helpers
 const toISO = (s) => {
   const m =
     /^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(?:\s*([+-]\d{4}))?$/.exec(
@@ -36,6 +44,7 @@ const toISO = (s) => {
   }
   return new Date(t).toISOString();
 };
+
 const ymdParis = (iso) => {
   const d = new Date(iso);
   const f = new Intl.DateTimeFormat("fr-FR", {
@@ -47,7 +56,9 @@ const ymdParis = (iso) => {
   const [dd, mm, yy] = f.format(d).split("/");
   return `${yy}${mm}${dd}`; // YYYYMMDD
 };
+
 const canonChannel = (s) => String(s || "").replace(/\.[a-z]{2}$/i, "");
+
 const getTitle = (n) => {
   const t = n?.title;
   if (!t) return "";
@@ -56,6 +67,7 @@ const getTitle = (n) => {
   if (typeof t === "object") return String(t["#text"] ?? "");
   return "";
 };
+
 const buildWhitelist = (json) => {
   const entries = Array.isArray(json)
     ? json.flatMap((c) => [
@@ -67,9 +79,11 @@ const buildWhitelist = (json) => {
     entries.map((x) => x.toLowerCase().replace(/\.[a-z]{2}$/i, ""))
   );
 };
-const looksLikeLimitPage = (txt) =>
-  /You reached the download limit/i.test(txt) || !/<tv[\s>]/i.test(txt);
 
+const looksLikeLimitPage = (txt) =>
+  /You reached the download limit/i.test(txt) || !/]/i.test(txt);
+
+// Utilitaire : télécharge le XML, utilise le cache pour limiter les appels
 async function fetchRawXmlOnce() {
   const res = await fetch(OPEN_EPG_URL, {
     headers: { "User-Agent": "tv-sports/epg" },
@@ -82,6 +96,8 @@ async function fetchRawXmlOnce() {
     : Buffer.from(buf).toString("utf-8");
   return text;
 }
+
+// Utilitaire : lit le cache si récent
 async function readFreshCache() {
   try {
     const st = await fs.stat(CACHE_PATH);
@@ -91,17 +107,18 @@ async function readFreshCache() {
   return null;
 }
 
+// Fonction principale exportée : pipeline en mémoire
 export async function fetchEpg(ymd) {
   if (!/^\d{8}$/.test(ymd || ""))
     throw new Error("fetchEpg(ymd): expected YYYYMMDD");
+
   await fs.mkdir(path.dirname(CACHE_PATH), { recursive: true });
 
-  // cache-first
+  // Récupération du XML EPG (cache ou téléchargement)
   let xml = await readFreshCache();
   if (!xml) {
     const fetched = await fetchRawXmlOnce();
     if (looksLikeLimitPage(fetched)) {
-      // quota atteint : si on a un cache (même ancien), on l'utilise; sinon, on retournera []
       try {
         xml = await fs.readFile(CACHE_PATH, "utf-8");
         console.warn("EPG quota hit; using existing cache");
@@ -116,18 +133,20 @@ export async function fetchEpg(ymd) {
   }
 
   const [channelsJson] = await Promise.all([
-    // channels whitelist
     fs
       .readFile(path.join(__dirname, "../config/channels.json"), "utf-8")
       .then(JSON.parse),
   ]);
+
   const wl = buildWhitelist(channelsJson);
 
-  // parse XML once
+  // Parsing XML
   const j = parser.parse(xml);
+
   const arr = Array.isArray(j?.tv?.programme)
     ? j.tv.programme
     : [j?.tv?.programme].filter(Boolean);
+
   const chArr = Array.isArray(j?.tv?.channel)
     ? j.tv.channel
     : [j?.tv?.channel].filter(Boolean);
@@ -148,7 +167,7 @@ export async function fetchEpg(ymd) {
     if (id) id2name.set(id, name);
   }
 
-  // filter to day + match + whitelist
+  // Filtre : jour, équipes, chaînes whitelist, déduplication
   const out = [],
     seen = new Set();
   for (const p of arr) {
@@ -161,9 +180,11 @@ export async function fetchEpg(ymd) {
     const rawId = p?.["@_channel"] || "";
     const channel = canonChannel(id2name.get(rawId) || rawId);
     if (!wl.has(channel.toLowerCase())) continue;
+
     const key = `${channel.toLowerCase()}|${start}|${title}`;
     if (seen.has(key)) continue;
     seen.add(key);
+
     out.push({
       channel,
       start,
@@ -173,27 +194,35 @@ export async function fetchEpg(ymd) {
       epgAway: parts[1],
     });
   }
+
   return out.sort((a, b) => a.start.localeCompare(b.start));
 }
 
+// CLI debug : pour tester et afficher les données EPG
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   (async () => {
     const ymd = process.argv[2];
     if (!/^\d{8}$/.test(ymd || "")) {
-      console.error("Usage: node scripts/epg.js YYYYMMDD [--keep]");
+      console.error("Usage: node scripts/epg.js YYYYMMDD");
       process.exit(1);
     }
+
+    console.log(`📺 Fetching EPG data for ${ymd}...`);
     const data = await fetchEpg(ymd);
-    const keep =
-      process.env.KEEP_INTERMEDIATE === "1" || process.argv.includes("--keep");
-    await fs.mkdir("public/data", { recursive: true });
-    const outFile = `public/data/epg_${ymd}.json`; // nomenclature avec underscore
-    await fs.writeFile(outFile, JSON.stringify(data, null, 2), "utf-8");
-    console.log(
-      keep ? `✔ wrote ${outFile} (${data.length})` : `✔ epg (${data.length})`
-    );
+    console.log(`✅ EPG completed (${data.length} programs)`);
+
+    // Affichage pour debug rapide
+    if (data.length > 0) {
+      console.log("\n📋 Sample programs:");
+      data.slice(0, 5).forEach((p, i) => {
+        console.log(`  ${i + 1}. ${p.title} (${p.channel})`);
+      });
+      if (data.length > 5) {
+        console.log(`  ... and ${data.length - 5} more programs`);
+      }
+    }
   })().catch((e) => {
-    console.error(e.message || String(e));
+    console.error("❌ Error:", e.message || String(e));
     process.exit(1);
   });
 }
