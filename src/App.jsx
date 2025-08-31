@@ -24,6 +24,7 @@ export default function App() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [sortType, setSortType] = useState("league"); // "league" ou "time"
 
   useEffect(() => {
     let isCancelled = false;
@@ -56,9 +57,8 @@ export default function App() {
     };
   }, [sport, day]);
 
-  // ✅ CORRECTION : Suppression du double filtrage par date
   // Les événements sont déjà filtrés par jour côté serveur (progs_YYYYMMDD.json)
-  const dayEvents = useMemo(() => {
+  /* const dayEvents = useMemo(() => {
     if (!events?.length) return [];
 
     // Simple validation : garder seulement les événements valides
@@ -72,6 +72,27 @@ export default function App() {
 
     return validEvents;
   }, [events]);
+ */
+
+  const dayEvents = useMemo(() => {
+    if (!events?.length) return [];
+
+    // Simple validation : garder seulement les événements valides
+    const validEvents = events.filter((ev) => {
+      if (!ev || !ev.start) {
+        console.warn("Invalid event (missing start):", ev);
+        return false;
+      }
+      return true;
+    });
+
+    // Trier par horaire si mode "time" et sport "football"
+    if (sport === "football" && sortType === "time") {
+      return validEvents.sort((a, b) => new Date(a.start) - new Date(b.start));
+    }
+
+    return validEvents;
+  }, [events, sport, sortType]);
 
   // Compteurs pour la frise (7 jours) – calculé sur tous les événements disponibles
   const countsByDay = useMemo(() => {
@@ -93,7 +114,7 @@ export default function App() {
     return map;
   }, [events]);
 
-  const showGrouped = sport === "football";
+  const showGrouped = sport === "football" && sortType === "league";
   const { permission, enableNotifications } = useNotifications();
 
   return (
@@ -121,6 +142,17 @@ export default function App() {
       <div className="container">
         <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
         <SportsTabs value={sport} onChange={setSport} />
+        {sport === "football" && (
+          <div className="controls">
+            <select
+              value={sortType}
+              onChange={(e) => setSortType(e.target.value)}
+            >
+              <option value="league">Par Ligue</option>
+              <option value="time">Par Horaire</option>
+            </select>
+          </div>
+        )}
         {error ? (
           <div className="error-message">Erreur : {error}</div>
         ) : loading ? (

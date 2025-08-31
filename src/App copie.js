@@ -14,8 +14,6 @@ import "./components/LoadingSpinner.css";
 
 const teams = getTeamNames();
 
-console.log("Teams:", teams);
-
 export default function App() {
   const [sport, setSport] = useState("football");
   const [day, setDay] = useState(() => {
@@ -26,6 +24,7 @@ export default function App() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [sortType, setSortType] = useState("league"); // "league" ou "time"
 
   useEffect(() => {
     let isCancelled = false;
