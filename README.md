@@ -42,7 +42,7 @@ Le résultat : une source de données propre et unifiée alimentant une interfac
 
 ## 💻 Utilisation
 
-\*\*node scripts/build.js YYYYMMDD –keep
+node scripts/build.js YYYYMMDD –keep
 
 **--keep :** conserve les fichiers intermédiaires | **sans :** garde seulement les 8 fichiers progs finaux
 
