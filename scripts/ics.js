@@ -94,9 +94,22 @@ function extractTeams(title = "") {
     .trim();
 
   const parts = clean.split(/\s+(?:\/|v|vs|versus|–|—|-)\s+/i);
-  return parts.length >= 2
-    ? { home: parts[0].trim(), away: parts[1].trim() }
-    : { home: "", away: "" };
+
+  if (parts.length >= 2) {
+    // Nettoyer les noms d'équipes en retirant les [WC Qualifiers], etc.
+    const cleanHome = parts[0]
+      .trim()
+      .replace(/\s*\[.*\]$/, "")
+      .trim();
+    const cleanAway = parts[1]
+      .trim()
+      .replace(/\s*\[.*\]$/, "")
+      .trim();
+
+    return { home: cleanHome, away: cleanAway };
+  }
+
+  return { home: "", away: "" };
 }
 
 function parisYMD(iso) {
@@ -126,12 +139,14 @@ function eventKey(ev) {
 
 function dedupeAndSort(items) {
   const map = new Map();
+
   for (const ev of items) {
     const k = eventKey(ev);
     if (!map.has(k)) {
       map.set(k, { ...ev, broadcasters: [] });
       continue;
     }
+
     const base = map.get(k);
     if (!base.url && ev.url) base.url = ev.url;
     if (!base.location && ev.location) base.location = ev.location;
@@ -148,14 +163,23 @@ function dedupeAndSort(items) {
 }
 
 function norm(ev, source) {
-  const { home, away } = extractTeams(ev.title);
+  const originalTitle = ev.title || "";
+
+  // Extraire la compétition depuis le titre original (partie entre crochets)
+  const competitionMatch = originalTitle.match(/\[([^\]]+)\]$/);
+  const extractedCompetition = competitionMatch ? competitionMatch[1] : "";
+
+  // Nettoyer le titre en retirant les informations entre crochets
+  const cleanTitle = originalTitle.replace(/\s*\[.*\]$/, "").trim();
+
+  const { home, away } = extractTeams(originalTitle);
   return {
     uid: ev.uid || "",
-    title: ev.title || "",
+    title: cleanTitle,
     start: toISO(ev.start),
     end: toISO(ev.end),
     sport: source?.sport || "football",
-    competition: source?.name || "",
+    competition: extractedCompetition || source?.name || "",
     broadcasters: [],
     home,
     away,
@@ -201,10 +225,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (data.length > 0) {
       console.log("\n📋 Events found:");
       data.slice(0, 5).forEach((ev, i) => {
-        console.log(`  ${i + 1}. ${ev.title} (${ev.competition})`);
+        console.log(` ${i + 1}. ${ev.title} (${ev.competition})`);
       });
       if (data.length > 5) {
-        console.log(`  ... and ${data.length - 5} more events`);
+        console.log(` ... and ${data.length - 5} more events`);
       }
     }
   })().catch((e) => {

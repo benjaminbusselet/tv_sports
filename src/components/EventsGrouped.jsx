@@ -46,17 +46,6 @@ export default function EventsGrouped({ events = [] }) {
   );
 
   dayKeys.forEach((k) => {
-    const d = new Date(k);
-    elts.push(
-      <div key={"day-" + k} className="dayTitle">
-        {d.toLocaleDateString("fr-FR", {
-          weekday: "long",
-          day: "2-digit",
-          month: "long",
-        })}
-      </div>
-    );
-
     const byComp = byDay.get(k);
 
     // Utilisation de la liste dynamique au lieu de COMP_ORDER

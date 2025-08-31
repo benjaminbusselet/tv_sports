@@ -8,7 +8,9 @@
     "competition": "Ligue 1",
     "home": "Angers SCO",
     "away": "Stade Rennais",
-    "broadcasters": ["Ligue 1+"]
+    "broadcasters": [
+      "Ligue 1+"
+    ]
   },
   {
     "uid": "lsPjI0dxSxGqb7yUvK2viWtNLeRiD3qGN2NGQmFu@maak-agenda.nl",
@@ -19,7 +21,9 @@
     "competition": "Premier League",
     "home": "Brighton & Hove Albion FC",
     "away": "Manchester City",
-    "broadcasters": ["Canal+ Foot"]
+    "broadcasters": [
+      "Canal+ Foot"
+    ]
   },
   {
     "uid": "W1LQAg2WrTk0NqWTIOa9MUb1uoqSjA3WvtUcVAsO@maak-agenda.nl",
@@ -41,7 +45,9 @@
     "competition": "Bundesliga",
     "home": "VFL Wolfsburg",
     "away": "FSV Mainz 05",
-    "broadcasters": ["beIN SPORTS 3"]
+    "broadcasters": [
+      "beIN SPORTS 3"
+    ]
   },
   {
     "uid": "Zq6k7Xh6blP4zzfBFYjlJX1KG9hhyfFz6uFL6UJP@maak-agenda.nl",
@@ -52,7 +58,9 @@
     "competition": "LaLiga",
     "home": "Celta de Vigo",
     "away": "Villarreal",
-    "broadcasters": ["beIN SPORTS MAX 4"]
+    "broadcasters": [
+      "beIN SPORTS MAX 4"
+    ]
   },
   {
     "uid": "RQNy1CXaxHF5iqsxfSo9IOCfpOGiC0ekVwYUhkwH@maak-agenda.nl",
@@ -63,7 +71,9 @@
     "competition": "Ligue 1",
     "home": "Le Havre",
     "away": "OGC Nice",
-    "broadcasters": ["Ligue 1+"]
+    "broadcasters": [
+      "Ligue 1+"
+    ]
   },
   {
     "uid": "dAbI7pasvDrYdbG8WfLZD8DUaZritH569hbLUSLB@maak-agenda.nl",
@@ -74,7 +84,9 @@
     "competition": "Ligue 1",
     "home": "AS Monaco",
     "away": "RC Strasbourg",
-    "broadcasters": ["Ligue 1+"]
+    "broadcasters": [
+      "Ligue 1+"
+    ]
   },
   {
     "uid": "0NrrmebQUaL8yUURHcEayjzz8EEeu4y8vJs5aDW6@maak-agenda.nl",
@@ -85,7 +97,9 @@
     "competition": "Ligue 1",
     "home": "Paris FC",
     "away": "FC Metz",
-    "broadcasters": ["Ligue 1+"]
+    "broadcasters": [
+      "Ligue 1+"
+    ]
   },
   {
     "uid": "Sj2uMflcCg4cBHXhzYHI7GwdTfiDr0HqsYKllhfw@maak-agenda.nl",
@@ -96,7 +110,9 @@
     "competition": "Bundesliga",
     "home": "Borussia Dortmund",
     "away": "1. FC Union Berlin",
-    "broadcasters": ["beIN SPORTS 2"]
+    "broadcasters": [
+      "beIN SPORTS 2"
+    ]
   },
   {
     "uid": "Ys3xHfs4fEf0eoUuor8omfayPopc3LTys5YzS6mM@maak-agenda.nl",
@@ -107,7 +123,9 @@
     "competition": "Premier League",
     "home": "Liverpool",
     "away": "Arsenal",
-    "broadcasters": ["Canal+ Foot"]
+    "broadcasters": [
+      "Canal+ Foot"
+    ]
   },
   {
     "uid": "d5zDCvfFvrGbO4V4JD7OXfdZssj7WzF16cGUyldU@maak-agenda.nl",
@@ -118,7 +136,9 @@
     "competition": "Serie A",
     "home": "FC Genoa",
     "away": "Juventus",
-    "broadcasters": ["DAZN"]
+    "broadcasters": [
+      "DAZN"
+    ]
   },
   {
     "uid": "dMt11b0NBfg5giVUPV5LgHZHcVdWrGkCq9JhXG4n@maak-agenda.nl",
@@ -129,7 +149,9 @@
     "competition": "Serie A",
     "home": "Torino",
     "away": "Fiorentina",
-    "broadcasters": ["DAZN"]
+    "broadcasters": [
+      "DAZN"
+    ]
   },
   {
     "uid": "Pn3End6HlVelYaZHKeeWMthIneMcxhJNq7W8BEVc@maak-agenda.nl",
@@ -140,7 +162,9 @@
     "competition": "LaLiga",
     "home": "Real Betis",
     "away": "Athletic de Bilbao",
-    "broadcasters": ["beIN SPORTS 1"]
+    "broadcasters": [
+      "beIN SPORTS 1"
+    ]
   },
   {
     "uid": "qQkwhgt4txnKQH2q2fq86tKanbt5MRD5gZZXt7BE@maak-agenda.nl",
@@ -151,7 +175,9 @@
     "competition": "Bundesliga",
     "home": "1.FC Köln",
     "away": "SC Freiburg",
-    "broadcasters": ["beIN SPORTS MAX 7"]
+    "broadcasters": [
+      "beIN SPORTS MAX 7"
+    ]
   },
   {
     "uid": "jUEyyk16kRfEu8LHogDl3rtLSe74mRMAeoASvtSZ@maak-agenda.nl",
@@ -162,18 +188,22 @@
     "competition": "LaLiga",
     "home": "Espanyol",
     "away": "CA Osasuna",
-    "broadcasters": ["beIN SPORTS MAX 6"]
+    "broadcasters": [
+      "beIN SPORTS MAX 6"
+    ]
   },
   {
     "uid": "CY1We3ZCrkgQSFTHOxZDsoyQKCqdcLtWBNEnBFzt@maak-agenda.nl",
-    "title": "Olympique Lyonnais - Olympique de Marseille",
+    "title": "Olympique Lyonnais - Olympique Marseille",
     "start": "2025-08-31T18:45:00.000Z",
     "end": "2025-08-31T20:30:00.000Z",
     "sport": "football",
     "competition": "Ligue 1",
     "home": "Olympique Lyonnais",
-    "away": "Olympique de Marseille",
-    "broadcasters": ["Ligue 1+"]
+    "away": "Olympique Marseille",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
   },
   {
     "uid": "vMdVVb4Wym5jQhFT2xT7YF7Jnn0E932cxY2i999j@maak-agenda.nl",
@@ -184,7 +214,9 @@
     "competition": "Serie A",
     "home": "Inter",
     "away": "Udinese",
-    "broadcasters": ["DAZN"]
+    "broadcasters": [
+      "DAZN"
+    ]
   },
   {
     "uid": "GarqxNehij2IZj0vUOHTbSNoofTgW2qyM5W9VUNx@maak-agenda.nl",
@@ -195,7 +227,9 @@
     "competition": "Serie A",
     "home": "S.S. Lazio",
     "away": "Hellas Verona FC",
-    "broadcasters": ["DAZN"]
+    "broadcasters": [
+      "DAZN"
+    ]
   },
   {
     "uid": "jMQVQX3EyAmoNIMS8w4ZZmz4KYxBBvqrTIlncVOO@maak-agenda.nl",
@@ -206,6 +240,8 @@
     "competition": "LaLiga",
     "home": "Rayo Vallecano",
     "away": "FC Barcelona",
-    "broadcasters": ["beIN SPORTS 1"]
+    "broadcasters": [
+      "beIN SPORTS 1"
+    ]
   }
 ]

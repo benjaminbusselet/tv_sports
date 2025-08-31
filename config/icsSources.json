@@ -5,7 +5,7 @@
     "sport": "football",
     "name": "France",
     "enabled": true,
-    "url": "https://ics.fixtur.es/v2/team/france.ics",
+    "url": "https://ics.fixtur.es/v2/fr.ics",
     "defaultBroadcasters": ["TF1", "M6"],
     "notifications": {
       "enabled": false,
@@ -18,8 +18,8 @@
     "sport": "football",
     "name": "Espagne",
     "enabled": true,
-    "url": "https://ics.fixtur.es/v2/team/spain.ics",
-    "defaultBroadcasters": ["beIN Sports"],
+    "url": "https://ics.fixtur.es/v2/es.ics",
+    "defaultBroadcasters": ["L'Equipe"],
     "notifications": {
       "enabled": false,
       "advance": 30

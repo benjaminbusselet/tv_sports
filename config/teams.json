@@ -104,5 +104,9 @@
     "VFL Wolfsburg": ["Wolfsburg"],
     "VfB Stuttgart": ["Stuttgart"],
     "Werder Bremen": ["Werder Breme"]
+  },
+  "National": {
+    "France": ["France"],
+    "Spain": ["Espagne"]
   }
 }
