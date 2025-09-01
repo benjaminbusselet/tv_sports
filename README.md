@@ -47,6 +47,29 @@ Le résultat : une source de données propre et unifiée alimentant une interfac
 node scripts/build.js YYYYMMDD
 ```
 
+## ✅ Status & TODO
+
+### Terminé
+- **Backend** : Pipeline en mémoire, fusion ICS/EPG, règles métier
+- **Frontend** : Interface React responsive, navigation temporelle, filtres
+- **Déploiement** : GitHub Pages + CI/CD automatisé
+
+### 📱 À faire - Priorité haute
+- [ ] **Notifications push** : Règles par équipe/compétition
+- [ ] **Gestion favoris** : Stockage local des préférences
+- [ ] **PWA** : Mode hors-ligne, installation app
+
+### ⚙️ À faire - Infrastructure
+- [ ] **Automatisation** : Cron quotidien en production
+- [ ] **Monitoring** : Logs et alertes de pipeline
+- [ ] **Cache optimisé** : Stratégie cache HTTP
+
+### 🚀 À faire - Long terme
+- [ ] **Interface admin** : Ajout/suppression sources
+- [ ] **Filtres avancés** : Statistiques et analytics
+- [ ] **API publique** : Documentation et endpoints
+- [ ] **Sports additionnels** : Basket, tennis, etc.
+
 ---
 
 _Pipeline de données optimisé en mémoire au service d'un frontend moderne pour découvrir facilement les programmes sportifs._

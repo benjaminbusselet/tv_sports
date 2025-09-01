@@ -10,7 +10,8 @@
     "build": "vite build",
     "start": "node server.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -rf dist public/data/progs_*.json"
   },
   "dependencies": {
     "express": "^5.1.0",
