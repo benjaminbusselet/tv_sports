@@ -1,4 +1,6 @@
-const BASE_URL = "/data";
+// Configuration automatique selon l'environnement
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "/data" : "/tv_sports/data";
 
 export async function fetchEvents({ day, sport }) {
   const dataPath = `${BASE_URL}/progs_${day}.json`;
