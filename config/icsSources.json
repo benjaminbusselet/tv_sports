@@ -1,5 +1,18 @@
 [
   {
+    "id": "formula1_calendar",
+    "type": "competition",
+    "sport": "f1",
+    "name": "Formule 1",
+    "enabled": true,
+    "url": "https://ics.fixtur.es/v2/league/formula-1-practise.ics",
+    "defaultBroadcasters": ["Canal+ Sport"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
     "id": "team_france_football",
     "type": "team",
     "sport": "football",
