@@ -46,6 +46,15 @@ jobs:
           timeout 300 node scripts/build.js || echo "⚠️ Build timeout or error, continuing with existing data"
         continue-on-error: true
 
+      - name: Verify generated data
+        run: |
+          echo "📊 Vérification des données générées:"
+          ls -la public/data/
+          echo "📋 Fichiers JSON générés:"
+          ls -la public/data/progs_*.json || echo "Aucun fichier progs_*.json trouvé"
+          echo "📈 Taille des fichiers:"
+          du -h public/data/* 2>/dev/null || echo "Aucune donnée"
+
       - name: Build frontend
         run: |
           echo "🏗️ Build du frontend React"

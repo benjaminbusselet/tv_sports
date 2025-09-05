@@ -5,4 +5,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/tv_sports/", // Nom du repository GitHub pour Pages
+  publicDir: "public", // Copie tout le contenu de public/ vers dist/
 });
