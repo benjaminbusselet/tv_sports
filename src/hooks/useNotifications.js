@@ -8,9 +8,13 @@ export function useNotifications() {
   // Enregistrement du Service Worker
   useEffect(() => {
     if ("serviceWorker" in navigator) {
+      // Chemin relatif qui fonctionne avec GitHub Pages
+      const swPath =
+        import.meta.env.MODE === "development" ? "/sw.js" : "/tv_sports/sw.js";
+
       navigator.serviceWorker
-        .register("/sw.js")
-        .catch((e) => console.warn("SW échec", e));
+        .register(swPath)
+        .catch((e) => console.warn("SW registration failed", e));
     }
   }, []);
 
