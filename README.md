@@ -1,54 +1,107 @@
-# Agrégateur de Programmes TV Sportifs
+# TV Sports - Agrégateur de Programmes Sportifs
 
-> **Agrégation quotidienne### 🔧 À faire - Priorité haute
-- [ ] **Automatisation** : Cron quotidien en production
-- [ ] **PWA** : Mode hors-ligne, installation app
+> **🚀 Application web qui agrège quotidiennement événements sportifs et diffusions TV**
 
-### 📊 À faire - Expérience utilisateur
-- [ ] **Gestion favoris** : Stockage local des préférences
-- [ ] **Notifications push** : Règles par équipe/compétition
-- [ ] **Filtres avancés** : Statistiques et analytics
+[![Déploiement](https://img.shields.io/badge/d%C3%A9ploy%C3%A9-GitHub%20Pages-success)](https://benjaminbusselet.github.io/tv_sports/)
+[![Build Status](https://img.shields.io/badge/build-passing-success)]()
+[![Daily Updates](https://img.shields.io/badge/mises%20%C3%A0%20jour-quotidiennes%201h%20UTC-blue)]()
 
-### ⚙️ À faire - Infrastructure
-- [ ] **Monitoring** : Logs et alertes de pipeline
-- [ ] **Cache optimisé** : Stratégie cache HTTP
-- [ ] **Sports additionnels** : Basket, tennis, etc.
-- [ ] **Interface admin** : Ajout/suppression sources
-- [ ] **API publique** : Documentation et endpointsévénements sportifs et de diffusions TV en flux de données unifié**
+## 🎯 Vue d'ensemble
 
-## 🎯 Objectif
+TV Sports génère quotidiennement des fichiers JSON unifiés (`progs_YYYYMMDD.json`) qui combinent :
 
-Génère quotidiennement des fichiers JSON (`progs_YYYYMMDD.json`) fusionnant :
+- **📅 Événements sportifs** issus de calendriers ICS officiels
+- **📺 Programmes TV** des diffuseurs via EPG
+- **🤖 Correspondance intelligente** avec tolérance temporelle
 
-- **Événements sportifs** issus de compétitions officielles (ICS Fixtur.es)
-- **Grilles TV** des diffuseurs EPG (Open-EPG)
-
-Le résultat : une source de données propre et unifiée alimentant une interface React responsive.
+**Interface moderne** : React + Vite, responsive, PWA-ready
 
 ## 🏗️ Architecture
 
-**Sources de données :**
+### Sources de données
+- **🏎️ F1 & ⚽ Football** : Fixtur.es (calendriers ICS officiels)  
+- **🏉 Rugby** : tv-sports.fr (Top 14, Champions Cup, etc.)
+- **📺 EPG** : Open-EPG (grilles TV, fenêtre J-2 à J+2)
+- **👥 Équipes** : `config/teams.json` (normalisation des noms)
 
-- **ICS (Fixtur.es) :** Compétitions sportives officielles
-- **EPG (Open-EPG) :** Données programmes TV (fenêtre J-2 à J+2)
-- **teams.json :** Dictionnaire de correspondances équipes auto-enrichi
+### Sports supportés
+- **Formule 1** 🏎️ : Tous les GP, qualifications, essais
+- **Football** ⚽ : Ligue 1, Champions League, etc.  
+- **Rugby** 🏉 : Top 14, Champions Cup, Pro D2
 
-**Sports supportés :** Football ⚽, F1 🏎️, Rugby 🏉
+### Interface utilisateur
+- **🔀 Onglet "Toutes"** : Vue chronologique mixte (par défaut)
+- **🎯 Filtres par sport** : F1, Football, Rugby, Équipes favorites
+- **📅 Navigation temporelle** : Frise 7 jours avec compteurs
+- **⚡ Tri intelligent** : Par ligue (football) ou horaire (mixte)
 
-**Appariement intelligent :**
+## 🚀 Stack Technique
 
-- Corrélation ICS ↔ EPG avec tolérance ±60min
-- Résolution intelligente des alias d'équipes (Toulouse → Stade Toulousain)
-- Diffuseurs par défaut si EPG vide (TF1, Canal+, beIN Sports, DAZN)
+- **Backend** : Node.js, architecture pipeline en mémoire
+- **Frontend** : React + Vite, CSS moderne, Service Worker
+- **Données** : JSON, XML parsing, cache HTTP
+- **Déploiement** : GitHub Pages + Actions (CI/CD quotidien)
+- **PWA** : Manifest, notifications push, mode hors-ligne
 
-**Pipeline (`build.js`) - Architecture en mémoire :**
+## 💻 Développement
 
-1. Extraction événements sportifs (objet en mémoire)
-2. Récupération programmes TV (objet en mémoire)
-3. Fusion intelligente des données (passage d'objets)
-4. Auto-enrichissement correspondances équipes
-5. Génération finale → `progs_YYYYMMDD.json`
-6. Purge automatique (fenêtre glissante T→T+7)
+### Installation
+```bash
+npm install
+```
+
+### Scripts principaux
+```bash
+# 🔄 Génération complète (défaut: aujourd'hui → +7 jours)
+node scripts/build.js
+
+# 📅 Période spécifique  
+node scripts/build.js 20250905 20250907
+
+# 🧪 Tests individuels
+node scripts/ics.js 20250905    # Événements sportifs
+node scripts/epg.js 20250905    # Programmes TV
+node scripts/merge.js 20250905  # Fusion ICS ↔ EPG
+
+# 🖥️ Développement local
+npm run dev                     # Frontend + backend
+npm run dev:front              # Frontend seul (Vite)
+npm run dev:server             # Backend seul (Express)
+```
+
+## 📊 Fonctionnalités
+
+### ✅ Implémenté
+- ✅ Pipeline de données ICS/EPG fonctionnel
+- ✅ Interface React responsive avec filtres
+- ✅ **Onglet "Toutes" par défaut** (vue chronologique mixte)
+- ✅ Support F1, Football, Rugby complet
+- ✅ Correspondance intelligente ICS ↔ EPG (±60min)
+- ✅ Déploiement automatique GitHub Pages quotidien
+- ✅ Service Worker et PWA-ready
+- ✅ Navigation temporelle (frise 7 jours)
+- ✅ Tri intelligent par sport ou chronologique
+
+### 🔄 En cours
+- 🔄 Optimisation cache et performance
+- 🔄 Notifications push personnalisées
+
+### 📋 À venir
+- 📋 Sports additionnels (Tennis, Basket)
+- 📋 Gestion favoris avec LocalStorage
+- 📋 Interface admin (ajout sources)
+
+## 🌐 Déploiement
+
+**URL Production :** https://benjaminbusselet.github.io/tv_sports/
+- **Mise à jour** : Quotidienne à 1h UTC via GitHub Actions
+- **Build automatique** : Pipeline → Build → Déploiement
+
+---
+
+**🚀 Application déployée :** https://benjaminbusselet.github.io/tv_sports/
+
+_Pipeline de données optimisé au service d'une expérience utilisateur moderne._
 
 ## 🚀 Stack Technique
 
