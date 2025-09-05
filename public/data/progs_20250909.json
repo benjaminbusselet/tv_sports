@@ -8,6 +8,8 @@
     "competition": "WC Qualifiers",
     "home": "France",
     "away": "Iceland",
-    "broadcasters": []
+    "broadcasters": [
+      "TF1"
+    ]
   }
 ]

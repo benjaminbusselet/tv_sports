@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "uid": "d92Q2UvnBMl7fGIynPTjuokIUuWDiFJO4344EwM2@maak-agenda.nl",
+    "title": "Italian GP Fp1",
+    "start": "2025-09-05T11:30:00.000Z",
+    "end": "2025-09-05T13:15:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "",
+    "away": "",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "MEO8anSooL9DlBx44VIcHpAchwcBmCbOoaFjQbeL@maak-agenda.nl",
+    "title": "Italian GP Fp2",
+    "start": "2025-09-05T15:00:00.000Z",
+    "end": "2025-09-05T16:45:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "",
+    "away": "",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "OOQCrfzR4l0pNQm4Dc8Lomzn5oO80zlMkM2cENhU@maak-agenda.nl",
+    "title": "Ukraine - France",
+    "start": "2025-09-05T18:45:00.000Z",
+    "end": "2025-09-05T20:30:00.000Z",
+    "sport": "football",
+    "competition": "WC Qualifiers",
+    "home": "Ukraine",
+    "away": "France",
+    "broadcasters": [
+      "TF1"
+    ]
+  }
+]

@@ -1,6 +1,20 @@
 # Agrégateur de Programmes TV Sportifs
 
-> **Agrégation quotidienne automatisée d'événements sportifs et de diffusions TV en flux de données unifié**
+> **Agrégation quotidienne### 🔧 À faire - Priorité haute
+- [ ] **Automatisation** : Cron quotidien en production
+- [ ] **PWA** : Mode hors-ligne, installation app
+
+### 📊 À faire - Expérience utilisateur
+- [ ] **Gestion favoris** : Stockage local des préférences
+- [ ] **Notifications push** : Règles par équipe/compétition
+- [ ] **Filtres avancés** : Statistiques et analytics
+
+### ⚙️ À faire - Infrastructure
+- [ ] **Monitoring** : Logs et alertes de pipeline
+- [ ] **Cache optimisé** : Stratégie cache HTTP
+- [ ] **Sports additionnels** : Basket, tennis, etc.
+- [ ] **Interface admin** : Ajout/suppression sources
+- [ ] **API publique** : Documentation et endpointsévénements sportifs et de diffusions TV en flux de données unifié**
 
 ## 🎯 Objectif
 
@@ -19,11 +33,13 @@ Le résultat : une source de données propre et unifiée alimentant une interfac
 - **EPG (Open-EPG) :** Données programmes TV (fenêtre J-2 à J+2)
 - **teams.json :** Dictionnaire de correspondances équipes auto-enrichi
 
+**Sports supportés :** Football ⚽, F1 🏎️, Rugby 🏉
+
 **Appariement intelligent :**
 
 - Corrélation ICS ↔ EPG avec tolérance ±60min
-- Résolution intelligente des alias d'équipes
-- Règles de diffuseurs par défaut (Ligue 1+, beIN SPORTS, DAZN)
+- Résolution intelligente des alias d'équipes (Toulouse → Stade Toulousain)
+- Diffuseurs par défaut si EPG vide (TF1, Canal+, beIN Sports, DAZN)
 
 **Pipeline (`build.js`) - Architecture en mémoire :**
 
@@ -44,7 +60,15 @@ Le résultat : une source de données propre et unifiée alimentant une interfac
 ## 💻 Utilisation
 
 ```bash
-node scripts/build.js YYYYMMDD
+# Build complet (par défaut: aujourd'hui → +7 jours)
+node scripts/build.js
+
+# Build pour période spécifique
+node scripts/build.js 20250905 20250907
+
+# Tests individuels
+node scripts/ics.js 20250905    # Événements sportifs
+node scripts/epg.js 20250905    # Programmes TV
 ```
 
 ## ✅ Status & TODO
@@ -54,21 +78,21 @@ node scripts/build.js YYYYMMDD
 - **Frontend** : Interface React responsive, navigation temporelle, filtres
 - **Déploiement** : GitHub Pages + CI/CD automatisé
 
-### 📱 À faire - Priorité haute
-- [ ] **Notifications push** : Règles par équipe/compétition
-- [ ] **Gestion favoris** : Stockage local des préférences
+### � À faire - Priorité haute
+- [ ] **Automatisation** : Cron quotidien en production
+- [ ] **Sports additionnels** : Basket, tennis, etc.
 - [ ] **PWA** : Mode hors-ligne, installation app
 
+### 📊 À faire - Expérience utilisateur
+- [ ] **Gestion favoris** : Stockage local des préférences
+- [ ] **Notifications push** : Règles par équipe/compétition
+- [ ] **Filtres avancés** : Statistiques et analytics
+
 ### ⚙️ À faire - Infrastructure
-- [ ] **Automatisation** : Cron quotidien en production
 - [ ] **Monitoring** : Logs et alertes de pipeline
 - [ ] **Cache optimisé** : Stratégie cache HTTP
-
-### 🚀 À faire - Long terme
 - [ ] **Interface admin** : Ajout/suppression sources
-- [ ] **Filtres avancés** : Statistiques et analytics
 - [ ] **API publique** : Documentation et endpoints
-- [ ] **Sports additionnels** : Basket, tennis, etc.
 
 ---
 

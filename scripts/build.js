@@ -9,7 +9,9 @@ import { fetchEpg } from "./epg.js";
 import { mergeData } from "./merge.js";
 
 const KEEP = process.argv.includes("--keep");
-const ARG = process.argv.find((x) => /^\d{8}$/.test(x)) || null;
+const dateArgs = process.argv.filter((x) => /^\d{8}$/.test(x));
+const startArg = dateArgs[0] || null;
+const endArg = dateArgs[1] || null;
 
 const outDir = path.join("public", "data");
 await fs.mkdir(outDir, { recursive: true });
@@ -32,8 +34,16 @@ const addDaysYMD = (ymd, n) => {
   return ymdParis(new Date(t));
 };
 
-const start = ARG || todayParisYMD();
-const days = Array.from({ length: 8 }, (_, i) => addDaysYMD(start, i));
+const start = startArg || todayParisYMD();
+const end = endArg || addDaysYMD(start, 7);
+
+// Générer la liste des jours entre start et end (inclus)
+const days = [];
+let currentYmd = start;
+while (currentYmd <= end) {
+  days.push(currentYmd);
+  currentYmd = addDaysYMD(currentYmd, 1);
+}
 
 let totalPROGS = 0;
 let successfulDays = 0;

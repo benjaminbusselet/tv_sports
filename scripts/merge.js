@@ -57,6 +57,10 @@ const tryRead = async (paths) => {
 // Fonction principale exportée pour pipeline en mémoire
 export async function mergeData(ics, epg, teams, ymd) {
   const pData = "public/data";
+  const pConf = "config";
+
+  // Charger les sources ICS pour les defaultBroadcasters
+  const icsSources = await tryRead([path.join(pConf, "icsSources.json")]);
 
   // Construction d'un index alias -> nom officiel par compétition
   const idx = {};
@@ -78,9 +82,14 @@ export async function mergeData(ics, epg, teams, ymd) {
 
   const out = [];
   for (const ev of ics || []) {
-    const comp = ev.competition,
-      H = norm(ev.home),
+    let comp = ev.competition;
+    const H = norm(ev.home),
       A = norm(ev.away);
+
+    // Mapper les compétitions par sport pour les sources d'équipe
+    if (ev.sport === "rugby" && !idx[comp]) {
+      comp = "Rugby"; // Forcer la compétition Rugby pour les équipes de rugby
+    }
 
     // Trouve les candidats EPG matching équipes + fenêtre de temps stricte ±1h
     const cand = (epg || [])
@@ -100,12 +109,43 @@ export async function mergeData(ics, epg, teams, ymd) {
 
     let chan = cand[0]?.ch || "";
 
-    // Fallback diffusuer par défaut
+    // Fallback diffuseur par défaut
     if (!chan) {
       if (comp === "Serie A") chan = "DAZN";
       else if (comp === "Ligue 1")
         chan = isSat17Paris(ev.start) ? "beIN SPORTS 1" : "Ligue 1+";
     }
+
+    // Si toujours pas de diffuseur, utiliser les defaultBroadcasters de la source ICS
+    if (!chan) {
+      const matchingSource = icsSources.find((source) => {
+        if (source.type === "team") {
+          // Pour les équipes, chercher avec normalisation
+          const m = idx[comp] || {};
+          const homeOfficial = m[norm(ev.home)] || ev.home;
+          const awayOfficial = m[norm(ev.away)] || ev.away;
+          return homeOfficial === source.name || awayOfficial === source.name;
+        }
+        // Chercher par competition
+        else if (source.type === "competition") {
+          return comp === source.name;
+        }
+        return false;
+      });
+
+      if (
+        matchingSource &&
+        matchingSource.defaultBroadcasters &&
+        matchingSource.defaultBroadcasters.length > 0
+      ) {
+        chan = matchingSource.defaultBroadcasters[0]; // Prendre le premier diffuseur par défaut
+      }
+    }
+
+    // Utiliser les noms officiels normalisés si disponibles
+    const m = idx[comp] || {};
+    const homeOfficial = m[norm(ev.home)] || ev.home;
+    const awayOfficial = m[norm(ev.away)] || ev.away;
 
     out.push({
       uid: ev.uid,
@@ -114,8 +154,8 @@ export async function mergeData(ics, epg, teams, ymd) {
       end: ev.end,
       sport: ev.sport,
       competition: comp,
-      home: ev.home,
-      away: ev.away,
+      home: homeOfficial,
+      away: awayOfficial,
       broadcasters: chan ? [chan] : [],
     });
   }

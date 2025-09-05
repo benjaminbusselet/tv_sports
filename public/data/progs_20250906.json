@@ -8,7 +8,9 @@
     "competition": "Formule 1",
     "home": "",
     "away": "",
-    "broadcasters": []
+    "broadcasters": [
+      "Canal+"
+    ]
   },
   {
     "uid": "i0LdYGaR4RhbvIVyFA7nxdGFwzGcRDTiGimd8JXw@maak-agenda.nl",
@@ -19,6 +21,8 @@
     "competition": "Formule 1",
     "home": "",
     "away": "",
-    "broadcasters": []
+    "broadcasters": [
+      "Canal+"
+    ]
   }
 ]

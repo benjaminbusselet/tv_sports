@@ -6,7 +6,7 @@
     "name": "Formule 1",
     "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/formula-1-practise.ics",
-    "defaultBroadcasters": ["Canal+ Sport"],
+    "defaultBroadcasters": ["Canal+"],
     "notifications": {
       "enabled": false,
       "advance": 30
@@ -19,7 +19,7 @@
     "name": "France",
     "enabled": true,
     "url": "https://ics.fixtur.es/v2/fr.ics",
-    "defaultBroadcasters": ["TF1", "M6"],
+    "defaultBroadcasters": ["TF1"],
     "notifications": {
       "enabled": false,
       "advance": 30
@@ -135,7 +135,7 @@
     "sport": "rugby",
     "name": "Stade Toulousain",
     "enabled": true,
-    "url": "https://ics.fixtur.es/v2/team/toulouse-rugby.ics",
+    "url": "https://tv-sports.fr/calendrier/equipe/176/toulouse?direct=1",
     "defaultBroadcasters": ["Canal+"],
     "notifications": {
       "enabled": false,
@@ -149,7 +149,7 @@
     "name": "France Rugby",
     "enabled": true,
     "url": "https://ics.fixtur.es/v2/team/france-rugby.ics",
-    "defaultBroadcasters": ["TF1", "France 2"],
+    "defaultBroadcasters": ["France 2"],
     "notifications": {
       "enabled": false,
       "advance": 30

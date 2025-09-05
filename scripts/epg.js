@@ -175,11 +175,31 @@ export async function fetchEpg(ymd) {
     if (!start || ymdParis(start) !== ymd) continue;
     const end = toISO(p?.["@_stop"]);
     const title = getTitle(p).trim();
+    const channel = canonChannel(id2name.get(p?.["@_channel"]) || p?.["@_channel"]);
+
+    if (!wl.has(channel.toLowerCase())) continue;
+
+    // Avant de filtrer par séparateur d'équipes
+    const isF1 = (title.toLowerCase().includes("formule 1") || 
+                   title.toLowerCase().includes("f1")) &&
+                  !title.toLowerCase().includes("moto");
+
+    // Si c'est un événement F1, on le traite différemment
+    if (isF1) {
+      out.push({
+        channel,
+        start,
+        end,
+        title,
+        epgHome: "",  // Pas d'équipe "domicile" pour la F1
+        epgAway: "",  // Pas d'équipe "extérieur" pour la F1
+      });
+      continue;  // Passer à l'événement suivant
+    }
+
+    // Sinon, traitement normal pour les sports d'équipe
     const parts = title.split(SEP).map((s) => s?.trim());
     if (parts.length < 2 || !parts[0] || !parts[1]) continue;
-    const rawId = p?.["@_channel"] || "";
-    const channel = canonChannel(id2name.get(rawId) || rawId);
-    if (!wl.has(channel.toLowerCase())) continue;
 
     const key = `${channel.toLowerCase()}|${start}|${title}`;
     if (seen.has(key)) continue;
@@ -214,7 +234,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     // Affichage pour debug rapide
     if (data.length > 0) {
       console.log("\n📋 Sample programs:");
-      data.slice(0, 5).forEach((p, i) => {
+      data.slice(0, 50).forEach((p, i) => {
         console.log(`  ${i + 1}. ${p.title} (${p.channel})`);
       });
       if (data.length > 5) {

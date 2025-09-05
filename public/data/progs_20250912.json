@@ -8,6 +8,8 @@
     "competition": "Bundesliga",
     "home": "Bayer Leverkusen",
     "away": "Eintracht Frankfurt",
-    "broadcasters": []
+    "broadcasters": [
+      "beIN Sports"
+    ]
   }
 ]

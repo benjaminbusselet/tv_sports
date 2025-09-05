@@ -108,5 +108,6 @@
   "National": {
     "France": ["France"],
     "Spain": ["Espagne"]
-  }
+  },
+  "Rugby": { "Stade Toulousain": ["Toulouse"], "France Rugby": ["France"] }
 }

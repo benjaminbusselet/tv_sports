@@ -91,6 +91,7 @@ function extractTeams(title = "") {
   const clean = title
     .replace(/\s*\([^)]*\)\s*$/, "")
     .replace(/^⚽\s*/u, "")
+    .replace(/^🏉\s*/u, "")
     .trim();
 
   const parts = clean.split(/\s+(?:\/|v|vs|versus|–|—|-)\s+/i);
@@ -173,9 +174,28 @@ function norm(ev, source) {
   const cleanTitle = originalTitle.replace(/\s*\[.*\]$/, "").trim();
 
   const { home, away } = extractTeams(originalTitle);
+  let title = cleanTitle;
+  let broadcaster = "";
+
+  // Nettoyer les titres tv-sports.fr
+  if (source.url.includes("tv-sports.fr")) {
+    // 1. Supprimer uniquement l'emoji rugby
+    title = title.replace(/🏉\s*/, "");
+
+    // 2. Extraire diffuseur si présent, sinon garder defaultBroadcasters
+    const broadcasterMatch = title.match(/\s*\(([^)]+)\)$/);
+    if (broadcasterMatch) {
+      broadcaster = broadcasterMatch[1];
+      title = title.replace(/\s*\([^)]+\)$/, "");
+    }
+
+    // 3. Nettoyer seulement les espaces en fin
+    title = title.trim();
+  }
+
   return {
     uid: ev.uid || "",
-    title: cleanTitle,
+    title,
     start: toISO(ev.start),
     end: toISO(ev.end),
     sport: source?.sport || "football",
