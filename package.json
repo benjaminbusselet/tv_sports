@@ -4,14 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev:front": "vite",
-    "dev:server": "node --watch server.js",
-    "dev": "concurrently -n front,server -c blue,green \"npm run dev:front\" \"npm run dev:server\"",
-    "build": "vite build",
-    "start": "node server.js",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "clean": "rm -rf dist public/data/progs_*.json"
+    "dev": "concurrently -n front,server -c blue,green \"vite\" \"node --watch server.js\"",
+    "build": "vite build"
   },
   "dependencies": {
     "express": "^5.1.0",
