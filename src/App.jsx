@@ -15,7 +15,7 @@ import "./components/LoadingSpinner.css";
 const teams = getTeamNames();
 
 export default function App() {
-  const [sport, setSport] = useState("football");
+  const [sport, setSport] = useState("all");
   const [day, setDay] = useState(() => {
     const t = new Date();
     t.setHours(0, 0, 0, 0);
@@ -86,8 +86,8 @@ export default function App() {
       return true;
     });
 
-    // Trier par horaire si mode "time" et sport "football"
-    if (sport === "football" && sortType === "time") {
+    // Si sport="all" ou (football + time), trier par horaire
+    if (sport === "all" || (sport === "football" && sortType === "time")) {
       return validEvents.sort((a, b) => new Date(a.start) - new Date(b.start));
     }
 
@@ -115,6 +115,7 @@ export default function App() {
   }, [events]);
 
   const showGrouped = sport === "football" && sortType === "league";
+  const showSortToggle = sport === "football"; // Masquer le toggle pour "all"
   const { permission, enableNotifications } = useNotifications();
 
   return (
@@ -142,7 +143,7 @@ export default function App() {
       <div className="container">
         <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
         <SportsTabs value={sport} onChange={setSport} />
-        {sport === "football" && (
+        {showSortToggle && (
           <div className="controls">
             <select
               value={sortType}

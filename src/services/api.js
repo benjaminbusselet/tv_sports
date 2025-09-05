@@ -1,14 +1,21 @@
 // Configuration automatique selon l'environnement
 const BASE_URL =
-  import.meta.env.MODE === "development" ? "/data" : "/tv_sports/data";
+  import.meta.env.MODE === "development"
+    ? "" // En développement, les fichiers public/ sont à la racine
+    : "/tv_sports"; // En production sur GitHub Pages
 
 export async function fetchEvents({ day, sport }) {
-  const dataPath = `${BASE_URL}/progs_${day}.json`;
+  const dataPath = `${BASE_URL}/data/progs_${day}.json`;
 
   try {
     const response = await fetch(dataPath);
     if (!response.ok) throw new Error("Network response was not ok");
     const events = await response.json();
+
+    // Cas "all" : retourner tous les événements sans filtrage
+    if (sport === "all") {
+      return events;
+    }
 
     // Si sport est "teams", on fait le croisement avec les équipes activées
     if (sport === "teams") {
