@@ -4,7 +4,6 @@
     "type": "competition",
     "sport": "f1",
     "name": "Formule 1",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/formula-1-practise.ics",
     "defaultBroadcasters": ["Canal+"],
     "notifications": {
@@ -17,7 +16,6 @@
     "type": "team",
     "sport": "football",
     "name": "France",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/fr.ics",
     "defaultBroadcasters": ["TF1"],
     "notifications": {
@@ -30,7 +28,6 @@
     "type": "team",
     "sport": "football",
     "name": "Espagne",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/es.ics",
     "defaultBroadcasters": ["L'Equipe"],
     "notifications": {
@@ -43,7 +40,6 @@
     "type": "team",
     "sport": "football",
     "name": "FC Barcelona",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/team/barcelona.ics",
     "defaultBroadcasters": ["beIN Sports"],
     "notifications": {
@@ -56,7 +52,6 @@
     "type": "team",
     "sport": "football",
     "name": "Olympique de Marseille",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/team/marseille.ics",
     "defaultBroadcasters": ["Ligue 1+", "Canal+"],
     "notifications": {
@@ -69,7 +64,6 @@
     "type": "competition",
     "sport": "football",
     "name": "Ligue 1",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/ligue-1.ics",
     "defaultBroadcasters": ["Ligue 1+", "beIN Sports"],
     "notifications": {
@@ -82,7 +76,6 @@
     "type": "competition",
     "sport": "football",
     "name": "LaLiga",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/primera-division.ics",
     "defaultBroadcasters": ["beIN Sports"],
     "notifications": {
@@ -95,7 +88,6 @@
     "type": "competition",
     "sport": "football",
     "name": "Premier League",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/premier-league.ics",
     "defaultBroadcasters": ["Canal+"],
     "notifications": {
@@ -108,7 +100,6 @@
     "type": "competition",
     "sport": "football",
     "name": "Serie A",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/serie-a.ics",
     "defaultBroadcasters": ["DAZN"],
     "notifications": {
@@ -121,7 +112,6 @@
     "type": "competition",
     "sport": "football",
     "name": "Bundesliga",
-    "enabled": true,
     "url": "https://ics.fixtur.es/v2/league/bundesliga.ics",
     "defaultBroadcasters": ["beIN Sports"],
     "notifications": {
@@ -134,7 +124,6 @@
     "type": "team",
     "sport": "rugby",
     "name": "Stade Toulousain",
-    "enabled": true,
     "url": "https://tv-sports.fr/calendrier/equipe/176/toulouse?direct=1",
     "defaultBroadcasters": ["Canal+"],
     "notifications": {
@@ -147,8 +136,7 @@
     "type": "team",
     "sport": "rugby",
     "name": "France Rugby",
-    "enabled": true,
-    "url": "https://ics.fixtur.es/v2/team/france-rugby.ics",
+    "url": "https://tv-sports.fr/calendrier/equipe/153/france?direct=1",
     "defaultBroadcasters": ["France 2"],
     "notifications": {
       "enabled": false,

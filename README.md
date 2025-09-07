@@ -3,7 +3,6 @@
 > **🚀 Application web qui agrège quotidiennement événements sportifs et diffusions TV**
 
 [![Déploiement](https://img.shields.io/badge/d%C3%A9ploy%C3%A9-GitHub%20Pages-success)](https://benjaminbusselet.github.io/tv_sports/)
-[![Build Status](https://img.shields.io/badge/build-passing-success)]()
 [![Daily Updates](https://img.shields.io/badge/mises%20%C3%A0%20jour-quotidiennes%201h%20UTC-blue)]()
 
 ## 🎯 Vue d'ensemble
@@ -12,141 +11,69 @@ TV Sports génère quotidiennement des fichiers JSON unifiés (`progs_YYYYMMDD.j
 
 - **📅 Événements sportifs** issus de calendriers ICS officiels
 - **📺 Programmes TV** des diffuseurs via EPG
-- **🤖 Correspondance intelligente** avec tolérance temporelle
+- **🤖 Correspondance intelligente** avec tolérance temporelle ±60min
 
-**Interface moderne** : React + Vite, responsive, PWA-ready
+**Interface moderne** : React responsive, onglet "Toutes" par défaut, filtres par sport/équipe
 
 ## 🏗️ Architecture
 
 ### Sources de données
 - **🏎️ F1 & ⚽ Football** : Fixtur.es (calendriers ICS officiels)  
-- **🏉 Rugby** : tv-sports.fr (Top 14, Champions Cup, etc.)
+- **🏉 Rugby** : tv-sports.fr (Top 14, Champions Cup, Équipe de France)
 - **📺 EPG** : Open-EPG (grilles TV, fenêtre J-2 à J+2)
 - **👥 Équipes** : `config/teams.json` (normalisation des noms)
+- **⚙️ Configuration** : `icsSources.json` (sources disponibles) + `userSettings.json` (préférences personnelles)
 
-### Sports supportés
-- **Formule 1** 🏎️ : Tous les GP, qualifications, essais
-- **Football** ⚽ : Ligue 1, Champions League, etc.  
-- **Rugby** 🏉 : Top 14, Champions Cup, Pro D2
-
-### Interface utilisateur
-- **🔀 Onglet "Toutes"** : Vue chronologique mixte (par défaut)
-- **🎯 Filtres par sport** : F1, Football, Rugby, Équipes favorites
-- **📅 Navigation temporelle** : Frise 7 jours avec compteurs
-- **⚡ Tri intelligent** : Par ligue (football) ou horaire (mixte)
-
-## 🚀 Stack Technique
-
-- **Backend** : Node.js, architecture pipeline en mémoire
+### Stack technique
+- **Backend** : Node.js, pipeline en mémoire, parsing XML
 - **Frontend** : React + Vite, CSS moderne, Service Worker
-- **Données** : JSON, XML parsing, cache HTTP
-- **Déploiement** : GitHub Pages + Actions (CI/CD quotidien)
-- **PWA** : Manifest, notifications push, mode hors-ligne
+- **Déploiement** : GitHub Pages + Actions (CI/CD quotidien 1h UTC)
 
 ## 💻 Développement
 
-### Installation
+### Installation et démarrage
 ```bash
 npm install
+npm run dev    # Frontend + backend local
 ```
 
-### Scripts principaux
+### Scripts de données
 ```bash
-# 🔄 Génération complète (défaut: aujourd'hui → +7 jours)
+# Génération complète (défaut: aujourd'hui → +7 jours)
 node scripts/build.js
 
-# 📅 Période spécifique  
-node scripts/build.js 20250905 20250907
-
-# 🧪 Tests individuels
-node scripts/ics.js 20250905    # Événements sportifs
-node scripts/epg.js 20250905    # Programmes TV
-node scripts/merge.js 20250905  # Fusion ICS ↔ EPG
-
-# 🖥️ Développement local
-npm run dev                     # Frontend + backend
-npm run dev:front              # Frontend seul (Vite)
-npm run dev:server             # Backend seul (Express)
-```
-
-## 📊 Fonctionnalités
-
-### ✅ Implémenté
-- ✅ Pipeline de données ICS/EPG fonctionnel
-- ✅ Interface React responsive avec filtres
-- ✅ **Onglet "Toutes" par défaut** (vue chronologique mixte)
-- ✅ Support F1, Football, Rugby complet
-- ✅ Correspondance intelligente ICS ↔ EPG (±60min)
-- ✅ Déploiement automatique GitHub Pages quotidien
-- ✅ Service Worker et PWA-ready
-- ✅ Navigation temporelle (frise 7 jours)
-- ✅ Tri intelligent par sport ou chronologique
-
-### 🔄 En cours
-- 🔄 Optimisation cache et performance
-- 🔄 Notifications push personnalisées
-
-### 📋 À venir
-- 📋 Sports additionnels (Tennis, Basket)
-- 📋 Gestion favoris avec LocalStorage
-- 📋 Interface admin (ajout sources)
-
-## 🌐 Déploiement
-
-**URL Production :** https://benjaminbusselet.github.io/tv_sports/
-- **Mise à jour** : Quotidienne à 1h UTC via GitHub Actions
-- **Build automatique** : Pipeline → Build → Déploiement
-
----
-
-**🚀 Application déployée :** https://benjaminbusselet.github.io/tv_sports/
-
-_Pipeline de données optimisé au service d'une expérience utilisateur moderne._
-
-## 🚀 Stack Technique
-
-- **Backend :** Node.js, architecture modulaire en mémoire
-- **Frontend :** React + Vite, design responsive
-- **Données :** JSON, parsing XML, stratégie de cache
-- **Déploiement :** GitHub Pages + Actions
-
-## 💻 Utilisation
-
-```bash
-# Build complet (par défaut: aujourd'hui → +7 jours)
-node scripts/build.js
-
-# Build pour période spécifique
+# Période spécifique  
 node scripts/build.js 20250905 20250907
 
 # Tests individuels
 node scripts/ics.js 20250905    # Événements sportifs
 node scripts/epg.js 20250905    # Programmes TV
+node scripts/merge.js 20250905  # Fusion ICS ↔ EPG
 ```
 
-## ✅ Status & TODO
+## 📊 Roadmap
 
-### Terminé
-- **Backend** : Pipeline en mémoire, fusion ICS/EPG, règles métier
-- **Frontend** : Interface React responsive, navigation temporelle, filtres
-- **Déploiement** : GitHub Pages + CI/CD automatisé
+### ✅ Opérationnel
+- **Cron quotidien** : Automatisation GitHub Actions 1h UTC
+- **Multi-sports** : F1, Football, Rugby avec correspondance EPG
+- **Interface complète** : Onglet "Toutes" par défaut, filtres, navigation temporelle
+- **Déploiement automatique** : GitHub Pages avec Service Worker
 
-### � À faire - Priorité haute
-- [ ] **Automatisation** : Cron quotidien en production
-- [ ] **Sports additionnels** : Basket, tennis, etc.
-- [ ] **PWA** : Mode hors-ligne, installation app
+### 🔄 Priorité haute
+- **PWA** : Mode hors-ligne, installation app
+- **Notifications push** : Système basé sur `userSettings.json`
 
-### 📊 À faire - Expérience utilisateur
-- [ ] **Gestion favoris** : Stockage local des préférences
-- [ ] **Notifications push** : Règles par équipe/compétition
-- [ ] **Filtres avancés** : Statistiques et analytics
+### 📋 À venir
+- **Ajout de sources** : Configuration utilisateur personnalisée
+- **Gestion favoris** : Préférences en dur puis migration Vercel
+- **Interface admin** : Modification `userSettings.json`
 
-### ⚙️ À faire - Infrastructure
-- [ ] **Monitoring** : Logs et alertes de pipeline
-- [ ] **Cache optimisé** : Stratégie cache HTTP
-- [ ] **Interface admin** : Ajout/suppression sources
-- [ ] **API publique** : Documentation et endpoints
+## 🌐 Production
+
+**URL** : https://benjaminbusselet.github.io/tv_sports/
+
+Mise à jour automatique quotidienne à 1h UTC avec génération des données et déploiement.
 
 ---
 
-_Pipeline de données optimisé en mémoire au service d'un frontend moderne pour découvrir facilement les programmes sportifs._
+*Configuration actuelle : usage personnel avec préférences en dur*

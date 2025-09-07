@@ -1,0 +1,32 @@
+{
+  "sources": {
+    "enabled": [
+      "formula1_calendar",
+      "team_france_football",
+      "team_espagne",
+      "team_barcelone",
+      "team_om",
+      "football_ligue1",
+      "football_laliga",
+      "football_premier_league",
+      "football_serie_a",
+      "football_bundesliga",
+      "team_toulouse_rugby",
+      "team_france_rugby"
+    ]
+  },
+  "notifications": {
+    "enabled": true,
+    "advance": 30,
+    "sports": ["f1", "rugby", "football"]
+  },
+  "display": {
+    "theme": "auto",
+    "defaultTab": "all",
+    "sortPreference": "time"
+  },
+  "favorites": {
+    "teams": ["France", "Stade Toulousain", "FC Barcelona"],
+    "competitions": ["Formule 1", "Top 14", "Ligue 1"]
+  }
+}
