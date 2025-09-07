@@ -31,13 +31,13 @@ export default function SportsTabs({ activeSport, setSport, userSettings }) {
   // Construction dynamique des onglets
   const tabs = [
     { id: "all", label: "Toutes" },
+    { id: "teams", label: "Équipes" },
     ...availableSports
       .filter(sport => sport !== "all") // Éviter la duplication de "all"
       .map(sport => ({
         id: sport,
         label: sportLabels[sport] || sport.charAt(0).toUpperCase() + sport.slice(1)
-      })),
-    { id: "teams", label: "Équipes" }
+      }))
   ];
 
   return (

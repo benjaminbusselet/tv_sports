@@ -9,7 +9,6 @@ import { useEffect, useMemo, useState } from "react";
 export default function ThemeSwitcher() {
   const THEMES = useMemo(
     () => [
-      { id: "minimal", label: "Minimal" },
       { id: "retro", label: "Retro" },
     ],
     []
@@ -20,7 +19,7 @@ export default function ThemeSwitcher() {
       typeof window !== "undefined"
         ? localStorage.getItem("tv_sports_theme")
         : null;
-    return saved || "minimal";
+    return saved || "retro";
   });
 
   // Applique le thème et le persiste

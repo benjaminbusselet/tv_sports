@@ -162,37 +162,6 @@ select {
     transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
-/* --- Minimalisme monochrome --- */
-:root[data-theme="minimal"] {
-    --bg: #f5f2ea;
-    --card: #ffffff;
-    --text: #1c1c1c;
-    --muted: #3a3a3a;
-    --primary: #1c1c1c;
-    --accent: #1c1c1c;
-    --shadow: 0 6px 18px rgba(0, 0, 0, .08);
-}
-
-:root[data-theme="minimal"] header {
-    border-bottom: 1px solid rgba(0, 0, 0, .08);
-}
-
-:root[data-theme="minimal"] .tab,
-:root[data-theme="minimal"] .chip {
-    border-color: rgba(0, 0, 0, .15);
-}
-
-:root[data-theme="minimal"] .tab[aria-selected="true"],
-:root[data-theme="minimal"] .chip[aria-selected="true"] {
-    background: #111;
-    color: #fff;
-    border-color: #111;
-}
-
-:root[data-theme="minimal"] .card {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-}
-
 /* --- Rétro‑futurisme --- */
 :root[data-theme="retro"] {
     --bg: #fff5e6;

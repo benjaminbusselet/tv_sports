@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -n front,server -c blue,green \"vite\" \"node --watch server.js\"",
+    "dev": "node scripts/dev-check.js && concurrently -n front,server -c blue,green \"vite\" \"node --watch server.js\"",
+    "dev:quick": "concurrently -n front,server -c blue,green \"vite\" \"node --watch server.js\"",
     "build": "vite build"
   },
   "dependencies": {

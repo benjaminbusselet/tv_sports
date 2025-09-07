@@ -144,12 +144,30 @@ export async function mergeData(ics, epg, teams, ymd) {
 
     // Utiliser les noms officiels normalisés si disponibles
     const m = idx[comp] || {};
-    const homeOfficial = m[norm(ev.home)] || ev.home;
-    const awayOfficial = m[norm(ev.away)] || ev.away;
+    let homeOfficial = m[norm(ev.home)] || ev.home;
+    let awayOfficial = m[norm(ev.away)] || ev.away;
+
+    // Appliquer les traductions globales si disponibles
+    const translations = await tryRead([path.join(pConf, "translations.json")]);
+    if (translations) {
+      const allTranslations = {
+        ...translations.countries,
+        ...translations.cities,
+        ...translations.teams,
+      };
+      homeOfficial = allTranslations[homeOfficial] || homeOfficial;
+      awayOfficial = allTranslations[awayOfficial] || awayOfficial;
+    }
+
+    // Conserver le titre original pour les sports sans équipes (F1, etc.)
+    const finalTitle =
+      homeOfficial && awayOfficial
+        ? `${homeOfficial} - ${awayOfficial}`
+        : ev.title;
 
     out.push({
       uid: ev.uid,
-      title: ev.title,
+      title: finalTitle,
       start: ev.start,
       end: ev.end,
       sport: ev.sport,

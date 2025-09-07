@@ -21,12 +21,12 @@
     "sports": ["f1", "rugby", "football"]
   },
   "display": {
-    "theme": "auto",
+    "theme": "retro",
     "defaultTab": "all",
     "sortPreference": "time"
   },
   "favorites": {
-    "teams": ["France", "Stade Toulousain", "FC Barcelona"],
+    "teams": ["France", "Espagne", "Stade Toulousain", "FC Barcelona"],
     "competitions": ["Formule 1", "Top 14", "Ligue 1"]
   }
 }

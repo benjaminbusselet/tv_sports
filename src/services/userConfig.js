@@ -1,7 +1,7 @@
 // Configuration automatique selon l'environnement
 const BASE_URL =
   import.meta.env.MODE === "development"
-    ? "http://localhost:5174" // URL absolue pour debug
+    ? "" // En développement, les fichiers public/ sont à la racine
     : "/tv_sports"; // En production sur GitHub Pages
 
 export async function fetchUserSettings() {

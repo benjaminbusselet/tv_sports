@@ -1,40 +1,51 @@
 // Configuration automatique selon l'environnement
 const BASE_URL =
   import.meta.env.MODE === "development"
-    ? "http://localhost:5174" // URL absolue pour debug
+    ? "" // En développement, les fichiers public/ sont à la racine
     : "/tv_sports"; // En production sur GitHub Pages
 
 export async function fetchEvents({ day, sport }) {
   const dataPath = `${BASE_URL}/data/progs_${day}.json`;
 
-  console.log("🔍 Fetching events:", { day, sport, dataPath });
-
   try {
     const response = await fetch(dataPath);
-    console.log("📡 Response:", response.status, response.statusText);
 
     if (!response.ok)
       throw new Error(`Network response was not ok: ${response.status}`);
 
-    const text = await response.text();
-    console.log("📄 Raw response (first 100 chars):", text.substring(0, 100));
-
-    const events = JSON.parse(text);
-    console.log("✅ Parsed events:", events.length, "events");
+    const events = await response.json();
 
     // Cas "all" : retourner tous les événements sans filtrage
     if (sport === "all") {
       return events;
     }
 
-    // Si sport est "teams", on fait le croisement avec les équipes activées
+    // Si sport est "teams", on fait le croisement avec les équipes favorites
     if (sport === "teams") {
-      const { getTeamNames } = await import("./sources");
-      const teamNames = getTeamNames();
+      const { fetchUserSettings } = await import("./userConfig");
+      const userSettings = await fetchUserSettings();
+      const favoriteTeams = userSettings.favorites?.teams || [];
 
       const teamEvents = events.filter((event) => {
-        const homeMatch = teamNames.includes(event.home);
-        const awayMatch = teamNames.includes(event.away);
+        // Ignorer les événements sans équipes (F1, etc.)
+        if (!event.home && !event.away) return false;
+
+        // Matching simple avec les équipes favorites
+        const homeMatch =
+          event.home &&
+          favoriteTeams.some(
+            (team) =>
+              event.home.toLowerCase().includes(team.toLowerCase()) ||
+              team.toLowerCase().includes(event.home.toLowerCase())
+          );
+        const awayMatch =
+          event.away &&
+          favoriteTeams.some(
+            (team) =>
+              event.away.toLowerCase().includes(team.toLowerCase()) ||
+              team.toLowerCase().includes(event.away.toLowerCase())
+          );
+
         return homeMatch || awayMatch;
       });
       return teamEvents;
