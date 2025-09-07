@@ -213,10 +213,10 @@ export async function fetchIcs(ymd) {
 
   const cfgPath = path.join(__dirname, "../config/icsSources.json");
   const userSettingsPath = path.join(__dirname, "../config/userSettings.json");
-  
+
   const allSources = JSON.parse(await fs.readFile(cfgPath, "utf-8"));
   const userSettings = JSON.parse(await fs.readFile(userSettingsPath, "utf-8"));
-  
+
   const sources = allSources.filter(
     (s) => userSettings.sources.enabled.includes(s.id) && s.url
   );

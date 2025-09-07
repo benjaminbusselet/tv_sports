@@ -10,12 +10,14 @@ import LoadingSpinner from "./components/LoadingSpinner.jsx";
 import { useNotifications } from "./hooks/useNotifications.js";
 import { fetchEvents } from "./services/api.js";
 import { getTeamNames } from "./services/sources.js";
+import { fetchUserSettings } from "./services/userConfig.js";
 import "./components/LoadingSpinner.css";
 
 const teams = getTeamNames();
 
 export default function App() {
   const [sport, setSport] = useState("all");
+  const [userSettings, setUserSettings] = useState(null);
   const [day, setDay] = useState(() => {
     const t = new Date();
     t.setHours(0, 0, 0, 0);
@@ -25,6 +27,17 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [sortType, setSortType] = useState("league"); // "league" ou "time"
+
+  // Charger les préférences utilisateur
+  useEffect(() => {
+    async function loadUserSettings() {
+      const settings = await fetchUserSettings();
+      setUserSettings(settings);
+      // Utiliser l'onglet par défaut configuré
+      setSport(settings.display?.defaultTab || "all");
+    }
+    loadUserSettings();
+  }, []);
 
   useEffect(() => {
     let isCancelled = false;
@@ -142,7 +155,11 @@ export default function App() {
       </header>
       <div className="container">
         <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
-        <SportsTabs value={sport} onChange={setSport} />
+                <SportsTabs 
+          activeSport={sport} 
+          setSport={setSport} 
+          userSettings={userSettings}
+        />
         {showSortToggle && (
           <div className="controls">
             <select

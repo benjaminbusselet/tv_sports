@@ -16,6 +16,31 @@ const endArg = dateArgs[1] || null;
 const outDir = path.join("public", "data");
 await fs.mkdir(outDir, { recursive: true });
 
+// Fonction de nettoyage des anciens fichiers (système glissant 7 jours)
+async function cleanupOldFiles() {
+  try {
+    const files = await fs.readdir(outDir);
+    const progFiles = files
+      .filter((f) => f.startsWith("progs_") && f.endsWith(".json"))
+      .map((f) => f.replace("progs_", "").replace(".json", ""))
+      .sort(); // Tri chronologique YYYYMMDD
+
+    // Garder seulement les 7 derniers jours
+    if (progFiles.length > 7) {
+      const filesToDelete = progFiles.slice(0, progFiles.length - 7);
+      console.log(`🧹 Cleaning up ${filesToDelete.length} old files...`);
+
+      for (const ymd of filesToDelete) {
+        const filePath = path.join(outDir, `progs_${ymd}.json`);
+        await fs.unlink(filePath);
+        console.log(`   🗑️  Deleted progs_${ymd}.json`);
+      }
+    }
+  } catch (error) {
+    console.warn(`⚠️  Warning: Could not cleanup old files:`, error.message);
+  }
+}
+
 const fmtParis = new Intl.DateTimeFormat("sv-SE", {
   timeZone: "Europe/Paris",
   year: "numeric",
@@ -110,6 +135,9 @@ console.log(`🎉 Pipeline build completed!`);
 console.log(`📅 Period: ${start} → ${days.at(-1)}`);
 console.log(`✅ Successful days: ${successfulDays}/${days.length}`);
 console.log(`📊 Total events: ${totalPROGS}`);
+
+// Nettoyage des anciens fichiers (système glissant 7 jours)
+await cleanupOldFiles();
 
 if (failedDays.length > 0) {
   console.log(`❌ Failed days: ${failedDays.join(", ")}`);

@@ -51,6 +51,8 @@ node scripts/epg.js 20250905    # Programmes TV
 node scripts/merge.js 20250905  # Fusion ICS ↔ EPG
 ```
 
+> **🔄 Système glissant** : Le pipeline maintient automatiquement **7 jours de données** en supprimant les fichiers anciens à chaque exécution.
+
 ## 📊 Roadmap
 
 ### ✅ Opérationnel
