@@ -1,0 +1,28 @@
+[
+  {
+    "uid": "QP5LQx7fIZmF4rSG4ZY0EXwUePtdGj4CAhiM9RJi@maak-agenda.nl",
+    "title": "CA Osasuna - Elche CF",
+    "start": "2025-09-25T17:30:00.000Z",
+    "end": "2025-09-25T19:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "CA Osasuna",
+    "away": "Elche CF",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "nqZtwzl0kTG58ge3VHKQd9tuOgdPWXJRAC2iuo7i@maak-agenda.nl",
+    "title": "Real Oviedo - FC Barcelona",
+    "start": "2025-09-25T19:30:00.000Z",
+    "end": "2025-09-25T21:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Oviedo",
+    "away": "FC Barcelona",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  }
+]

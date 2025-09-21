@@ -1,0 +1,54 @@
+[
+  {
+    "uid": "2fWcXA0VtTmSN0wBvsWK8VIUyPDbTkpDVQxBFgRS@maak-agenda.nl",
+    "title": "Athletic de Bilbao - Girona FC",
+    "start": "2025-09-23T17:00:00.000Z",
+    "end": "2025-09-23T18:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Athletic de Bilbao",
+    "away": "Girona FC",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Ulp3Xz0gPl3vNUwOMMUzAU9XdGniHfYw1mDk23dw@maak-agenda.nl",
+    "title": "Espanyol - Valencia",
+    "start": "2025-09-23T17:00:00.000Z",
+    "end": "2025-09-23T18:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Espanyol",
+    "away": "Valencia",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Cdpnx8NlxYdvYS2lrvRAKQS4vJWXg9id0k1P8go0@maak-agenda.nl",
+    "title": "Levante - Real Madrid",
+    "start": "2025-09-23T19:30:00.000Z",
+    "end": "2025-09-23T21:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Levante",
+    "away": "Real Madrid",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "yUU2MAjslFOVuavV3B80PuShF1RY9CodCKZIXXV7@maak-agenda.nl",
+    "title": "Sevilla FC - Villarreal",
+    "start": "2025-09-23T19:30:00.000Z",
+    "end": "2025-09-23T21:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Sevilla FC",
+    "away": "Villarreal",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  }
+]

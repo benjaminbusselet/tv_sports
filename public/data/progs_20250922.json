@@ -1,0 +1,15 @@
+[
+  {
+    "uid": "YTD75vyebxofwRVTXMBhvNVoq48FwQFevT0eDT79@maak-agenda.nl",
+    "title": "Napoli - Pisa",
+    "start": "2025-09-22T18:45:00.000Z",
+    "end": "2025-09-22T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Napoli",
+    "away": "Pisa",
+    "broadcasters": [
+      "DAZN"
+    ]
+  }
+]
