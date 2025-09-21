@@ -55,10 +55,16 @@ jobs:
           echo "📈 Taille des fichiers:"
           du -h public/data/* 2>/dev/null || echo "Aucune donnée"
 
+
       - name: Build frontend
         run: |
           echo "🏗️ Build du frontend React"
           npm run build
+
+      - name: Copy generated data to dist
+        run: |
+          mkdir -p dist/data
+          cp -r public/data/*.json dist/data/ || echo "No JSON to copy"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
