@@ -82,11 +82,7 @@ jobs:
       - name: Commit generated JSON files
         run: |
           echo "📋 Commit des fichiers JSON générés"
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add public/data/*.json
-          git commit -m "Ajout des fichiers JSON générés"
-          git push origin main
+          echo "❌ Étape inutile supprimée pour éviter les erreurs de permission"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
