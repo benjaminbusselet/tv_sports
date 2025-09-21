@@ -43,9 +43,8 @@ jobs:
       - name: Build data pipeline
         run: |
           echo "🚀 Génération des données pour les 7 prochains jours"
-          CURRENT_DATE=$(date +"%Y%m%d")
-          node scripts/merge.js $CURRENT_DATE || {
-            echo "❌ Erreur lors de l'exécution de merge.js";
+          node scripts/build.js || {
+            echo "❌ Erreur lors de l'exécution de build.js";
             exit 1;
           }
 
