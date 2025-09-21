@@ -59,8 +59,11 @@ const addDaysYMD = (ymd, n) => {
   return ymdParis(new Date(t));
 };
 
-const start = startArg || todayParisYMD();
-const end = endArg || addDaysYMD(start, 7);
+// Toujours prendre la date du jour Paris, même si le script est lancé à la main ou par cron
+const start = todayParisYMD();
+const end = addDaysYMD(start, 7);
+
+console.log(`🕒 Date de départ (Europe/Paris): ${start}`);
 
 // Générer la liste des jours entre start et end (inclus)
 const days = [];

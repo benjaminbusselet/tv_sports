@@ -1,12 +1,19 @@
 # Instructions pour TV Sports
 
 ## 📋 Vue d'ensemble
+
 #
+
 # ⚡️ Exigences prioritaires
+
 #
+
 # - Le code doit être le plus concis et compréhensible possible.
+
 # - Aucune supposition : seules les instructions explicites de l'utilisateur sont suivies.
+
 # - Pas de compassion, pas d'émotion : réponses neutres et factuelles.
+
 #
 
 TV Sports est une application qui agrège automatiquement des événements sportifs et des diffusions TV en un flux de données unifié. Le système génère quotidiennement des fichiers JSON (`progs_YYYYMMDD.json`) qui combinent des événements sportifs issus de calendriers ICS avec les grilles de programmes TV des diffuseurs (EPG).
@@ -16,19 +23,21 @@ TV Sports est une application qui agrège automatiquement des événements sport
 Le projet est structuré en deux parties principales :
 
 ### Backend (Node.js)
+
 - **Pipeline de données** (`scripts/build.js`) : Orchestre tout le processus de génération des données
   - **ICS** (`scripts/ics.js`) : Récupère et traite les événements sportifs depuis Fixtur.es
   - **EPG** (`scripts/epg.js`) : Récupère et traite les programmes TV depuis Open-EPG
   - **Merge** (`scripts/merge.js`) : Fusionne les données ICS et EPG avec correspondance intelligente
 
 ### Frontend (React + Vite)
+
 - Interface utilisateur responsive pour afficher les événements sportifs et leurs diffuseurs
 - Filtrage par sport, date et équipes
 
 ## 🔑 Concepts clés
 
 1. **Flux de données en mémoire** : Les données transitent d'un script à l'autre en mémoire (pattern pipe)
-2. **Correspondance ICS ↔ EPG** : 
+2. **Correspondance ICS ↔ EPG** :
    - Pour les sports d'équipe : matching des équipes avec tolérance temporelle ±60min
    - Pour la F1 et sports individuels : matching par titre et horaire (code spécifique dans `merge.js`)
 3. **Normalisation des équipes** : Utilisation de `config/teams.json` pour résoudre les différentes orthographes
