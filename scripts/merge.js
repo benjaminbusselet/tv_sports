@@ -86,12 +86,16 @@ export async function mergeData(ics, epg, teams, ymd) {
     const H = norm(ev.home),
       A = norm(ev.away);
 
-    // Mapper les compétitions par sport pour les sources d'équipe
+    /*     // Mapper les compétitions par sport pour les sources d'équipe
     if (ev.sport === "rugby" && !idx[comp]) {
       comp = "Rugby"; // Forcer la compétition Rugby pour les équipes de rugby
     } else if (ev.sport === "football" && norm(ev.home) === "toulouse fc") {
       comp = "Ligue 1";
-    }
+    } else if (ev.sport === "rugby" && norm(ev.home) === "stade toulousain") {
+      comp = "Rugby";
+    } else {
+      comp = "Ligue 1";
+    } */
 
     // Trouve les candidats EPG matching équipes + fenêtre de temps stricte ±1h
     const cand = (epg || [])
