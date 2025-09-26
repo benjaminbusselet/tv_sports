@@ -113,5 +113,8 @@
     "France": ["France"],
     "Spain": ["Espagne"]
   },
-  "Rugby": { "Stade Toulousain": ["Toulouse"], "France Rugby": ["France"] }
+  "Rugby": {
+    "Stade Toulousain": ["Stade Toulousain"],
+    "France Rugby": ["France"]
+  }
 }

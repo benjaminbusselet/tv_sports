@@ -248,13 +248,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
     // Affichage détaillé pour debug
     if (data.length > 0) {
-      console.log("\n📋 Events found:");
-      data.slice(0, 5).forEach((ev, i) => {
+      console.log("\n📋 Tous les matchs ICS :");
+      data.forEach((ev, i) => {
         console.log(` ${i + 1}. ${ev.title} (${ev.competition})`);
       });
-      if (data.length > 5) {
-        console.log(` ... and ${data.length - 5} more events`);
-      }
     }
   })().catch((e) => {
     console.error("❌ Error:", e.message || String(e));
