@@ -68,12 +68,16 @@ async function checkDataFiles() {
       console.log(`⚠️  Fichiers manquants: ${neededDays.join(", ")}`);
       console.log("🚀 Génération des données manquantes...");
 
-      // Exécuter le pipeline de build
+      // Exécuter le pipeline de build pour les jours manquants
       await new Promise((resolve, reject) => {
-        const buildProcess = spawn("node", ["scripts/build.js"], {
-          stdio: "inherit",
-          cwd: process.cwd(),
-        });
+        const buildProcess = spawn(
+          "node",
+          ["scripts/build.js", ...neededDays],
+          {
+            stdio: "inherit",
+            cwd: process.cwd(),
+          }
+        );
 
         buildProcess.on("close", (code) => {
           if (code === 0) {

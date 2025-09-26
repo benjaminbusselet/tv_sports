@@ -1,0 +1,93 @@
+[
+  {
+    "uid": "0np7sI5Fv2rml4TWBZPO6Frkzr6ng5ao2Ps4UdtV@maak-agenda.nl",
+    "title": "Singapore GP Fp1",
+    "start": "2025-10-03T09:30:00.000Z",
+    "end": "2025-10-03T11:15:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "",
+    "away": "",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "Ay2Jl9HvrLDYrBErNZaER8WOfSsTjhAXWtUp8WXd@maak-agenda.nl",
+    "title": "Singapore GP Fp2",
+    "start": "2025-10-03T13:00:00.000Z",
+    "end": "2025-10-03T14:45:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "",
+    "away": "",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "qdaFIaKwlIYCq3wTPSe28JioMo9zb47irgV6H16T@maak-agenda.nl",
+    "title": "1899 Hoffenheim - 1.FC Köln",
+    "start": "2025-10-03T18:30:00.000Z",
+    "end": "2025-10-03T20:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "1899 Hoffenheim",
+    "away": "1.FC Köln",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "ZQ0CbetVKvFELYgjKkdN2cCCm20XWMmXFQmGKyTW@maak-agenda.nl",
+    "title": "Paris FC - Lorient",
+    "start": "2025-10-03T18:45:00.000Z",
+    "end": "2025-10-03T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Paris FC",
+    "away": "Lorient",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "RO9pV12aOxBFznt827BAnH9zU7SFcpGOJ5o5X37c@maak-agenda.nl",
+    "title": "Hellas Verona FC - US Sassuolo",
+    "start": "2025-10-03T18:45:00.000Z",
+    "end": "2025-10-03T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Hellas Verona FC",
+    "away": "US Sassuolo",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "7hz78iy01jFizm98S3VVxvxPuZwOsHww8dRJv0St@maak-agenda.nl",
+    "title": "CA Osasuna - Getafe",
+    "start": "2025-10-03T19:00:00.000Z",
+    "end": "2025-10-03T20:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "CA Osasuna",
+    "away": "Getafe",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Z2h3CPJMGN1PaOjFpZ5AdaiIjZAe9pwe4GVG0FTL@maak-agenda.nl",
+    "title": "AFC Bournemouth - Fulham",
+    "start": "2025-10-03T19:00:00.000Z",
+    "end": "2025-10-03T20:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "AFC Bournemouth",
+    "away": "Fulham",
+    "broadcasters": [
+      "Canal+"
+    ]
+  }
+]
