@@ -11,13 +11,14 @@
     "Lorient": ["Lorient"],
     "OGC Nice": [],
     "Olympique Lyonnais": [],
-    "Olympique de Marseille": [],
+    "Olympique de Marseille": ["OM", "Marseille"],
     "Paris FC": ["Paris FC"],
     "Paris Saint-Germain": [],
     "RC Strasbourg": [],
     "Stade Brestois 29": [],
     "Stade Rennais": [],
-    "Toulouse": ["Toulouse"]
+    "Toulouse": ["Toulouse"],
+    "Toulouse FC": ["Toulouse Football"]
   },
   "LaLiga": {
     "Athletic de Bilbao": ["Athletic Bilbao"],
@@ -114,7 +115,7 @@
     "Spain": ["Espagne"]
   },
   "Rugby": {
-    "Stade Toulousain": ["Stade Toulousain"],
+    "Stade Toulousain": ["Stade Toulousain", "Toulouse Rugby"],
     "France Rugby": ["France"]
   }
 }
