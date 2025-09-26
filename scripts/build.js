@@ -25,9 +25,12 @@ async function cleanupOldFiles() {
       .map((f) => f.replace("progs_", "").replace(".json", ""))
       .sort(); // Tri chronologique YYYYMMDD
 
-    // Garder seulement les 7 derniers jours
+    // Garder seulement les 7 derniers jours, mais ne jamais supprimer le fichier du jour
+    const today = ymdParis(new Date());
     if (progFiles.length > 7) {
-      const filesToDelete = progFiles.slice(0, progFiles.length - 7);
+      const filesToDelete = progFiles
+        .slice(0, progFiles.length - 7)
+        .filter((ymd) => ymd !== today);
       console.log(`🧹 Cleaning up ${filesToDelete.length} old files...`);
 
       for (const ymd of filesToDelete) {
