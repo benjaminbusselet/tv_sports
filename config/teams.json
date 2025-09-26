@@ -17,8 +17,7 @@
     "RC Strasbourg": [],
     "Stade Brestois 29": [],
     "Stade Rennais": [],
-    "Toulouse": ["Toulouse"],
-    "Toulouse FC": ["Toulouse Football"]
+    "Toulouse": ["Toulouse"]
   },
   "LaLiga": {
     "Athletic de Bilbao": ["Athletic Bilbao"],
@@ -115,7 +114,7 @@
     "Spain": ["Espagne"]
   },
   "Rugby": {
-    "Stade Toulousain": ["Stade Toulousain", "Toulouse Rugby"],
+    "Stade Toulousain": ["Stade Toulousain"],
     "France Rugby": ["France"]
   }
 }
