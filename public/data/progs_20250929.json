@@ -1,0 +1,62 @@
+[
+  {
+    "uid": "v4SqcxXalgNf6yG5pmIx84T1DSbRIcNrCnVytHYX@maak-agenda.nl",
+    "title": "Parma - Torino",
+    "start": "2025-09-29T16:30:00.000Z",
+    "end": "2025-09-29T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Parma",
+    "homeId": "Parma",
+    "away": "Torino",
+    "awayId": "Torino",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "c9nLxKg5phOWnDDYpEiqQtXvexoXzSyDgLNBwj8v@maak-agenda.nl",
+    "title": "FC Genoa - S.S. Lazio",
+    "start": "2025-09-29T18:45:00.000Z",
+    "end": "2025-09-29T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "FC Genoa",
+    "homeId": "FC Genoa",
+    "away": "S.S. Lazio",
+    "awayId": "S.S. Lazio",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "LPc9tMQ8K9w5fBoOg097kdFhXwaKEQAPj8cj7Zsn@maak-agenda.nl",
+    "title": "Valencia - Real Oviedo",
+    "start": "2025-09-29T19:00:00.000Z",
+    "end": "2025-09-29T20:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Valencia",
+    "homeId": "Valencia",
+    "away": "Real Oviedo",
+    "awayId": "Real Oviedo",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "IFcBLqGL1z30QBFVqNikrEkSNtQAWfcO14yksVgM@maak-agenda.nl",
+    "title": "Everton - West Ham United",
+    "start": "2025-09-29T19:00:00.000Z",
+    "end": "2025-09-29T20:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Everton",
+    "homeId": "Everton",
+    "away": "West Ham United",
+    "awayId": "West Ham United",
+    "broadcasters": [
+      "Canal+"
+    ]
+  }
+]

@@ -27,24 +27,12 @@ export async function fetchEvents({ day, sport }) {
       const favoriteTeams = userSettings.favorites?.teams || [];
 
       const teamEvents = events.filter((event) => {
-        // Ignorer les événements sans équipes (F1, etc.)
-        if (!event.home && !event.away) return false;
+        // Ignorer les événements sans identifiant d'équipe (F1, etc.)
+        if (!event.homeId && !event.awayId) return false;
 
-        // Matching simple avec les équipes favorites
-        const homeMatch =
-          event.home &&
-          favoriteTeams.some(
-            (team) =>
-              event.home.toLowerCase().includes(team.toLowerCase()) ||
-              team.toLowerCase().includes(event.home.toLowerCase())
-          );
-        const awayMatch =
-          event.away &&
-          favoriteTeams.some(
-            (team) =>
-              event.away.toLowerCase().includes(team.toLowerCase()) ||
-              team.toLowerCase().includes(event.away.toLowerCase())
-          );
+        // Matching fiable avec les identifiants uniques
+        const homeMatch = event.homeId && favoriteTeams.includes(event.homeId);
+        const awayMatch = event.awayId && favoriteTeams.includes(event.awayId);
 
         return homeMatch || awayMatch;
       });

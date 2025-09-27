@@ -80,22 +80,29 @@ export async function mergeData(ics, epg, teams, ymd) {
     return h && a ? { ch: p.channel, h, a, st: p.start } : null;
   };
 
+  // Seuls les événements issus des ICS sont conservés
   const out = [];
   for (const ev of ics || []) {
     let comp = ev.competition;
     const H = norm(ev.home),
       A = norm(ev.away);
 
-    /*     // Mapper les compétitions par sport pour les sources d'équipe
-    if (ev.sport === "rugby" && !idx[comp]) {
-      comp = "Rugby"; // Forcer la compétition Rugby pour les équipes de rugby
-    } else if (ev.sport === "football" && norm(ev.home) === "toulouse fc") {
-      comp = "Ligue 1";
-    } else if (ev.sport === "rugby" && norm(ev.home) === "stade toulousain") {
-      comp = "Rugby";
-    } else {
-      comp = "Ligue 1";
-    } */
+    // Correction du mapping de la compétition pour garantir la bonne association
+    if (ev.sport === "rugby") {
+      // Si la compétition n'est pas reconnue dans teams.json, on force "Rugby"
+      if (!idx[comp]) {
+        comp = "Rugby";
+      }
+      // Si l'équipe est Stade Toulousain ou alias, on force "Rugby"
+      if (["stade toulousain", "toulouse", "toulouse rugby"].includes(H)) {
+        comp = "Rugby";
+      }
+    } else if (ev.sport === "football") {
+      // Si l'équipe est Toulouse FC ou alias, on force "Ligue 1"
+      if (["toulouse fc", "toulouse"].includes(H)) {
+        comp = "Ligue 1";
+      }
+    }
 
     // Trouve les candidats EPG matching équipes + fenêtre de temps stricte ±1h
     const cand = (epg || [])
@@ -179,7 +186,9 @@ export async function mergeData(ics, epg, teams, ymd) {
       sport: ev.sport,
       competition: comp,
       home: homeOfficial,
+      homeId: m[norm(ev.home)] || homeOfficial, // identifiant unique issu du mapping
       away: awayOfficial,
+      awayId: m[norm(ev.away)] || awayOfficial, // identifiant unique issu du mapping
       broadcasters: chan ? [chan] : [],
     });
   }

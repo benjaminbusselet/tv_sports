@@ -11,7 +11,7 @@
     "Lorient": ["Lorient"],
     "OGC Nice": [],
     "Olympique Lyonnais": [],
-    "Olympique de Marseille": ["OM", "Marseille"],
+    "Olympique de Marseille": ["Marseille"],
     "Paris FC": ["Paris FC"],
     "Paris Saint-Germain": [],
     "RC Strasbourg": [],
@@ -114,7 +114,12 @@
     "Spain": ["Espagne"]
   },
   "Rugby": {
-    "Stade Toulousain": ["Stade Toulousain"],
+    "Stade Toulousain": [
+      "Stade Toulousain",
+      "Toulouse",
+      "Toulouse Rugby",
+      "Stade Toulousain Rugby"
+    ],
     "France Rugby": ["France"]
   }
 }

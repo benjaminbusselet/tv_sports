@@ -5,7 +5,6 @@ import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
 import EventsGrouped from "./components/EventsGrouped.jsx";
-import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
 import LoadingSpinner from "./components/LoadingSpinner.jsx";
 import { useNotifications } from "./hooks/useNotifications.js";
 import { fetchEvents } from "./services/api.js";
@@ -150,7 +149,6 @@ export default function App() {
               Activer les notifications
             </button>
           )}
-          <ThemeSwitcher />
         </div>
       </header>
       <div className="container">
