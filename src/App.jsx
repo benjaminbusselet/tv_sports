@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import "./styles.css";
+// import "./styles.css"; // CSS supprimé - repartir de zéro
 import SportsTabs from "./components/SportsTabs.jsx";
 import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
 import EventsGrouped from "./components/EventsGrouped.jsx";
+import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
 import LoadingSpinner from "./components/LoadingSpinner.jsx";
 import { useNotifications } from "./hooks/useNotifications.js";
 import { fetchEvents } from "./services/api.js";
 import { getTeamNames } from "./services/sources.js";
 import { fetchUserSettings } from "./services/userConfig.js";
-import "./components/LoadingSpinner.css";
+// import "./components/LoadingSpinner.css"; // CSS supprimé - repartir de zéro
 
 const teams = getTeamNames();
 
@@ -149,6 +150,7 @@ export default function App() {
               Activer les notifications
             </button>
           )}
+          <ThemeSwitcher />
         </div>
       </header>
       <div className="container">

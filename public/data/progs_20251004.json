@@ -60,21 +60,6 @@
     ]
   },
   {
-    "uid": "7Xs226WCtQ5ysOMREeWUTM80VvUrwIQLp3g7loqt@maak-agenda.nl",
-    "title": "S.S. Lazio - Torino",
-    "start": "2025-10-04T13:00:00.000Z",
-    "end": "2025-10-04T14:45:00.000Z",
-    "sport": "football",
-    "competition": "Serie A",
-    "home": "S.S. Lazio",
-    "homeId": "S.S. Lazio",
-    "away": "Torino",
-    "awayId": "Torino",
-    "broadcasters": [
-      "DAZN"
-    ]
-  },
-  {
     "uid": "RC3itcNsusMyUuO1TaZoFDZsPxfMBDL4ZLKO62Mr@maak-agenda.nl",
     "title": "Parma - Lecce",
     "start": "2025-10-04T13:00:00.000Z",
@@ -195,34 +180,6 @@
     ]
   },
   {
-    "uid": "ZwbYlRi3WdGa0UDmPTmzhH8ianFQymQZ7D21wzcI@maak-agenda.nl",
-    "title": "FC Metz - Olympique Marseille",
-    "start": "2025-10-04T15:00:00.000Z",
-    "end": "2025-10-04T16:45:00.000Z",
-    "sport": "football",
-    "competition": "Ligue 1",
-    "home": "FC Metz",
-    "homeId": "FC Metz",
-    "away": "Olympique Marseille",
-    "awayId": "Olympique Marseille",
-    "broadcasters": [
-      "beIN SPORTS 1"
-    ]
-  },
-  {
-    "uid": "ZwbYlRi3WdGa0UDmPTmzhH8ianFQymQZ7D21wzcI@maak-agenda.nl",
-    "title": "FC Metz - Olympique Marseille",
-    "start": "2025-10-04T15:00:00.000Z",
-    "end": "2025-10-04T16:45:00.000Z",
-    "sport": "football",
-    "competition": "Olympique de Marseille",
-    "home": "FC Metz",
-    "homeId": "FC Metz",
-    "away": "Olympique Marseille",
-    "awayId": "Olympique Marseille",
-    "broadcasters": []
-  },
-  {
     "uid": "EhjUQRIeEGqltO37xEtSNUhYiF6LF7qco3w2rgRk@maak-agenda.nl",
     "title": "Inter - Cremonese",
     "start": "2025-10-04T16:00:00.000Z",
@@ -283,21 +240,6 @@
     ]
   },
   {
-    "uid": "7lh9MMODksauOMzdVKZsLVI19VJf719cYLBkdDed@maak-agenda.nl",
-    "title": "Stade Brestois 29 - FC Nantes",
-    "start": "2025-10-04T17:00:00.000Z",
-    "end": "2025-10-04T18:45:00.000Z",
-    "sport": "football",
-    "competition": "Ligue 1",
-    "home": "Stade Brestois 29",
-    "homeId": "Stade Brestois 29",
-    "away": "FC Nantes",
-    "awayId": "FC Nantes",
-    "broadcasters": [
-      "Ligue 1+"
-    ]
-  },
-  {
     "uid": "LuzBcnVv1YLtRqlxvIPeg8xGJEd13FTRZWRmqtIO@maak-agenda.nl",
     "title": "Atalanta - Como",
     "start": "2025-10-04T18:45:00.000Z",
@@ -325,21 +267,6 @@
     "awayId": "Villarreal",
     "broadcasters": [
       "beIN Sports"
-    ]
-  },
-  {
-    "uid": "tFFevEiiYlFyomUCpyDWUbbLMwaWuefTeq36Oubb@maak-agenda.nl",
-    "title": "Auxerre - Lens",
-    "start": "2025-10-04T19:05:00.000Z",
-    "end": "2025-10-04T20:50:00.000Z",
-    "sport": "football",
-    "competition": "Ligue 1",
-    "home": "Auxerre",
-    "homeId": "Auxerre",
-    "away": "Lens",
-    "awayId": "Lens",
-    "broadcasters": [
-      "Ligue 1+"
     ]
   }
 ]

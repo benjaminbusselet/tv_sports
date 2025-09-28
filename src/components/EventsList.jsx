@@ -1,4 +1,4 @@
-import "./Events.css";
+// import "./Events.css"; // CSS supprimé - repartir de zéro
 
 export default function EventsList({ events = [] }) {
   const isIos26 = document.body.classList.contains("theme-ios26");
