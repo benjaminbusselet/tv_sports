@@ -59,14 +59,11 @@ export default function EventsList({ events = [], grouped = false }) {
         elements.push(
           <article key={(ev.uid || "") + ev.start + ev.title} className="card">
             <div className="event-line">
-              <h3>
-                {time} - {ev.title}
-              </h3>
-              <div className="broadcasters">
-                {ev.broadcasters?.length > 0
-                  ? ev.broadcasters.join(", ")
-                  : "\u00A0"}
-              </div>
+              <span className="event-time">{time}</span>
+              <span className="event-title">{ev.title}</span>
+              <span className="event-broadcasters">
+                {ev.broadcasters?.join(", ") || ""}
+              </span>
             </div>
           </article>
         );
@@ -92,16 +89,17 @@ export default function EventsList({ events = [], grouped = false }) {
             className="card"
             tabIndex={0}
           >
-            <div className="event-title">
-              {time} – {ev.title}
+            <div className="event-line">
+              <span className="event-time">{time}</span>
+              <span className="event-title">{ev.title}</span>
+              <span className="event-broadcasters">
+                {ev.broadcasters?.join(", ") || ""}
+              </span>
               {ev.status && (
                 <span className={`status-badge status-${ev.status}`}>
                   {ev.status === "live" ? "Live" : ev.status === "upcoming" ? "À venir" : "Terminé"}
                 </span>
               )}
-            </div>
-            <div className="event-subtitle">
-              {ev.competition} · {ev.broadcasters?.join(", ")}
             </div>
           </article>
         );

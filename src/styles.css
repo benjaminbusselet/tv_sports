@@ -1,1 +1,396 @@
-/* CSS vide - prêt pour reconstruction */
+/* Minimal theme CSS : uniquement variables de fond et application
+   Seules les variables de fond 'light' et 'dark' sont conservées.
+
+   Règles :
+   - :root définit --bg-light, --bg-dark et --bg-color (default = light)
+   - body.dark passe --bg-color en dark
+   - body et #root utilisent --bg-color comme background
+*/
+
+:root {
+  --bg-light: #E6F2FF;
+  --bg-dark:  #1E3A8A;
+  --bg-color: var(--bg-light);
+  --radius-corner: 16px;
+  --shadow-soft: 0 4px 24px -8px rgba(30,58,138,0.1);
+  --color-border-light: rgba(30,58,138,0.3);
+  --color-background-light-opacity: 0.9;
+  --backdrop-blur: blur(12px);
+}
+
+body.dark {
+  --bg-color: var(--bg-dark);
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body, #root {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+/* Texte inversé par thème :
+   - en light, utiliser la couleur du background dark pour le texte
+   - en dark, utiliser la couleur du background light pour le texte
+*/
+:root {
+  --text-from-bg: var(--bg-dark); /* valeur par défaut pour light */
+}
+
+body.dark {
+  --text-from-bg: var(--bg-light);
+}
+
+body, #root {
+  color: var(--text-from-bg);
+}
+
+/* ==========================
+   Header styles (isolé)
+   ========================== */
+
+/* Header-specific variables (utilisent les couleurs de fond définies) */
+:root {
+  --header-bg: rgba(230, 242, 255, 0.6); /* derived from --bg-light */
+  --header-border: rgba(16, 24, 40, 0.06);
+  --header-shadow: 0 8px 24px rgba(16,24,40,0.06);
+  --focus-ring: rgba(30,58,138,0.12);
+}
+
+body.dark {
+  --header-bg: rgba(30, 58, 138, 0.42); /* derived from --bg-dark */
+  --header-border: rgba(255,255,255,0.06);
+  --header-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  --focus-ring: rgba(230,242,255,0.12);
+}
+
+/* ensure chips pick dark mode UI variables */
+body.dark .header .days-chips .chip {
+  background-color: var(--ui-bg-dark);
+  color: var(--ui-text-dark);
+  border: 2px solid var(--ui-border-dark);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  margin: 0.75rem 1rem;
+  border-radius: 16px;
+  background: var(--header-bg);
+  border: 1px solid var(--header-border);
+  box-shadow: var(--header-shadow);
+  /* Glass effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.header > h1 { grid-column: 1 / 2; }
+.header > .days-navigation { grid-column: 2 / 3; }
+.header > .header-actions { grid-column: 3 / 4; }
+
+.header h1 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+  color: inherit; /* use theme text color */
+  /* Ensure title stays left */
+  flex: 0 0 auto;
+  text-align: left;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+/* Center area in header: frise (days-chips) on desktop, dropdown (days-select) on mobile */
+.header .days-navigation {
+  /* center area: allow it to grow and center children */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  justify-self: center;
+  min-width: 0; /* allow truncation */
+  max-width: 60%;
+  flex-wrap: nowrap;
+}
+
+/* Desktop: show chips (frise) */
+.header .days-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  /* subtle glass for the chips area using global backdrop variable */
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+}
+
+.header .days-navigation > * { display: inline-flex; align-items: center; }
+
+.header h1 { white-space: nowrap; }
+
+.header .days-chips .chip {
+  /* reuse UI surface foundation */
+  padding: 0.35rem 0.6rem; /* conserve proportions */
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 160ms ease, transform 120ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  border-radius: var(--ui-radius);
+  backdrop-filter: var(--ui-backdrop);
+  -webkit-backdrop-filter: var(--ui-backdrop);
+  opacity: var(--ui-opacity);
+  /* stronger multi-layer shadow for deeper relief */
+  box-shadow: 0 8px 32px -8px rgba(30,58,138,0.16), 0 2px 8px rgba(16,24,40,0.04);
+  /* pick mode-aware background/color/border from variables */
+  background-color: var(--ui-bg-light);
+  color: var(--ui-text-light);
+  border: 2px solid var(--ui-border-light);
+  position: relative; /* for ::before highlight */
+}
+
+.header .days-chips .chip:hover,
+.header .days-chips .chip:focus {
+  filter: saturate(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 44px -12px rgba(30,58,138,0.18), 0 4px 12px rgba(16,24,40,0.06);
+}
+
+.header .days-chips .chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* glow and highlight */
+.header .days-chips .chip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06));
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* light mode glow */
+.header .days-chips .chip {
+  box-shadow: 0 8px 32px -8px rgba(30,58,138,0.16), 0 2px 8px rgba(16,24,40,0.04), 0 0 12px 3px #BBFFCC33;
+}
+
+/* dark mode glow */
+body.dark .header .days-chips .chip {
+  box-shadow: 0 8px 32px -8px rgba(30,58,138,0.16), 0 2px 8px rgba(0,0,0,0.2), 0 0 12px 3px #2360C033;
+}
+
+/* Mobile: show select dropdown */
+.header .days-select {
+  display: none; /* default hidden on desktop */
+}
+
+/* The DayStrip component assigns the class to the <select> element itself
+   so cover both cases: a wrapper (.days-select select) and the select.days-select */
+.header .days-select select,
+.header select.days-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  cursor: pointer;
+  transition: background 160ms ease, box-shadow 160ms ease;
+}
+
+.header .days-select select:hover,
+.header .days-select select:focus,
+.header select.days-select:hover,
+.header select.days-select:focus {
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  outline: none;
+}
+
+/* Visibility breakpoints */
+@media (min-width: 768px) {
+  /* Desktop: show frise, hide dropdown */
+  .header .days-chips { display: flex; }
+  .header .days-select { display: none; }
+}
+
+@media (max-width: 767px) {
+  /* Mobile: hide frise, show dropdown */
+  .header { padding: 0.5rem 0.75rem; margin: 0.5rem; }
+  .header h1 { font-size: 1rem; }
+  .header .days-chips { display: none; }
+  .header .days-select { display: block; }
+  /* Make sure center area doesn't push title away on small screens */
+  .header .days-navigation { margin: 0 0.5rem; }
+}
+
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.6rem;
+  min-width: 40px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.theme-switcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16,24,40,0.08);
+  background: rgba(255,255,255,0.06);
+}
+
+.theme-switcher:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+  border-color: rgba(0,0,0,0.06);
+}
+
+/* Accessible focus visible for keyboard users */
+.theme-switcher:focus-visible {
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* =====================================
+   General-purpose UI surface (buttons/cards)
+   This is a reusable visual foundation that can be applied later
+   via an attribute (ex: <div data-ui-surface>) or a class.
+   Do not attach to any specific element by default.
+   ===================================== */
+
+:root {
+  --ui-bg-light: #BBFFCC; /* pastel green */
+  --ui-text-light: #192655; /* dark obsidian blue */
+  --ui-bg-dark:  #122142; /* dark obsidian */
+  --ui-text-dark: #BBFFCC; /* pastel green */
+  --ui-border-light: #82FFD3;
+  --ui-border-dark: #2360C0;
+  --ui-radius: 16px;
+  --ui-backdrop: blur(8px);
+  --ui-opacity: 0.95;
+  --ui-shadow: 0 4px 24px -8px rgba(30,58,138,0.08);
+}
+
+/* Default (light) -- to be overridden by body.dark */
+[data-ui-surface] {
+  background-color: var(--ui-bg-light);
+  color: var(--ui-text-light);
+  border: 2px solid var(--ui-border-light);
+  border-radius: var(--ui-radius);
+  backdrop-filter: var(--ui-backdrop);
+  -webkit-backdrop-filter: var(--ui-backdrop);
+  opacity: var(--ui-opacity);
+  box-shadow: var(--ui-shadow);
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 120ms ease, border-color 160ms ease;
+}
+
+body.dark [data-ui-surface] {
+  background-color: var(--ui-bg-dark);
+  color: var(--ui-text-dark);
+  border: 2px solid var(--ui-border-dark);
+}
+
+[data-ui-surface]:hover {
+  filter: saturate(1.03);
+  box-shadow: 0 8px 28px -10px rgba(30,58,138,0.12);
+  transform: translateY(-2px);
+}
+
+[data-ui-surface]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px var(--focus-ring);
+}
+
+/* Utility: small surface variant (cards vs buttons can tweak padding)
+   Not mandatory; components will adjust as needed. */
+[data-ui-surface].surface-sm {
+  padding: 0.4rem 0.6rem;
+}
+
+/* Apply amplified visual style to event cards (reuse UI variables) */
+.card {
+  border-radius: var(--ui-radius);
+  background-color: var(--ui-bg-light);
+  color: var(--ui-text-light);
+  border: 2px solid var(--ui-border-light);
+  backdrop-filter: var(--ui-backdrop);
+  -webkit-backdrop-filter: var(--ui-backdrop);
+  opacity: var(--ui-opacity);
+  padding: 0.6rem;
+  box-shadow: 0 12px 48px -12px rgba(30,58,138,0.18), 0 4px 14px rgba(16,24,40,0.06), 0 0 18px 4px #BBFFCC33;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 40%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06));
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 64px -20px rgba(30,58,138,0.22), 0 8px 20px rgba(16,24,40,0.08), 0 0 28px 6px #BBFFCC44;
+}
+
+body.dark .card {
+  background-color: var(--ui-bg-dark);
+  color: var(--ui-text-dark);
+  border: 2px solid var(--ui-border-dark);
+  box-shadow: 0 12px 48px -12px rgba(30,58,138,0.18), 0 4px 14px rgba(0,0,0,0.2), 0 0 18px 4px #2360C033;
+}
+
+.card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px var(--focus-ring);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-switcher { height: 32px; min-width: 36px; padding: 0.25rem 0.5rem; }
+}

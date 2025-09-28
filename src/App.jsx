@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-// import "./styles.css"; // CSS supprimé - repartir de zéro
+import "./styles.css";
 import SportsTabs from "./components/SportsTabs.jsx";
 import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
@@ -134,6 +134,8 @@ export default function App() {
     <>
       <header className="header">
         <h1>TV Sports</h1>
+        {/* Centred day navigation (frise / select) moved into header */}
+        <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
         <div className="header-actions">
           {permission !== "granted" && (
             <button
@@ -147,7 +149,6 @@ export default function App() {
         </div>
       </header>
       <div className="container">
-        <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
                 <SportsTabs 
           activeSport={sport} 
           setSport={setSport} 
