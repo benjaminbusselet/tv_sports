@@ -4,7 +4,6 @@ import SportsTabs from "./components/SportsTabs.jsx";
 import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
-import EventsGrouped from "./components/EventsGrouped.jsx";
 import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
 import LoadingSpinner from "./components/LoadingSpinner.jsx";
 import { useNotifications } from "./hooks/useNotifications.js";
@@ -133,15 +132,9 @@ export default function App() {
 
   return (
     <>
-      <header
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <header className="header">
         <h1>TV Sports</h1>
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <div className="header-actions">
           {permission !== "granted" && (
             <button
               className="notifyBtn"
@@ -177,10 +170,8 @@ export default function App() {
           <LoadingSpinner />
         ) : dayEvents.length === 0 ? (
           <div className="no-events">Aucun événement pour ce jour</div>
-        ) : showGrouped ? (
-          <EventsGrouped events={dayEvents} />
         ) : (
-          <EventsList events={dayEvents} />
+          <EventsList events={dayEvents} grouped={showGrouped} />
         )}
       </div>
     </>

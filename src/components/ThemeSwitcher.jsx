@@ -31,14 +31,7 @@ export default function ThemeSwitcher() {
   return (
     <button 
       onClick={toggleTheme}
-      style={{
-        background: 'none',
-        border: '1px solid #ccc',
-        borderRadius: '6px',
-        padding: '8px 12px',
-        cursor: 'pointer',
-        fontSize: '14px'
-      }}
+      className="theme-switcher"
       title={`Passer au thème ${theme === 'light' ? 'sombre' : 'clair'}`}
     >
       {theme === 'light' ? '🌙' : '☀️'}

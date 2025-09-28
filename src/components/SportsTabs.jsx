@@ -41,18 +41,14 @@ export default function SportsTabs({ activeSport, setSport, userSettings }) {
   ];
 
   return (
-    <nav className={document.body.classList.contains("theme-ios26") ? "pills-ios26" : "tabs"} role="tablist" aria-label="Sports">
+    <nav className="tabs" role="tablist" aria-label="Sports">
       {tabs.map((tab) => (
         <button
           key={tab.id}
           role="tab"
-          className={document.body.classList.contains("theme-ios26") ? "pill-ios26" : "tab"}
+          className="tab"
           aria-selected={activeSport === tab.id}
           onClick={() => setSport(tab.id)}
-          style={document.body.classList.contains("theme-ios26") ? {
-            transition: "box-shadow 0.2s var(--lg-pill-morph), background 0.2s, transform 0.18s var(--lg-pill-morph)",
-            fontFamily: "SF Pro Display, Inter, Arial, sans-serif"
-          } : {}}
         >
           {tab.label}
         </button>

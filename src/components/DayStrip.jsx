@@ -31,17 +31,13 @@ export default function DayStrip({ value, onChange, countsByDay = {} }) {
       </select>
 
       {/* Version desktop: pills glassmorphism */}
-      <nav className={document.body.classList.contains("theme-ios26") ? "pills-ios26" : "days-chips"} aria-label="Jours">
+      <nav className="days-chips" aria-label="Jours">
         {days.map(({ key, label: labelText, count }) => (
           <button
             key={key}
-            className={document.body.classList.contains("theme-ios26") ? "pill-ios26" : "chip"}
+            className="chip"
             aria-selected={value === key}
             onClick={() => onChange(key)}
-            style={document.body.classList.contains("theme-ios26") ? {
-              transition: "box-shadow 0.2s var(--lg-pill-morph), background 0.2s, transform 0.18s var(--lg-pill-morph)",
-              fontFamily: "SF Pro Display, Inter, Arial, sans-serif"
-            } : {}}
           >
             {labelText}
             {count ? ` (${count})` : ""}
