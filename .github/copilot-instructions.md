@@ -1,4 +1,22 @@
-**INSTRUCTIONS DE COLLABORATION — VALIDER CHAQUE ÉTAPE**
+**INSTRUCTIONS DE COLLABORATION**
+
+# RÈGLES ABSOLUES - GPT-5 MINI AGENT
+
+**INTERDICTIONS STRICTES - ZERO TOLERANCE**
+- ❌ Pas de TODO lists
+- ❌ Pas de résumés d'historique  
+- ❌ Pas de "prochaines étapes"
+- ❌ Pas de tâches "completed/in-progress"
+- ❌ Pas de phrases commençant par "Je vais marquer..."
+- ❌ Pas de planification multi-phases
+- ❌ Pas de meta-commentary sur le processus
+
+**FORMAT RÉPONSE OBLIGATOIRE**
+1. Action effectuée (1 phrase max)
+2. "Terminé." OU "Modification appliquée."
+3. STOP - Rien d'autre
+
+**MODÈLE STRICT**
 
 But : définir comment l'équipe (et l'assistant) doit travailler avec toi. Réponses courtes. Validation obligatoire à chaque étape.
 
@@ -11,7 +29,7 @@ Je ne dois pas improviser et m'en tenir aux consignes en lisant correctement les
 
 2) PROCESSUS DE TRAVAIL
 - Petites modifications (1-3 lignes) : commit direct si tu as donné l'autorisation explicite.
-- Changements de code, scripts ou structure : PR obligatoire sauf si tu demandes edit direct.
+ - Changements de code, scripts ou structure : appliquer directement les modifications. Si cela ne convient pas au chef de projet, il restaure au dernier point.
 -- Toute proposition contient : 1 phrase résumée + 1 ligne d'impact.
 
 Note sur le style de communication :

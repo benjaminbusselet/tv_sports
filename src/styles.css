@@ -1,79 +1,160 @@
-/* Minimal theme CSS : uniquement variables de fond et application
-   Seules les variables de fond 'light' et 'dark' sont conservées.
+/* Minimal theme CSS avec structure corrigée */
 
-   Règles :
-   - :root définit --bg-light, --bg-dark et --bg-color (default = light)
-   - body.dark passe --bg-color en dark
-   - body et #root utilisent --bg-color comme background
-*/
+/* ===============================
+   VARIABLES GLOBALES CENTRALISÉES
+   =============================== */
 
 :root {
-  --bg-light: #E6F2FF;
-  --bg-dark:  #1E3A8A;
+  /* Background theme */
+  --bg-light: #e6f2ff;
+  --bg-dark: #1e3a8a;
   --bg-color: var(--bg-light);
+  --text-from-bg: var(--bg-dark);
+
+  /* Core design tokens */
   --radius-corner: 16px;
-  --shadow-soft: 0 4px 24px -8px rgba(30,58,138,0.1);
-  --color-border-light: rgba(30,58,138,0.3);
-  --color-background-light-opacity: 0.9;
+  --shadow-soft: 0 4px 24px -8px rgba(30, 58, 138, 0.1);
   --backdrop-blur: blur(12px);
+
+  /* iOS26 UI palette */
+  --ui-bg-light: #bbffcc;
+  --ui-text-light: #192655;
+  --ui-border-light: #82ffd3;
+  --ui-bg-light: #95d9b8;
+  --ui-bg-dark: #0c1632;
+  --ui-text-dark: #bbffcc;
+  --ui-border-dark: #2360c0;
+  --ui-bg: var(--ui-bg-light);
+  --ui-text: var(--ui-text-light);
+  --ui-border: var(--ui-border-light);
+
+  /* Surface aliases */
+  --surface-radius: var(--radius-corner);
+  --surface-shadow: var(--shadow-soft);
+  --surface-blur: var(--backdrop-blur);
+  --surface-opacity: 0.95;
+
+  /* Header/tabs variables */
+  --header-bg: rgba(230, 242, 255, 0.6);
+  --header-border: rgba(16, 24, 40, 0.06);
+  --header-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+  --focus-ring: rgba(30, 58, 138, 0.12);
+
+  /* UI system variables */
+  --ui-radius: 16px;
+  --ui-backdrop: blur(8px);
+  --ui-opacity: 0.95;
+  --ui-shadow: 0 4px 24px -8px rgba(30, 58, 138, 0.08);
+  --ui-shadow-strong: 0 8px 32px -8px rgba(30, 58, 138, 0.16);
+
+  /* TYPOGRAPHIE iOS26 */
+  --font-system: system-ui, -apple-system, 'Inter', 'Roboto', 'Segoe UI',
+    sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Legacy variables conservées */
+  --color-border-light: rgba(30, 58, 138, 0.3);
+  --color-background-light-opacity: 0.9;
+
+  body.dark {
+    /* Theme overrides */
+    --bg-color: var(--bg-dark);
+    --text-from-bg: var(--bg-light);
+    --ui-bg: var(--ui-bg-dark);
+    --ui-text: var(--ui-text-dark);
+    --ui-border: var(--ui-border-dark);
+
+    /* Header dark mode variables */
+    --header-bg: rgba(30, 58, 138, 0.42);
+    --header-border: rgba(255, 255, 255, 0.06);
+    --header-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    --focus-ring: rgba(230, 242, 255, 0.12);
+  }
 }
 
-body.dark {
-  --bg-color: var(--bg-dark);
-}
+/* ===============================
+   BASE STYLES
+   =============================== */
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-body, #root {
+body,
+#root {
   background-color: var(--bg-color);
   min-height: 100vh;
-}
-
-/* Texte inversé par thème :
-   - en light, utiliser la couleur du background dark pour le texte
-   - en dark, utiliser la couleur du background light pour le texte
-*/
-:root {
-  --text-from-bg: var(--bg-dark); /* valeur par défaut pour light */
-}
-
-body.dark {
-  --text-from-bg: var(--bg-light);
-}
-
-body, #root {
   color: var(--text-from-bg);
+  font-family: var(--font-system);
+  font-size: var(--text-base);
 }
 
-/* ==========================
-   Header styles (isolé)
-   ========================== */
+/* ===============================
+   UTILITAIRES SURFACE (LIQUID GLASS)
+   =============================== */
 
-/* Header-specific variables (utilisent les couleurs de fond définies) */
-:root {
-  --header-bg: rgba(230, 242, 255, 0.6); /* derived from --bg-light */
-  --header-border: rgba(16, 24, 40, 0.06);
-  --header-shadow: 0 8px 24px rgba(16,24,40,0.06);
-  --focus-ring: rgba(30,58,138,0.12);
+.surface-bar {
+  border-radius: var(--surface-radius);
+  background: color-mix(in oklab, var(--ui-bg) 12%, transparent);
+  border: 1.5px solid color-mix(in oklab, var(--ui-border) 60%, #ffffff 20%);
+  box-shadow: 0 8px 32px -8px rgba(30, 58, 138, 0.16),
+    0 2px 8px rgba(16, 24, 40, 0.04);
+  backdrop-filter: var(--surface-blur);
+  -webkit-backdrop-filter: var(--surface-blur);
 }
 
-body.dark {
-  --header-bg: rgba(30, 58, 138, 0.42); /* derived from --bg-dark */
-  --header-border: rgba(255,255,255,0.06);
-  --header-shadow: 0 8px 24px rgba(0,0,0,0.18);
-  --focus-ring: rgba(230,242,255,0.12);
+.surface-chip {
+  position: relative;
+  border-radius: var(--surface-radius);
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+  border: 2px solid var(--ui-border);
+  box-shadow: 0 8px 32px -8px rgba(30, 58, 138, 0.16),
+    0 2px 8px rgba(16, 24, 40, 0.04),
+    0 0 12px 3px color-mix(in oklab, var(--ui-bg) 40%, transparent);
 }
 
-/* ensure chips pick dark mode UI variables */
-body.dark .header .days-chips .chip {
-  background-color: var(--ui-bg-dark);
-  color: var(--ui-text-dark);
-  border: 2px solid var(--ui-border-dark);
+.surface-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 55% 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.06)
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
 }
+
+body.dark .surface-chip {
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+  border: 2px solid var(--ui-border);
+  box-shadow: 0 8px 32px -8px rgba(30, 58, 138, 0.16),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 12px 3px color-mix(in oklab, var(--ui-border) 45%, transparent);
+}
+
+/* ===============================
+   HEADER STYLES
+   =============================== */
 
 .header {
   display: grid;
@@ -85,26 +166,32 @@ body.dark .header .days-chips .chip {
   border-radius: 16px;
   background: var(--header-bg);
   border: 1px solid var(--header-border);
-  box-shadow: var(--header-shadow);
-  /* Glass effect */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  box-shadow: var(--header-shadow), 0 0 24px 8px #bbffcc33;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0.93;
+  transition: background-color 220ms ease, box-shadow 220ms ease,
+    border-color 220ms ease;
   position: relative;
   white-space: nowrap;
 }
 
-.header > h1 { grid-column: 1 / 2; }
-.header > .days-navigation { grid-column: 2 / 3; }
-.header > .header-actions { grid-column: 3 / 4; }
+.header > h1 {
+  grid-column: 1 / 2;
+}
+.header > .days-navigation {
+  grid-column: 2 / 3;
+}
+.header > .header-actions {
+  grid-column: 3 / 4;
+}
 
 .header h1 {
   margin: 0;
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
   line-height: 1;
-  color: inherit; /* use theme text color */
-  /* Ensure title stays left */
+  color: inherit;
   flex: 0 0 auto;
   text-align: left;
 }
@@ -116,58 +203,62 @@ body.dark .header .days-chips .chip {
   flex: 0 0 auto;
 }
 
-/* Center area in header: frise (days-chips) on desktop, dropdown (days-select) on mobile */
 .header .days-navigation {
-  /* center area: allow it to grow and center children */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   justify-self: center;
-  min-width: 0; /* allow truncation */
+  min-width: 0;
   max-width: 60%;
   flex-wrap: nowrap;
 }
 
-/* Desktop: show chips (frise) */
 .header .days-chips {
   display: flex;
   gap: 0.5rem;
   flex-wrap: nowrap;
   align-items: center;
-  /* subtle glass for the chips area using global backdrop variable */
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
 }
 
-.header .days-navigation > * { display: inline-flex; align-items: center; }
+.header .days-navigation > * {
+  display: inline-flex;
+  align-items: center;
+}
 
-.header h1 { white-space: nowrap; }
-
+/* Styles des puces jours */
 .header .days-chips .chip {
-  /* reuse UI surface foundation */
-  padding: 0.35rem 0.6rem; /* conserve proportions */
-  font-size: 0.9rem;
+  position: relative;
+  padding: 0.35rem 0.6rem;
+  font-size: var(--text-sm);
   cursor: pointer;
-  transition: background 160ms ease, transform 120ms ease, border-color 160ms ease, box-shadow 160ms ease;
-  border-radius: var(--ui-radius);
-  backdrop-filter: var(--ui-backdrop);
-  -webkit-backdrop-filter: var(--ui-backdrop);
-  opacity: var(--ui-opacity);
-  /* stronger multi-layer shadow for deeper relief */
-  box-shadow: 0 8px 32px -8px rgba(30,58,138,0.16), 0 2px 8px rgba(16,24,40,0.04);
-  /* pick mode-aware background/color/border from variables */
-  background-color: var(--ui-bg-light);
+  transition: background 160ms ease, transform 120ms ease,
+    border-color 160ms ease, box-shadow 160ms ease;
+  border-radius: 18px;
+  opacity: 0.95;
+  /* Background ~95% solidity with subtle glass gradient */
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-light) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-light) 100%, white 5%)
+  );
+  filter: saturate(1.2);
   color: var(--ui-text-light);
-  border: 2px solid var(--ui-border-light);
-  position: relative; /* for ::before highlight */
+  font-weight: var(--font-medium);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(16, 24, 40, 0.04),
+    0 0 24px 8px color-mix(in oklab, var(--ui-bg-light) 50%, transparent);
+  background-blend-mode: overlay;
 }
 
 .header .days-chips .chip:hover,
 .header .days-chips .chip:focus {
-  filter: saturate(1.06);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 44px -12px rgba(30,58,138,0.18), 0 4px 12px rgba(16,24,40,0.06);
+  filter: saturate(1.25) brightness(1.05);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 20px 60px -20px rgba(30, 58, 138, 0.28), 0 8px 28px rgba(16, 24, 40, 0.12),
+    0 0 40px 16px color-mix(in oklab, var(--ui-bg-light) 50%, transparent);
 }
 
 .header .days-chips .chip:focus-visible {
@@ -175,9 +266,8 @@ body.dark .header .days-chips .chip {
   box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
-/* glow and highlight */
 .header .days-chips .chip::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -185,28 +275,34 @@ body.dark .header .days-chips .chip {
   height: 50%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.08)
+  );
   pointer-events: none;
   mix-blend-mode: overlay;
 }
 
-/* light mode glow */
-.header .days-chips .chip {
-  box-shadow: 0 8px 32px -8px rgba(30,58,138,0.16), 0 2px 8px rgba(16,24,40,0.04), 0 0 12px 3px #BBFFCC33;
-}
-
-/* dark mode glow */
 body.dark .header .days-chips .chip {
-  box-shadow: 0 8px 32px -8px rgba(30,58,138,0.16), 0 2px 8px rgba(0,0,0,0.2), 0 0 12px 3px #2360C033;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-dark) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-dark) 100%, #000 5%)
+  );
+  filter: saturate(1.2);
+  color: var(--ui-text-dark);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 24px 8px color-mix(in oklab, var(--ui-bg-dark) 50%, transparent);
 }
 
-/* Mobile: show select dropdown */
+/* Mobile dropdown */
 .header .days-select {
-  display: none; /* default hidden on desktop */
+  display: none;
 }
 
-/* The DayStrip component assigns the class to the <select> element itself
-   so cover both cases: a wrapper (.days-select select) and the select.days-select */
 .header .days-select select,
 .header select.days-select {
   appearance: none;
@@ -214,7 +310,7 @@ body.dark .header .days-chips .chip {
   padding: 0.4rem 0.6rem;
   border-radius: 8px;
   border: 1px solid transparent;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   color: inherit;
   cursor: pointer;
   transition: background 160ms ease, box-shadow 160ms ease;
@@ -224,27 +320,213 @@ body.dark .header .days-chips .chip {
 .header .days-select select:focus,
 .header select.days-select:hover,
 .header select.days-select:focus {
-  background: rgba(255,255,255,0.07);
-  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
   outline: none;
 }
 
-/* Visibility breakpoints */
-@media (min-width: 768px) {
-  /* Desktop: show frise, hide dropdown */
-  .header .days-chips { display: flex; }
-  .header .days-select { display: none; }
+/* ===============================
+   TABS (SPORTS) STYLES
+   =============================== */
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  margin: 0.75rem 1rem;
+  border-radius: 16px;
+  background: var(--header-bg);
+  border: 1px solid var(--header-border);
+  box-shadow: var(--header-shadow), 0 0 24px 8px #bbffcc33;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0.93;
 }
 
-@media (max-width: 767px) {
-  /* Mobile: hide frise, show dropdown */
-  .header { padding: 0.5rem 0.75rem; margin: 0.5rem; }
-  .header h1 { font-size: 1rem; }
-  .header .days-chips { display: none; }
-  .header .days-select { display: block; }
-  /* Make sure center area doesn't push title away on small screens */
-  .header .days-navigation { margin: 0 0.5rem; }
+.tabs .tab {
+  padding: 0.35rem 0.6rem;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background 160ms ease, transform 120ms ease,
+    border-color 160ms ease, box-shadow 160ms ease;
+  border-radius: 18px;
+  opacity: 0.95;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-light) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-light) 100%, white 5%)
+  );
+  filter: saturate(1.2);
+  color: var(--ui-text-light);
+  font-weight: var(--font-medium);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(16, 24, 40, 0.04),
+    0 0 24px 8px color-mix(in oklab, var(--ui-bg-light) 50%, transparent);
+  position: relative;
 }
+
+.tabs .tab:hover,
+.tabs .tab:focus {
+  filter: saturate(1.25) brightness(1.1);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 24px 72px -24px rgba(30, 58, 138, 0.32),
+    0 10px 30px rgba(16, 24, 40, 0.12),
+    0 0 48px 20px color-mix(in oklab, var(--ui-bg-light) 60%, transparent);
+}
+
+body.dark .tabs .tab {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-dark) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-dark) 100%, #000 5%)
+  );
+  filter: saturate(1.2);
+  color: var(--ui-text-dark);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 24px 8px color-mix(in oklab, var(--ui-bg-dark) 50%, transparent);
+}
+
+/* intensify highlight for tabs pseudo */
+.tabs .tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.08)
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ===============================
+   CARDS (LIQUID GLASS, BUTTON-LIKE)
+   =============================== */
+
+/* Structure principale des cartes */
+.card {
+  display: grid;
+  grid-template-columns: 4rem 1fr 12rem;
+  align-items: center;
+  gap: 0.5rem;
+  width: 50%; /* cards width reduced per request */
+  margin: 1rem auto;
+  padding: 0.5rem 0.75rem;
+  border-radius: 18px;
+  opacity: 0.95;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg) 100%, white 5%)
+  );
+  color: var(--ui-text);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.28),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(16, 24, 40, 0.04),
+    0 0 20px 6px color-mix(in oklab, var(--ui-bg) 36%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.06)
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Zones internes */
+.card-time {
+  grid-column: 1;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono',
+    'Courier New', monospace;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  text-align: left;
+}
+
+.card-info {
+  grid-column: 2;
+  padding: 0 0.75rem;
+  text-align: left;
+  overflow: hidden;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-medium);
+}
+.card-info .title {
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--ui-text);
+}
+
+.card-broadcaster {
+  grid-column: 3;
+  font-size: var(--text-lg);
+  font-style: italic;
+  opacity: 0.8;
+  font-weight: var(--font-normal);
+  text-align: right;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+
+/* Hover / focus : mêmes interactions que les boutons */
+.card:hover,
+.card:focus {
+  filter: saturate(1.18) brightness(1.03);
+  transform: translateY(-3px);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.32),
+    0 24px 72px -24px rgba(30, 58, 138, 0.28),
+    0 10px 30px rgba(16, 24, 40, 0.12),
+    0 0 48px 20px color-mix(in oklab, var(--ui-bg) 60%, transparent);
+}
+
+body.dark .card {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-dark) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-dark) 100%, #000 5%)
+  );
+  color: var(--ui-text-dark);
+  border: 0.5px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 20px 6px color-mix(in oklab, var(--ui-bg-dark) 36%, transparent);
+}
+
+/* ===============================
+   THEME SWITCHER
+   =============================== */
 
 .theme-switcher {
   display: inline-flex;
@@ -254,7 +536,7 @@ body.dark .header .days-chips .chip {
   min-width: 40px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   color: inherit;
   border: 1px solid transparent;
   cursor: pointer;
@@ -263,42 +545,24 @@ body.dark .header .days-chips .chip {
 
 .theme-switcher:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(16,24,40,0.08);
-  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .theme-switcher:focus {
   outline: none;
   box-shadow: 0 0 0 4px var(--focus-ring);
-  border-color: rgba(0,0,0,0.06);
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
-/* Accessible focus visible for keyboard users */
 .theme-switcher:focus-visible {
   box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
-/* =====================================
-   General-purpose UI surface (buttons/cards)
-   This is a reusable visual foundation that can be applied later
-   via an attribute (ex: <div data-ui-surface>) or a class.
-   Do not attach to any specific element by default.
-   ===================================== */
+/* ===============================
+   UTILITAIRES UI GÉNÉRIQUES
+   =============================== */
 
-:root {
-  --ui-bg-light: #BBFFCC; /* pastel green */
-  --ui-text-light: #192655; /* dark obsidian blue */
-  --ui-bg-dark:  #122142; /* dark obsidian */
-  --ui-text-dark: #BBFFCC; /* pastel green */
-  --ui-border-light: #82FFD3;
-  --ui-border-dark: #2360C0;
-  --ui-radius: 16px;
-  --ui-backdrop: blur(8px);
-  --ui-opacity: 0.95;
-  --ui-shadow: 0 4px 24px -8px rgba(30,58,138,0.08);
-}
-
-/* Default (light) -- to be overridden by body.dark */
 [data-ui-surface] {
   background-color: var(--ui-bg-light);
   color: var(--ui-text-light);
@@ -308,7 +572,8 @@ body.dark .header .days-chips .chip {
   -webkit-backdrop-filter: var(--ui-backdrop);
   opacity: var(--ui-opacity);
   box-shadow: var(--ui-shadow);
-  transition: background-color 160ms ease, box-shadow 160ms ease, transform 120ms ease, border-color 160ms ease;
+  transition: background-color 160ms ease, box-shadow 160ms ease,
+    transform 120ms ease, border-color 160ms ease;
 }
 
 body.dark [data-ui-surface] {
@@ -319,7 +584,7 @@ body.dark [data-ui-surface] {
 
 [data-ui-surface]:hover {
   filter: saturate(1.03);
-  box-shadow: 0 8px 28px -10px rgba(30,58,138,0.12);
+  box-shadow: 0 8px 28px -10px rgba(30, 58, 138, 0.12);
   transform: translateY(-2px);
 }
 
@@ -328,59 +593,42 @@ body.dark [data-ui-surface] {
   box-shadow: 0 0 0 6px var(--focus-ring);
 }
 
-/* Utility: small surface variant (cards vs buttons can tweak padding)
-   Not mandatory; components will adjust as needed. */
 [data-ui-surface].surface-sm {
   padding: 0.4rem 0.6rem;
 }
 
-/* Apply amplified visual style to event cards (reuse UI variables) */
-.card {
-  border-radius: var(--ui-radius);
-  background-color: var(--ui-bg-light);
-  color: var(--ui-text-light);
-  border: 2px solid var(--ui-border-light);
-  backdrop-filter: var(--ui-backdrop);
-  -webkit-backdrop-filter: var(--ui-backdrop);
-  opacity: var(--ui-opacity);
-  padding: 0.6rem;
-  box-shadow: 0 12px 48px -12px rgba(30,58,138,0.18), 0 4px 14px rgba(16,24,40,0.06), 0 0 18px 4px #BBFFCC33;
-  position: relative;
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+@media (min-width: 768px) {
+  .header .days-chips {
+    display: flex;
+  }
+  .header .days-select {
+    display: none;
+  }
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 40%;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06));
-  pointer-events: none;
-  mix-blend-mode: overlay;
+@media (max-width: 767px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1rem;
+  }
+  .header .days-chips {
+    display: none;
+  }
+  .header .days-select {
+    display: block;
+  }
+  .header .days-navigation {
+    margin: 0 0.5rem;
+  }
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 64px -20px rgba(30,58,138,0.22), 0 8px 20px rgba(16,24,40,0.08), 0 0 28px 6px #BBFFCC44;
-}
-
-body.dark .card {
-  background-color: var(--ui-bg-dark);
-  color: var(--ui-text-dark);
-  border: 2px solid var(--ui-border-dark);
-  box-shadow: 0 12px 48px -12px rgba(30,58,138,0.18), 0 4px 14px rgba(0,0,0,0.2), 0 0 18px 4px #2360C033;
-}
-
-.card:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 6px var(--focus-ring);
-}
-
-
-/* Responsive adjustments */
 @media (max-width: 520px) {
   .header {
     padding: 0.5rem 0.75rem;
@@ -392,5 +640,9 @@ body.dark .card {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .theme-switcher { height: 32px; min-width: 36px; padding: 0.25rem 0.5rem; }
+  .theme-switcher {
+    height: 32px;
+    min-width: 36px;
+    padding: 0.25rem 0.5rem;
+  }
 }
