@@ -4,7 +4,7 @@
     "type": "competition",
     "sport": "f1",
     "name": "Formule 1",
-    "url": "https://ics.fixtur.es/v2/league/formula-1-practise.ics",
+    "url": "https://tv-sports.fr/calendrier/sport/102/formule-1?direct=1",
     "defaultBroadcasters": ["Canal+"],
     "notifications": {
       "enabled": false,
