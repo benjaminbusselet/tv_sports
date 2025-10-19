@@ -367,32 +367,6 @@ body.dark .header .days-chips .chip {
     0 0 24px 8px color-mix(in oklab, var(--ui-bg-dark) 50%, transparent);
 }
 
-/* Mobile dropdown */
-.header .days-select {
-  display: none;
-}
-
-.header .days-select select,
-.header select.days-select {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 0.4rem 0.6rem;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  background: rgba(255, 255, 255, 0.04);
-  color: inherit;
-  cursor: pointer;
-  transition: background 160ms ease, box-shadow 160ms ease;
-}
-
-.header .days-select select:hover,
-.header .days-select select:focus,
-.header select.days-select:hover,
-.header select.days-select:focus {
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
-  outline: none;
-}
 
 /* ===============================
    TABS (SPORTS) STYLES
@@ -670,14 +644,6 @@ body.dark [data-ui-surface] {
    RESPONSIVE DESIGN
    =============================== */
 
-@media (min-width: 768px) {
-  .header .days-select {
-    display: flex;
-  }
-  .header .days-select {
-    display: none;
-  }
-}
 
 @media (max-width: 520px) {
   .header {
@@ -723,29 +689,34 @@ body.dark [data-ui-surface] {
      2. NAVIGATION JOURS - SCROLL
      =========================== */
   
-  .days-navigation {
-    display: flex;
-    overflow-x: auto;
+  .header .days-navigation {
+    display: flex !important;
+    overflow-x: auto !important;
     overflow-y: hidden;
-    gap: 8px;
-    padding: 6px 12px;
+    gap: 8px !important;
+    padding: 6px 12px !important;
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    flex-wrap: nowrap !important;
   }
-  
-  .days-navigation::-webkit-scrollbar {
+
+  .header .days-navigation::-webkit-scrollbar {
     display: none;
   }
-  
-  .day-tab {
-    flex: 0 0 auto;
+
+  .header .days-chips {
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  .header .days-chips .chip {
+    flex: 0 0 auto !important;
     scroll-snap-align: start;
-    white-space: nowrap;
-    min-height: 44px;
-    padding: 8px 14px;
-    font-size: 13px;
+    white-space: nowrap !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
   }
   
   /* =======================

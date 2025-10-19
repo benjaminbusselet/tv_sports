@@ -1,16 +1,26 @@
 # TV Sports - Documentation Projet
 
 ## Table des matières
-- [1. Présentation du projet](#1-présentation-du-projet)
-- [2. Stack technique](#2-stack-technique)
-- [3. Architecture](#3-architecture)
-- [4. Modules principaux](#4-modules-principaux)
-- [5. Commandes de développement](#5-commandes-de-développement)
-- [6. Processus de contribution](#6-processus-de-contribution)
-- [7. Sécurité & configuration](#7-sécurité--configuration)
-- [8. Déploiement/CI-CD](#8-déploiementci-cd)
-- [9. Roadmap/TODO](#9-roadmaptodo)
-- [10. Points forts & limitations](#10-points-forts--limitations)
+- [TV Sports - Documentation Projet](#tv-sports---documentation-projet)
+  - [Table des matières](#table-des-matières)
+  - [1. Présentation du projet](#1-présentation-du-projet)
+  - [2. Stack technique](#2-stack-technique)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+    - [Outils](#outils)
+  - [3. Architecture](#3-architecture)
+  - [4. Modules principaux](#4-modules-principaux)
+    - [Gestion des sources de données](#gestion-des-sources-de-données)
+    - [Composants UI](#composants-ui)
+    - [Services](#services)
+  - [5. Processus de contribution](#5-processus-de-contribution)
+    - [Code Review](#code-review)
+    - [Bonnes pratiques](#bonnes-pratiques)
+  - [6. Roadmap/TODO](#6-roadmaptodo)
+    - [En cours](#en-cours)
+    - [À venir](#à-venir)
+  - [7. Points forts \& limitations](#7-points-forts--limitations)
+    - [Limitations techniques](#limitations-techniques)
 
 ## 1. Présentation du projet
 Application web de suivi des événements sportifs en temps réel avec affichage de grille de programmes.
@@ -81,83 +91,32 @@ tv_sports/
 - `sources.js` : Gestion des sources de données
 - `userConfig.js` : Configuration utilisateur
 
-## 5. Commandes de développement
-
-```bash
-# Installation des dépendances
-npm install
-
-# Démarrer le serveur de développement
-npm run dev
-
-# Build pour production
-npm run build
-
-# Vérification du code
-npm run lint
-```
-
-## 6. Processus de contribution
-
-### Workflow Git
-1. Créer une branche depuis `main`
-2. Nommer la branche : `feature/nom-de-la-fonctionnalité`
-3. Soumettre une Pull Request
+## 5. Processus de contribution
 
 ### Code Review
 - Tester les modifications localement
 - Vérifier la qualité du code (ESLint)
 - Documenter les changements majeurs
 
-## 7. Sécurité & configuration
-
-### Fichiers sensibles
-- `.env` (à créer)
-  ```
-  PORT=3000
-  NODE_ENV=development
-  ```
-
 ### Bonnes pratiques
 - Ne pas commiter les fichiers de configuration sensibles
 - Utiliser des variables d'environnement
 - Valider les entrées utilisateur
 
-## 8. Déploiement/CI-CD
-
-### Prérequis
-- Node.js 16+
-- npm 8+
-
-### Checklist de déploiement
-- [ ] Exécuter les tests
-- [ ] Mettre à jour la version
-- [ ] Mettre à jour le changelog
-- [ ] Créer un tag Git
-- [ ] Déployer sur le serveur
-
-## 9. Roadmap/TODO
-
-### À venir
-- [ ] Améliorer la gestion des fuseaux horaires
-- [ ] Ajouter plus de sources de données
-- [ ] Optimiser les performances de chargement
+## 6. Roadmap/TODO
 
 ### En cours
 - [ ] Refactoring des composants UI
-- [ ] Amélioration de la documentation
+- [ ] Mise en place du responsive Mobile
 
-## 10. Points forts & limitations
+### À venir
+- [ ] Ajouter plus de sources de données -> (scraping)
+- [ ] Ajouter un système d'authentification
+- [ ] Ajouter des fonctionnalités de configuration utilisateur
+- [ ] Ajouter des notifications -> (web push)
 
-### Points forts
-- Interface utilisateur réactive
-- Chargement progressif des données
-- Support des notifications navigateur
+## 7. Points forts & limitations
 
 ### Limitations techniques
 - Dépendance aux sources de données externes
 - Gestion basique des erreurs
-- Pas de système d'authentification
-
----
-*Document généré le 11/10/2025*
