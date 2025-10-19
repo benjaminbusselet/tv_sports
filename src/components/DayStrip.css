@@ -112,8 +112,30 @@
   opacity: 0.7;
 }
 
-@media (min-width: 768px) {
+/* Styles responsifs */
+@media (max-width: 767px) {
+  /* Masquer les chips sur mobile */
+  .days-chips {
+    display: none;
+  }
+  
+  /* Afficher le select sur mobile */
   .days-select {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Masquer le select sur desktop */
+  .days-select {
+    display: none;
+  }
+  
+  /* Afficher les chips sur desktop */
+  .days-chips {
     display: flex;
   }
 }
