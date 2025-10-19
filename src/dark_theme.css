@@ -1,0 +1,52 @@
+body.dark {
+  --bg-color: var(--bg-dark);
+  --text-from-bg: var(--bg-light);
+  --ui-bg: var(--ui-bg-dark);
+  --ui-text: var(--ui-text-dark);
+  --ui-border: var(--ui-border-dark);
+  --header-bg: rgba(30, 58, 138, 0.42);
+  --header-border: rgba(255, 255, 255, 0.06);
+  --header-shadow: var(--header-shadow-dark);
+  --focus-ring: rgba(230, 242, 255, 0.12);
+}
+
+body.dark .header .days-chips .chip {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-dark) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-dark) 100%, #000 5%)
+  );
+  filter: saturate(1.2);
+  color: var(--ui-text-dark);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 24px 8px color-mix(in oklab, var(--ui-bg-dark) 50%, transparent);
+}
+
+body.dark .tabs .tab {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-dark) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-dark) 100%, #000 5%)
+  );
+  filter: saturate(1.2);
+  color: var(--ui-text-dark);
+  border: 0.5px solid rgba(30, 58, 138, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 24px 8px color-mix(in oklab, var(--ui-bg-dark) 50%, transparent);
+}
+
+body.dark .card {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ui-bg-dark) 95%, transparent),
+    color-mix(in oklab, var(--ui-bg-dark) 100%, #000 5%)
+  );
+  color: var(--ui-text-dark);
+  border: 0.5px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    0 8px 32px -8px rgba(30, 58, 138, 0.16), 0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 20px 6px color-mix(in oklab, var(--ui-bg-dark) 36%, transparent);
+}

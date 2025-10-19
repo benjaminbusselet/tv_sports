@@ -1,0 +1,145 @@
+/* ===============================
+   UTILITAIRES SURFACE (LIQUID GLASS)
+   =============================== */
+
+.surface-bar {
+  border-radius: var(--surface-radius);
+  background: color-mix(in oklab, var(--ui-bg) 12%, transparent);
+  border: 1.5px solid color-mix(in oklab, var(--ui-border) 60%, #ffffff 20%);
+  box-shadow: 0 8px 32px -8px rgba(30, 58, 138, 0.16),
+    0 2px 8px rgba(16, 24, 40, 0.04);
+  backdrop-filter: var(--surface-blur);
+  -webkit-backdrop-filter: var(--surface-blur);
+}
+
+.surface-chip {
+  position: relative;
+  border-radius: var(--surface-radius);
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+  border: 2px solid var(--ui-border);
+  box-shadow: 0 8px 32px -8px rgba(30, 58, 138, 0.16),
+    0 2px 8px rgba(16, 24, 40, 0.04),
+    0 0 12px 3px color-mix(in oklab, var(--ui-bg) 40%, transparent);
+}
+
+.surface-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 55% 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.06)
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+body.dark .surface-chip {
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+  border: 2px solid var(--ui-border);
+  box-shadow: 0 8px 32px -8px rgba(30, 58, 138, 0.16),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 12px 3px color-mix(in oklab, var(--ui-border) 45%, transparent);
+}
+
+/* ===============================
+   UTILITAIRES UI GÉNÉRIQUES
+   =============================== */
+
+[data-ui-surface] {
+  background-color: var(--ui-bg-light);
+  color: var(--ui-text-light);
+  border: 2px solid var(--ui-border-light);
+  border-radius: var(--ui-radius);
+  backdrop-filter: var(--ui-backdrop);
+  -webkit-backdrop-filter: var(--ui-backdrop);
+  opacity: var(--ui-opacity);
+  box-shadow: var(--ui-shadow);
+  transition: background-color 160ms ease, box-shadow 160ms ease,
+    transform 120ms ease, border-color 160ms ease;
+}
+
+body.dark [data-ui-surface] {
+  background-color: var(--ui-bg-dark);
+  color: var(--ui-text-dark);
+  border: 2px solid var(--ui-border-dark);
+}
+
+[data-ui-surface]:hover {
+  filter: saturate(1.03);
+  box-shadow: 0 8px 28px -10px rgba(30, 58, 138, 0.12);
+  transform: translateY(-2px);
+}
+
+[data-ui-surface]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px var(--focus-ring);
+}
+
+[data-ui-surface].surface-sm {
+  padding: 0.4rem 0.6rem;
+}
+
+/* ===============================
+   ÉLÉMENTS DE BASE
+   =============================== */
+
+/* Styles de base pour les sections */
+section {
+  margin: 1.5rem 0;
+}
+
+/* Styles de base pour les boutons */
+button,
+a.button,
+.btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: var(--ui-primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+button:hover,
+a.button:hover,
+.btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+button:active,
+a.button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Styles responsifs pour les petits écrans */
+@media (max-width: 767px) {
+  section {
+    margin: 12px 0;
+  }
+  
+  button,
+  a.button,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 16px;
+  }
+}

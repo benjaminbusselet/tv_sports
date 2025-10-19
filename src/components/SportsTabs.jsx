@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAvailableSports } from '../services/userConfig.js'
+import './SportsTabs.css'
 
 export default function SportsTabs({ activeSport, setSport, userSettings }) {
   const [availableSports, setAvailableSports] = useState(['all'])

@@ -1,0 +1,22 @@
+/* ===============================
+   BASE STYLES
+   =============================== */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body,
+#root {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  color: var(--text-from-bg);
+  font-family: var(--font-system);
+  font-size: var(--text-base);
+}
+
+/* Sélecteurs extraits: html, body, #root */

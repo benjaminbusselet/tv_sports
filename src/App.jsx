@@ -1,16 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
-import "./styles.css";
+import "./App.css";
 import SportsTabs from "./components/SportsTabs.jsx";
 import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
-import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
-import LoadingSpinner from "./components/LoadingSpinner.jsx";
+import ThemeSwitcher from "./utilities/ThemeSwitcher.jsx";
+import LoadingSpinner from "./utilities/LoadingSpinner.jsx";
 import { useNotifications } from "./hooks/useNotifications.js";
 import { fetchEvents } from "./services/api.js";
 import { getTeamNames } from "./services/sources.js";
 import { fetchUserSettings } from "./services/userConfig.js";
-// import "./components/LoadingSpinner.css"; // CSS supprimé - repartir de zéro
 
 const teams = getTeamNames();
 

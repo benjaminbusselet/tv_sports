@@ -1,0 +1,57 @@
+:root {
+  /* === COULEURS === */
+  --bg-light: #e6f2ff;
+  --bg-dark: #1e3a8a;
+  --ui-bg-light: #95d9b8;
+  --ui-text-light: #192655;
+  --ui-border-light: #82ffd3;
+  --ui-bg-dark: #0c1632;
+  --ui-text-dark: #bbffcc;
+  --ui-border-dark: #2360c0;
+  --color-border-light: rgba(30, 58, 138, 0.3);
+  --color-background-light-opacity: 0.9;
+
+  /* === OMBRES === */
+  --shadow-soft: 0 4px 24px -8px rgba(30, 58, 138, 0.1);
+  --ui-shadow: 0 4px 24px -8px rgba(30, 58, 138, 0.08);
+  --ui-shadow-strong: 0 8px 32px -8px rgba(30, 58, 138, 0.16);
+  --header-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+  --header-shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.18);
+
+  /* === FILTRES === */
+  --backdrop-blur: blur(12px);
+  --ui-backdrop: blur(8px);
+
+  /* === TYPOGRAPHIE === */
+  --font-system: system-ui, -apple-system, 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* === ESPACEMENTS & DIMENSIONS === */
+  --radius-corner: 16px;
+  --ui-radius: 16px;
+  --surface-radius: var(--radius-corner);
+  --surface-opacity: 0.95;
+  --ui-opacity: 0.95;
+
+  /* === VARIABLES DÉRIVÉES (à placer après leurs dépendances) === */
+  --bg-color: var(--bg-light);
+  --text-from-bg: var(--bg-dark);
+  --ui-bg: var(--ui-bg-light);
+  --ui-text: var(--ui-text-light);
+  --ui-border: var(--ui-border-light);
+  --surface-shadow: var(--shadow-soft);
+  --surface-blur: var(--backdrop-blur);
+  --header-bg: rgba(230, 242, 255, 0.6);
+  --header-border: rgba(16, 24, 40, 0.06);
+  --focus-ring: rgba(30, 58, 138, 0.12);
+}

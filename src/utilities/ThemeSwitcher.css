@@ -1,0 +1,39 @@
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.6rem;
+  min-width: 40px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.theme-switcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.theme-switcher:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.theme-switcher:focus-visible {
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* Petits écrans spécifiques */
+@media (max-width: 520px) {
+  .theme-switcher {
+    height: 32px;
+    min-width: 36px;
+    padding: 0.25rem 0.5rem;
+  }
+}

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-// import "./Events.css"; // CSS supprimé - repartir de zéro
+import "./EventsList.css";
 
 function groupByCompetition(events) {
   const byComp = new Map();

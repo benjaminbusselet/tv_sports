@@ -1,0 +1,172 @@
+/* Styles pour le composant App */
+
+/* Conteneur principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* En-tête */
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  margin: 0.75rem 1rem;
+  border-radius: 16px;
+  background: var(--header-bg);
+  border: 1px solid var(--header-border);
+  box-shadow: var(--header-shadow), 0 0 24px 8px #bbffcc33;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0.93;
+  transition: background-color 220ms ease, box-shadow 220ms ease,
+    border-color 220ms ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.header > h1 {
+  grid-column: 1 / 2;
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  line-height: 1;
+  color: inherit;
+  text-align: left;
+}
+
+.header-actions {
+  grid-column: 3 / 4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+/* Bouton de notification */
+.notifyBtn {
+  padding: 0.4rem 0.8rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: white;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notifyBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+.notifyBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Contrôles de tri */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.sort-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ui-bg-light);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sort-toggle button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ui-text);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  transition: all 0.2s ease;
+}
+
+.sort-toggle button.active {
+  background: var(--ui-primary);
+  color: white;
+  font-weight: var(--font-medium);
+}
+
+/* Réactivité */
+@media (max-width: 767px) {
+  .header {
+    padding: 6px 12px;
+    min-height: 44px;
+    margin: 0.5rem auto;
+  }
+
+  .header h1 {
+    font-size: 1.125rem;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-actions {
+    gap: 0.25rem;
+  }
+
+  .notifyBtn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Petits écrans spécifiques */
+@media (max-width: 520px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* ===========================================
+   Responsive Layout - Tablettes (768px - 1023px)
+   =========================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .events-container,
+  .tabs-container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ===========================================
+   Responsive Layout - Mobiles (≤767px)
+   =========================================== */
+
+@media (max-width: 767px) {
+  .container,
+  main {
+    padding: 0 16px;
+  }
+}

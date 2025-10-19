@@ -64,6 +64,8 @@ tv_sports/
     │   ├── DayStrip.jsx
     │   ├── EventsList.jsx
     │   └── LoadingSpinner.jsx
+    │   ├── SportsTabs.jsx
+    │   └── ThemeSwitcher.jsx
     ├── hooks/
     │   └── useNotifications.js
     ├── lib/
@@ -85,6 +87,8 @@ tv_sports/
 - `DayStrip` : Affichage des jours de programmation
 - `EventsList` : Liste des événements sportifs
 - `LoadingSpinner` : Indicateur de chargement
+- `SportsTabs` : Onglets des sports
+- `ThemeSwitcher` : Switcher de thème
 
 ### Services
 - `api.js` : Communication avec le backend
