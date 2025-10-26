@@ -117,14 +117,6 @@ export default function App() {
         {/* Centred day navigation (frise / select) moved into header */}
         <DayStrip value={day} onChange={setDay} countsByDay={countsByDay} />
         <div className="header-actions">
-          {permission !== "granted" && (
-            <button
-              className="notifyBtn"
-              onClick={() => enableNotifications(events)}
-            >
-              Activer les notifications
-            </button>
-          )}
           <ThemeSwitcher />
         </div>
       </header>
