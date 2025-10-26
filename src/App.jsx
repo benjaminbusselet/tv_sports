@@ -6,7 +6,6 @@ import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
 import ThemeSwitcher from "./utilities/ThemeSwitcher.jsx";
 import LoadingSpinner from "./utilities/LoadingSpinner.jsx";
-import { useNotifications } from "./hooks/useNotifications.js";
 import { fetchEvents } from "./services/api.js";
 import { getTeamNames } from "./services/sources.js";
 import { fetchUserSettings } from "./services/userConfig.js";
@@ -68,23 +67,6 @@ export default function App() {
     };
   }, [sport, day]);
 
-  // Les événements sont déjà filtrés par jour côté serveur (progs_YYYYMMDD.json)
-  /* const dayEvents = useMemo(() => {
-    if (!events?.length) return [];
-
-    // Simple validation : garder seulement les événements valides
-    const validEvents = events.filter((ev) => {
-      if (!ev || !ev.start) {
-        console.warn("Invalid event (missing start):", ev);
-        return false;
-      }
-      return true;
-    });
-
-    return validEvents;
-  }, [events]);
- */
-
   const dayEvents = useMemo(() => {
     if (!events?.length) return [];
 
@@ -127,7 +109,6 @@ export default function App() {
 
   const showGrouped = sport === "football" && sortType === "league";
   const showSortToggle = sport === "football"; // Masquer le toggle pour "all"
-  const { permission, enableNotifications } = useNotifications();
 
   return (
     <>
