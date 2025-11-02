@@ -31,7 +31,6 @@ Application web de suivi des événements sportifs en temps réel avec affichage
 - Framework : React (Vite)
 - UI : Composants personnalisés
 - Gestion d'état : Hooks React
-- Notifications : API Web Notifications
 
 ### Backend
 - Runtime : Node.js
@@ -66,8 +65,6 @@ tv_sports/
     │   └── LoadingSpinner.jsx
     │   ├── SportsTabs.jsx
     │   └── ThemeSwitcher.jsx
-    ├── hooks/
-    │   └── useNotifications.js
     ├── lib/
     │   └── dateUtils.js
     └── services/
@@ -110,14 +107,11 @@ tv_sports/
 ## 6. Roadmap/TODO
 
 ### En cours
-- [ ] Refactoring des composants UI
-- [ ] Mise en place du responsive Mobile
 
 ### À venir
 - [ ] Ajouter plus de sources de données -> (scraping)
 - [ ] Ajouter un système d'authentification
 - [ ] Ajouter des fonctionnalités de configuration utilisateur
-- [ ] Ajouter des notifications -> (web push)
 
 ## 7. Points forts & limitations
 

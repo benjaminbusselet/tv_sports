@@ -70,11 +70,11 @@ node scripts/merge.js 20250905     # Fusion événements ↔ EPG
 - **Multi-sports** : F1, Football, Rugby avec correspondance EPG
 - **Interface complète** : Onglet "Toutes" par défaut, filtres, navigation temporelle
 - **Déploiement automatique** : GitHub Pages avec Service Worker
+- **Responsive mobile** : Interface adaptative mobile/tablette/desktop avec optimisations touch
 
 ### 🔄 Priorité haute
 - **Migration web scraping** : Finalisation des scrapers pour tous les sports (en cours)
 - **PWA** : Mode hors-ligne, installation app
-- **Notifications push** : Système basé sur `userSettings.json`
 
 ### 📋 À venir
 - **Ajout de sources** : Configuration utilisateur personnalisée
@@ -125,6 +125,32 @@ Mise à jour automatique quotidienne à 1h UTC avec génération des données et
 - Transitions fluides pour les changements d'état
 - Retours visuels au toucher
 - Accessibilité optimisée (contraste, focus visible)
+
+### Responsive Mobile
+- **Breakpoints** :
+  - Mobile : ≤767px
+  - Tablette : 768px - 1023px
+  - Desktop : ≥1024px
+  - Petit mobile : ≤520px (ajustements spécifiques)
+- **Grille adaptative** :
+  - Desktop : 3 colonnes (heure, infos match, diffuseur)
+  - Tablette : 2 colonnes pour les cartes
+  - Mobile : 1 colonne, grille compacte `2.5rem 1fr 6rem`
+- **Navigation jours** :
+  - Desktop/Tablette : Chips horizontaux cliquables
+  - Mobile : Select dropdown (max-width 280px)
+- **Onglets sports** :
+  - Mobile : Scroll horizontal avec `scroll-snap`, zones touch 44px min
+  - Tablette : Espacement réduit (0.5rem)
+  - Masquage scrollbar native (`scrollbar-width: none`)
+- **Typographie responsive** :
+  - Header mobile : 1.125rem (≤767px), 1rem (≤520px)
+  - Cartes mobile : Titre 13px, diffuseur 10px, heure 11px
+  - Ellipsis automatique sur titres longs
+- **Optimisations touch** :
+  - `-webkit-overflow-scrolling: touch` pour scroll fluide iOS
+  - `min-height: 44px` sur tous les éléments interactifs
+  - Padding augmenté sur petits écrans
 
 ---
 
