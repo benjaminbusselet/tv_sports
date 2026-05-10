@@ -6,13 +6,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ymd = process.argv[2];
-const KEEP = process.argv.includes("--keep");
-
-if (!/^\d{8}$/.test(ymd || "")) {
-  console.error("Usage: node scripts/merge.js YYYYMMDD [--keep]");
-  process.exit(1);
-}
+const PCONF = "public/config";
+const PDATA = "public/data";
 
 // Normalisation des chaînes de caractères
 const norm = (s) =>
@@ -30,39 +25,40 @@ const tms = (s) => new Date(s).getTime();
 const near = (a, b, ms = 60 * 60 * 1000) =>
   a && b && Math.abs(tms(a) - tms(b)) <= ms;
 
-// Vérifie si match un samedi à 17h00 heure de Paris pour Ligues spéciales
+// Vérifie si un événement a lieu un samedi à 17h00 (Europe/Paris)
 const isSat17Paris = (iso) => {
-  const p = new Intl.DateTimeFormat("en-GB", {
+  const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Europe/Paris",
     weekday: "short",
     hour: "2-digit",
-    minute: "2-digit",
     hour12: false,
   }).formatToParts(new Date(iso));
-
-  const m = Object.fromEntries(p.map((x) => [x.type, x.value]));
+  const m = Object.fromEntries(parts.map((x) => [x.type, x.value]));
   return m.weekday === "Sat" && m.hour === "17";
 };
 
-// Fonction utilitaire pour lire les fichiers JSON, retourne [] si absent ou erreur
+// Lecture JSON tolérante : retourne null si absent ou erreur
 const tryRead = async (paths) => {
   for (const p of paths) {
     try {
       return JSON.parse(await fs.readFile(p, "utf-8"));
     } catch {}
   }
-  return [];
+  return null;
 };
 
 // Fonction principale exportée pour pipeline en mémoire
-export async function mergeData(ics, epg, teams, ymd) {
-  const pData = "public/data";
-  const pConf = "config";
+export async function mergeData(ics, epg, teams) {
+  // Lectures effectuées une seule fois, avant la boucle
+  const icsSources = (await tryRead([path.join(PCONF, "icsSources.json")])) ?? [];
+  const translations = await tryRead([path.join(PCONF, "translations.json")]);
+  const allTranslations = {
+    ...(translations?.countries ?? {}),
+    ...(translations?.cities ?? {}),
+    ...(translations?.teams ?? {}),
+  };
 
-  // Charger les sources ICS pour les defaultBroadcasters
-  const icsSources = await tryRead([path.join(pConf, "icsSources.json")]);
-
-  // Construction d'un index alias -> nom officiel par compétition
+  // Construction de l'index alias -> nom officiel, par compétition
   const idx = {};
   for (const [comp, map] of Object.entries(teams || {})) {
     const m = (idx[comp] = {});
@@ -72,7 +68,7 @@ export async function mergeData(ics, epg, teams, ymd) {
     }
   }
 
-  // Mapper un programme EPG à sa chaine, équipes officielles, date
+  // Mapper un programme EPG vers ses équipes normalisées + chaîne
   const mapEpg = (comp, p) => {
     const m = idx[comp] || {};
     const h = m[norm(p.epgHome)],
@@ -80,31 +76,22 @@ export async function mergeData(ics, epg, teams, ymd) {
     return h && a ? { ch: p.channel, h, a, st: p.start } : null;
   };
 
-  // Seuls les événements issus des ICS sont conservés
   const out = [];
   for (const ev of ics || []) {
     let comp = ev.competition;
     const H = norm(ev.home),
       A = norm(ev.away);
 
-    // Correction du mapping de la compétition pour garantir la bonne association
+    // Correction du mapping compétition
     if (ev.sport === "rugby") {
-      // Si la compétition n'est pas reconnue dans teams.json, on force "Rugby"
-      if (!idx[comp]) {
+      if (!idx[comp]) comp = "Rugby";
+      if (["stade toulousain", "toulouse", "toulouse rugby"].includes(H))
         comp = "Rugby";
-      }
-      // Si l'équipe est Stade Toulousain ou alias, on force "Rugby"
-      if (["stade toulousain", "toulouse", "toulouse rugby"].includes(H)) {
-        comp = "Rugby";
-      }
     } else if (ev.sport === "football") {
-      // Si l'équipe est Toulouse FC ou alias, on force "Ligue 1"
-      if (["toulouse fc", "toulouse"].includes(H)) {
-        comp = "Ligue 1";
-      }
+      if (["toulouse fc", "toulouse"].includes(H)) comp = "Ligue 1";
     }
 
-    // Trouve les candidats EPG matching équipes + fenêtre de temps stricte ±1h
+    // 1. Chercher un match EPG (chaîne confirmée par le guide TV)
     const cand = (epg || [])
       .map((p) => mapEpg(comp, p))
       .filter(Boolean)
@@ -122,57 +109,34 @@ export async function mergeData(ics, epg, teams, ymd) {
 
     let chan = cand[0]?.ch || "";
 
-    // Fallback diffuseur par défaut
+    // 2. Fallback : defaultBroadcasters définis dans icsSources.json
     if (!chan) {
-      if (comp === "Serie A") chan = "DAZN";
-      else if (comp === "Ligue 1")
-        chan = isSat17Paris(ev.start) ? "beIN SPORTS 1" : "Ligue 1+";
-    }
-
-    // Si toujours pas de diffuseur, utiliser les defaultBroadcasters de la source ICS
-    if (!chan) {
-      const matchingSource = icsSources.find((source) => {
+      const src = icsSources.find((source) => {
         if (source.type === "team") {
-          // Pour les équipes, chercher avec normalisation
           const m = idx[comp] || {};
           const homeOfficial = m[norm(ev.home)] || ev.home;
           const awayOfficial = m[norm(ev.away)] || ev.away;
           return homeOfficial === source.name || awayOfficial === source.name;
         }
-        // Chercher par competition
-        else if (source.type === "competition") {
-          return comp === source.name;
-        }
-        return false;
+        return source.type === "competition" && comp === source.name;
       });
 
-      if (
-        matchingSource &&
-        matchingSource.defaultBroadcasters &&
-        matchingSource.defaultBroadcasters.length > 0
-      ) {
-        chan = matchingSource.defaultBroadcasters[0]; // Prendre le premier diffuseur par défaut
+      if (src?.defaultBroadcasters?.length > 0) {
+        // Cas spécial : Ligue 1 le samedi à 17h → beIN SPORTS 1
+        chan =
+          comp === "Ligue 1" && isSat17Paris(ev.start)
+            ? "beIN SPORTS 1"
+            : src.defaultBroadcasters[0];
       }
     }
 
-    // Utiliser les noms officiels normalisés si disponibles
+    // Résolution des noms officiels (teams.json puis translations.json)
     const m = idx[comp] || {};
-    let homeOfficial = m[norm(ev.home)] || ev.home;
-    let awayOfficial = m[norm(ev.away)] || ev.away;
+    const homeRaw = m[norm(ev.home)] || ev.home;
+    const awayRaw = m[norm(ev.away)] || ev.away;
+    const homeOfficial = allTranslations[homeRaw] || homeRaw;
+    const awayOfficial = allTranslations[awayRaw] || awayRaw;
 
-    // Appliquer les traductions globales si disponibles
-    const translations = await tryRead([path.join(pConf, "translations.json")]);
-    if (translations) {
-      const allTranslations = {
-        ...translations.countries,
-        ...translations.cities,
-        ...translations.teams,
-      };
-      homeOfficial = allTranslations[homeOfficial] || homeOfficial;
-      awayOfficial = allTranslations[awayOfficial] || awayOfficial;
-    }
-
-    // Conserver le titre original pour les sports sans équipes (F1, etc.)
     const finalTitle =
       homeOfficial && awayOfficial
         ? `${homeOfficial} - ${awayOfficial}`
@@ -186,9 +150,9 @@ export async function mergeData(ics, epg, teams, ymd) {
       sport: ev.sport,
       competition: comp,
       home: homeOfficial,
-      homeId: m[norm(ev.home)] || homeOfficial, // identifiant unique issu du mapping
+      homeId: homeRaw,
       away: awayOfficial,
-      awayId: m[norm(ev.away)] || awayOfficial, // identifiant unique issu du mapping
+      awayId: awayRaw,
       broadcasters: chan ? [chan] : [],
     });
   }
@@ -201,35 +165,27 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   (async () => {
     const ymd = process.argv[2];
     if (!/^\d{8}$/.test(ymd || "")) {
-      console.error("Usage: node scripts/merge.js YYYYMMDD [--keep]");
+      console.error("Usage: node scripts/merge.js YYYYMMDD");
       process.exit(1);
     }
 
-    // Lit les fichiers JSON depuis disque
-    const pData = "public/data";
-    const pConf = "config";
-
     const ics = await tryRead([
-      path.join(pData, `ics_${ymd}.json`),
-      path.join(pData, `ics-${ymd}.json`),
+      path.join(PDATA, `ics_${ymd}.json`),
+      path.join(PDATA, `ics-${ymd}.json`),
     ]);
     const epg = await tryRead([
-      path.join(pData, `epg_${ymd}.json`),
-      path.join(pData, `epg-${ymd}.json`),
+      path.join(PDATA, `epg_${ymd}.json`),
+      path.join(PDATA, `epg-${ymd}.json`),
     ]);
-    const teams = await tryRead([path.join(pConf, "teams.json")]);
+    const teams = await tryRead([path.join(PCONF, "teams.json")]);
 
-    const merged = await mergeData(ics, epg, teams, ymd);
+    const merged = await mergeData(ics ?? [], epg ?? [], teams ?? {});
 
-    // Dossier sortie
-    await fs.mkdir(pData, { recursive: true });
-
-    const outFile = path.join(pData, `progs_${ymd}.json`);
+    await fs.mkdir(PDATA, { recursive: true });
+    const outFile = path.join(PDATA, `progs_${ymd}.json`);
     await fs.writeFile(outFile, JSON.stringify(merged, null, 2), "utf-8");
 
     console.log(`✔ wrote ${outFile} (${merged.length} events)`);
-
-    // Gestion --keep éventuelle pour nettoyage dans pipeline externe
   })().catch((e) => {
     console.error(e.message || String(e));
     process.exit(1);

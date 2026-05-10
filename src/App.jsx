@@ -6,11 +6,8 @@ import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
 import ThemeSwitcher from "./utilities/ThemeSwitcher.jsx";
 import LoadingSpinner from "./utilities/LoadingSpinner.jsx";
-import { fetchEvents } from "./services/api.js";
-import { getTeamNames } from "./services/sources.js";
+import { fetchEvents, fetchDayCounts } from "./services/api.js";
 import { fetchUserSettings } from "./services/userConfig.js";
-
-const teams = getTeamNames();
 
 export default function App() {
   const [sport, setSport] = useState("all");
@@ -24,6 +21,19 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [sortType, setSortType] = useState("league"); // "league" ou "time"
+  const [countsByDay, setCountsByDay] = useState({});
+
+  // Charger les compteurs pour les 7 jours du DayStrip (une seule fois au montage)
+  useEffect(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const days = Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(today);
+      d.setDate(d.getDate() + i);
+      return dayKey(d);
+    });
+    fetchDayCounts(days).then(setCountsByDay);
+  }, []);
 
   // Charger les préférences utilisateur
   useEffect(() => {
@@ -86,26 +96,6 @@ export default function App() {
 
     return validEvents;
   }, [events, sport, sortType]);
-
-  // Compteurs pour la frise (7 jours) – calculé sur tous les événements disponibles
-  const countsByDay = useMemo(() => {
-    const map = {};
-
-    // Pour les compteurs, on peut garder la logique de groupement par jour
-    // car on veut afficher le nombre d'événements sur plusieurs jours
-    for (const ev of events) {
-      if (!ev.start) continue;
-      try {
-        const d = new Date(ev.start);
-        const k = dayKey(d);
-        map[k] = (map[k] || 0) + 1;
-      } catch (error) {
-        console.warn("Invalid date for event:", ev.start);
-      }
-    }
-
-    return map;
-  }, [events]);
 
   const showGrouped = sport === "football" && sortType === "league";
   const showSortToggle = sport === "football"; // Masquer le toggle pour "all"

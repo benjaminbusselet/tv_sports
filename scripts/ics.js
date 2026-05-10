@@ -193,22 +193,13 @@ function norm(ev, source) {
 
   const { home, away } = extractTeams(originalTitle);
   let title = cleanTitle;
-  let broadcaster = "";
 
   // Nettoyer les titres tv-sports.fr
   if (source.url.includes("tv-sports.fr")) {
-    // 1. Supprimer uniquement l'emoji rugby
-    title = title.replace(/🏉\s*/, "");
-
-    // 2. Extraire diffuseur si présent, sinon garder defaultBroadcasters
-    const broadcasterMatch = title.match(/\s*\(([^)]+)\)$/);
-    if (broadcasterMatch) {
-      broadcaster = broadcasterMatch[1];
-      title = title.replace(/\s*\([^)]+\)$/, "");
-    }
-
-    // 3. Nettoyer seulement les espaces en fin
-    title = title.trim();
+    title = title
+      .replace(/🏉\s*/, "")           // supprimer emoji rugby
+      .replace(/\s*\([^)]+\)$/, "")   // supprimer diffuseur entre parenthèses
+      .trim();
   }
 
   return {
@@ -229,35 +220,24 @@ export async function fetchIcs(ymd) {
   if (!/^\d{8}$/.test(ymd || ""))
     throw new Error("fetchIcs(ymd): expected YYYYMMDD");
 
-  console.log(`\n📅 Récupération des événements pour le ${ymd}...`);
+  console.log(`📅 ICS ${ymd} — démarrage`);
 
   const cfgPath = path.join(__dirname, "../public/config/icsSources.json");
   const userSettingsPath = path.join(__dirname, "../public/config/userSettings.json");
 
-  console.log(`📂 Lecture des sources depuis ${cfgPath}`);
   const allSources = JSON.parse(await fs.readFile(cfgPath, "utf-8"));
   const userSettings = JSON.parse(await fs.readFile(userSettingsPath, "utf-8"));
 
-  console.log(`🔧 Filtrage des sources activées par l'utilisateur`);
   const sources = allSources.filter(
     (s) => userSettings.sources.enabled.includes(s.id) && s.url
   );
-  console.log(`✅ ${sources.length} sources activées :`, sources.map(s => s.name).join(', '));
+  console.log(`📡 ${sources.length} sources : ${sources.map((s) => s.name).join(", ")}`);
 
-  console.log("\n🔄 Récupération des données ICS...");
   const results = await Promise.allSettled(
     sources.map(async (s) => {
-      console.log(`\n📡 Récupération de ${s.name} (${s.url})`);
       try {
         const icsContent = await httpGet(s.url);
-        console.log(`✅ Données reçues (${icsContent.length} caractères)`);
-        const parsed = parseICS(icsContent);
-        console.log(`📋 ${parsed.length} événements parsés`);
-        return parsed.map((ev) => {
-          const normalized = norm(ev, s);
-          console.log(`   - ${normalized.title} (${normalized.start})`);
-          return normalized;
-        });
+        return parseICS(icsContent).map((ev) => norm(ev, s));
       } catch (e) {
         console.error(`❌ Erreur avec ${s.name}:`, e.message);
         return [];
@@ -266,18 +246,9 @@ export async function fetchIcs(ymd) {
   );
 
   const all = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
-  console.log(`\n📊 Total de ${all.length} événements avant filtrage`);
-  
-  const filtered = all.filter((ev) => {
-    const eventDate = parisYMD(ev.start);
-    const isMatch = eventDate === ymd;
-    if (!isMatch) {
-      console.log(`   - Ignoré: ${ev.title} (${ev.start}) - Date: ${eventDate}`);
-    }
-    return isMatch;
-  });
-  
-  console.log(`\n✅ ${filtered.length} événements après filtrage pour le ${ymd}`);
+  const filtered = all.filter((ev) => parisYMD(ev.start) === ymd);
+
+  console.log(`✅ ICS ${ymd} — ${filtered.length} événements`);
   return dedupeAndSort(filtered);
 }
 

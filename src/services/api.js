@@ -1,3 +1,5 @@
+import { fetchUserSettings } from "./userConfig.js";
+
 // Configuration automatique selon l'environnement
 const BASE_URL =
   import.meta.env.MODE === "development"
@@ -22,7 +24,6 @@ export async function fetchEvents({ day, sport }) {
 
     // Si sport est "teams", on fait le croisement avec les équipes favorites
     if (sport === "teams") {
-      const { fetchUserSettings } = await import("./userConfig");
       const userSettings = await fetchUserSettings();
       const favoriteTeams = userSettings.favorites?.teams || [];
 
@@ -40,11 +41,25 @@ export async function fetchEvents({ day, sport }) {
     }
 
     // Sinon filtrer par sport normalement
-    const filteredEvents = events.filter((event) => event.sport === sport);
-
-    return filteredEvents;
+    return events.filter((event) => event.sport === sport);
   } catch (error) {
     console.error("Error fetching events:", error);
     return [];
   }
+}
+
+// Récupère le nombre d'événements pour chaque jour en parallèle (pour le DayStrip)
+export async function fetchDayCounts(days) {
+  const counts = {};
+  await Promise.allSettled(
+    days.map(async (d) => {
+      try {
+        const res = await fetch(`${BASE_URL}/data/progs_${d}.json`);
+        counts[d] = res.ok ? (await res.json()).length : 0;
+      } catch {
+        counts[d] = 0;
+      }
+    })
+  );
+  return counts;
 }

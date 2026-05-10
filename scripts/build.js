@@ -8,7 +8,6 @@ import { fetchIcs } from "./ics.js";
 import { fetchEpg } from "./epg.js";
 import { mergeData } from "./merge.js";
 
-const KEEP = process.argv.includes("--keep");
 const dateArgs = process.argv.filter((x) => /^\d{8}$/.test(x));
 const startArg = dateArgs[0] || null;
 const endArg = dateArgs[1] || null;
@@ -62,9 +61,9 @@ const addDaysYMD = (ymd, n) => {
   return ymdParis(new Date(t));
 };
 
-// Toujours prendre la date du jour Paris, même si le script est lancé à la main ou par cron
-const start = todayParisYMD();
-const end = addDaysYMD(start, 7);
+// Utiliser les arguments CLI si fournis, sinon today → today+7
+const start = startArg || todayParisYMD();
+const end = endArg || addDaysYMD(start, 7);
 
 console.log(`🕒 Date de départ (Europe/Paris): ${start}`);
 
@@ -113,12 +112,12 @@ for (let i = 0; i < days.length; i++) {
     }
 
     // 3. Chargement teams.json
-    const teamsPath = path.join("config", "teams.json");
+    const teamsPath = path.join("public", "config", "teams.json");
     const teamsData = JSON.parse(await fs.readFile(teamsPath, "utf-8"));
 
     // 4. Merge
     console.log(" 🔀 Merging data...");
-    const merged = await mergeData(icsData, epgData, teamsData, ymd);
+    const merged = await mergeData(icsData, epgData, teamsData);
     console.log(` ✅ Merge completed (${merged.length} events)`);
 
     // 5. Sauvegarde résultat

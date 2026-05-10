@@ -1,4 +1,4 @@
-import sources from "../../config/icsSources.json";
+import sources from "../../public/config/icsSources.json";
 
 export function getTeamNames() {
   const teams = sources
@@ -8,14 +8,5 @@ export function getTeamNames() {
 }
 
 export function getSportSources(sport) {
-  console.log("getSportSources called with sport:", sport);
-  console.log("All sources:", sources.length);
-
-  const filtered = sources.filter(
-    (source) => source.enabled && source.sport === sport
-  );
-  console.log(`Sources for sport '${sport}':`, filtered.length);
-  console.log("Filtered sources:", filtered);
-
-  return filtered;
+  return sources.filter((source) => source.enabled && source.sport === sport);
 }
