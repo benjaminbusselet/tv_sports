@@ -18,7 +18,7 @@ TV Sports génère quotidiennement des fichiers JSON unifiés (`progs_YYYYMMDD.j
 ## 🏗️ Architecture
 
 ### Sources de données
-- **🏎️ F1 & ⚽ Football** : Web scraping des sites officiels (Ligue 1, La Liga, Premier League, Serie A, Bundesliga)
+- **⚽ Football** : Web scraping des sites officiels (Ligue 1, La Liga, Premier League, Serie A, Bundesliga)
 - **🏉 Rugby** : Web scraping (Top 14, Rugby Championship, Tournoi des 6 Nations)
 - **🥊 Combat** : Web scraping (UFC, combats de boxe)
 - **📺 EPG** : Open-EPG (grilles TV, fenêtre J-2 à J+2)
@@ -67,7 +67,7 @@ node scripts/merge.js 20250905     # Fusion événements ↔ EPG
 
 ### ✅ Opérationnel
 - **Cron quotidien** : Automatisation GitHub Actions 1h UTC
-- **Multi-sports** : F1, Football, Rugby avec correspondance EPG
+- **Multi-sports** : Football, Rugby avec correspondance EPG
 - **Interface complète** : Onglet "Toutes" par défaut, filtres, navigation temporelle
 - **Déploiement automatique** : GitHub Pages avec Service Worker
 - **Responsive mobile** : Interface adaptative mobile/tablette/desktop avec optimisations touch
