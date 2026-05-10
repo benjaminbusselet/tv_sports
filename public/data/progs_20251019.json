@@ -1,0 +1,287 @@
+[
+  {
+    "uid": "DkvLck37ThZDiFURmDAXRkEq9ubn7gWSi44LQ1Xk@maak-agenda.nl",
+    "title": "Como - Juventus",
+    "start": "2025-10-19T10:30:00.000Z",
+    "end": "2025-10-19T12:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Como",
+    "homeId": "Como",
+    "away": "Juventus",
+    "awayId": "Juventus",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "eX5UuSxr2D0H2HBxbFFetzQhYeZnXvkffyx0TAu5@maak-agenda.nl",
+    "title": "Elche CF - Athletic de Bilbao",
+    "start": "2025-10-19T12:00:00.000Z",
+    "end": "2025-10-19T13:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Elche CF",
+    "homeId": "Elche CF",
+    "away": "Athletic de Bilbao",
+    "awayId": "Athletic de Bilbao",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "ikkOYXrxkCPWjBJlsVLYS3HpgBTWqHv0v5RjRsvr@maak-agenda.nl",
+    "title": "Lens - Paris FC",
+    "start": "2025-10-19T13:00:00.000Z",
+    "end": "2025-10-19T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Lens",
+    "homeId": "Lens",
+    "away": "Paris FC",
+    "awayId": "Paris FC",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "hwykP5K9jHh4GZfEeMfAe7gzrDtFOGdhBZfxsHEe@maak-agenda.nl",
+    "title": "Tottenham Hotspur - Aston Villa",
+    "start": "2025-10-19T13:00:00.000Z",
+    "end": "2025-10-19T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Tottenham Hotspur",
+    "homeId": "Tottenham Hotspur",
+    "away": "Aston Villa",
+    "awayId": "Aston Villa",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "fTXxHvtw9DhcDqUtIGxXYrhtjtJFXTstHN7ac8wL@maak-agenda.nl",
+    "title": "Cagliari - Bologna",
+    "start": "2025-10-19T13:00:00.000Z",
+    "end": "2025-10-19T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Cagliari",
+    "homeId": "Cagliari",
+    "away": "Bologna",
+    "awayId": "Bologna",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "9hMLqh2wXqDX8nFarKbEmye64njnJLXlkGVf2CU9@maak-agenda.nl",
+    "title": "FC Genoa - Parma",
+    "start": "2025-10-19T13:00:00.000Z",
+    "end": "2025-10-19T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "FC Genoa",
+    "homeId": "FC Genoa",
+    "away": "Parma",
+    "awayId": "Parma",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "CTnmQxGHxPawvGrqxSyGWRSSmaeF0L3ifls65uqg@maak-agenda.nl",
+    "title": "SC Freiburg - Eintracht Frankfurt",
+    "start": "2025-10-19T13:30:00.000Z",
+    "end": "2025-10-19T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "SC Freiburg",
+    "homeId": "SC Freiburg",
+    "away": "Eintracht Frankfurt",
+    "awayId": "Eintracht Frankfurt",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "5IjB3pgw9wLFfnrgKsLPy98IlK3ssIvfwsOD8HEv@maak-agenda.nl",
+    "title": "Celta de Vigo - Real Sociedad",
+    "start": "2025-10-19T14:15:00.000Z",
+    "end": "2025-10-19T16:00:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Celta de Vigo",
+    "homeId": "Celta de Vigo",
+    "away": "Real Sociedad",
+    "awayId": "Real Sociedad",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "5gHRIDnwQea1686vVXObKM8unuXSnksN8IiNcPUA@maak-agenda.nl",
+    "title": "Lorient - Stade Brestois 29",
+    "start": "2025-10-19T15:15:00.000Z",
+    "end": "2025-10-19T17:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Lorient",
+    "homeId": "Lorient",
+    "away": "Stade Brestois 29",
+    "awayId": "Stade Brestois 29",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "yEN4TUvgV4RajCE8Wbj2xcILgWTgkVsaNrW1YgQs@maak-agenda.nl",
+    "title": "Stade Rennais - Auxerre",
+    "start": "2025-10-19T15:15:00.000Z",
+    "end": "2025-10-19T17:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Stade Rennais",
+    "homeId": "Stade Rennais",
+    "away": "Auxerre",
+    "awayId": "Auxerre",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "rTYYtjpTM5wch9Kl6Z2e8o76TnCf4S8bH7sXGz48@maak-agenda.nl",
+    "title": "Toulouse - FC Metz",
+    "start": "2025-10-19T15:15:00.000Z",
+    "end": "2025-10-19T17:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Toulouse",
+    "homeId": "Toulouse",
+    "away": "FC Metz",
+    "awayId": "FC Metz",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "MeWAzvCQA675sQED6iZ0ml8W1uhAbvZZl7AnYvVz@maak-agenda.nl",
+    "title": "FC St. Pauli - 1899 Hoffenheim",
+    "start": "2025-10-19T15:30:00.000Z",
+    "end": "2025-10-19T17:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "FC St. Pauli",
+    "homeId": "FC St. Pauli",
+    "away": "1899 Hoffenheim",
+    "awayId": "1899 Hoffenheim",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "EyGA4U5k7DIy5LPCuWaGqomooGipl7Sx0VeYBAfR@maak-agenda.nl",
+    "title": "Liverpool - Manchester United",
+    "start": "2025-10-19T15:30:00.000Z",
+    "end": "2025-10-19T17:15:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Liverpool",
+    "homeId": "Liverpool",
+    "away": "Manchester United",
+    "awayId": "Manchester United",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "Cvgqvd5CLUsta8G4FSZUz39b3yHCn6B5MdRouICZ@maak-agenda.nl",
+    "title": "Atalanta - S.S. Lazio",
+    "start": "2025-10-19T16:00:00.000Z",
+    "end": "2025-10-19T17:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Atalanta",
+    "homeId": "Atalanta",
+    "away": "S.S. Lazio",
+    "awayId": "S.S. Lazio",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "w5zwtmQbct9EpnL2cDXmJQzDe23sGQvc1QV9CN1J@maak-agenda.nl",
+    "title": "Levante - Rayo Vallecano",
+    "start": "2025-10-19T16:30:00.000Z",
+    "end": "2025-10-19T18:15:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Levante",
+    "homeId": "Levante",
+    "away": "Rayo Vallecano",
+    "awayId": "Rayo Vallecano",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "5DiPV6qg2DcBpUN75gu46HLfcwS7H9UqSYBGEPyR@maak-agenda.nl",
+    "title": "FC Nantes - Lille",
+    "start": "2025-10-19T18:45:00.000Z",
+    "end": "2025-10-19T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "FC Nantes",
+    "homeId": "FC Nantes",
+    "away": "Lille",
+    "awayId": "Lille",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "hDMpzrPBtTbIaIcXmr7S0TObRQPWDxaF1mDOXRXb@maak-agenda.nl",
+    "title": "AC Milan - Fiorentina",
+    "start": "2025-10-19T18:45:00.000Z",
+    "end": "2025-10-19T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "AC Milan",
+    "homeId": "AC Milan",
+    "away": "Fiorentina",
+    "awayId": "Fiorentina",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "68f437d8c6489@tv-sports.fr",
+    "title": "Grand Prix des Etats-Unis - Formule 1",
+    "start": "2025-10-19T19:00:00.000Z",
+    "end": "2025-10-19T20:47:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "Grand Prix des Etats-Unis",
+    "homeId": "Grand Prix des Etats-Unis",
+    "away": "Formule 1",
+    "awayId": "Formule 1",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "4rcymvXrrA3kl2hA1TlSwiIyPLvshV1qnTGgWMEe@maak-agenda.nl",
+    "title": "Getafe - Real Madrid",
+    "start": "2025-10-19T19:00:00.000Z",
+    "end": "2025-10-19T20:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Getafe",
+    "homeId": "Getafe",
+    "away": "Real Madrid",
+    "awayId": "Real Madrid",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  }
+]

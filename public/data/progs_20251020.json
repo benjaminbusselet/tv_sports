@@ -1,0 +1,47 @@
+[
+  {
+    "uid": "KngmybsVJKHVw0OVPJ5ZW73SW67OIUeVsJ14SUIm@maak-agenda.nl",
+    "title": "Cremonese - Udinese",
+    "start": "2025-10-20T18:45:00.000Z",
+    "end": "2025-10-20T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Cremonese",
+    "homeId": "Cremonese",
+    "away": "Udinese",
+    "awayId": "Udinese",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "K6d1rK6WLjBT3R2BZLVqYX0G6ySOd0kpeNH5qByF@maak-agenda.nl",
+    "title": "Deportivo Alavés - Valencia",
+    "start": "2025-10-20T19:00:00.000Z",
+    "end": "2025-10-20T20:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Deportivo Alavés",
+    "homeId": "Deportivo Alavés",
+    "away": "Valencia",
+    "awayId": "Valencia",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "yQAECw02KN8nc4lMFCvggGt8HxYoCWzonbTv5JUc@maak-agenda.nl",
+    "title": "West Ham United - Brentford FC",
+    "start": "2025-10-20T19:00:00.000Z",
+    "end": "2025-10-20T20:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "West Ham United",
+    "homeId": "West Ham United",
+    "away": "Brentford FC",
+    "awayId": "Brentford FC",
+    "broadcasters": [
+      "Canal+"
+    ]
+  }
+]

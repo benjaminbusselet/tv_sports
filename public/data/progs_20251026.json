@@ -1,0 +1,407 @@
+[
+  {
+    "uid": "pMJ4y2CjoDfp3WRIEXJFl0RX3UKdol06hCKQIBYk@maak-agenda.nl",
+    "title": "Torino - FC Genoa",
+    "start": "2025-10-26T11:30:00.000Z",
+    "end": "2025-10-26T13:15:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Torino",
+    "homeId": "Torino",
+    "away": "FC Genoa",
+    "awayId": "FC Genoa",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "Nx6ynCYHK3BEE2wglrWebHZU3V4iDj043NoJkLMB@maak-agenda.nl",
+    "title": "Lille - FC Metz",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Lille",
+    "homeId": "Lille",
+    "away": "FC Metz",
+    "awayId": "FC Metz",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "72wuUh61ipMbnHaIbW1FzpeoxURG4HjZvDfeGAra@maak-agenda.nl",
+    "title": "Arsenal - Crystal Palace",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Arsenal",
+    "homeId": "Arsenal",
+    "away": "Crystal Palace",
+    "awayId": "Crystal Palace",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "VJOmHRCFOw0gTm3fUCBZyEK6NaeSfBGwEnmOP4H8@maak-agenda.nl",
+    "title": "Aston Villa - Manchester City",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Aston Villa",
+    "homeId": "Aston Villa",
+    "away": "Manchester City",
+    "awayId": "Manchester City",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "AT7neXthvD6sA8codQJA8vPhjasf4kq4pYlFo92j@maak-agenda.nl",
+    "title": "AFC Bournemouth - Nottingham Forest",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "AFC Bournemouth",
+    "homeId": "AFC Bournemouth",
+    "away": "Nottingham Forest",
+    "awayId": "Nottingham Forest",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "fD5GZ6G61UlIrWnP9WmlQhYSve2Xviww6U32uRxm@maak-agenda.nl",
+    "title": "Wolverhampton Wanderers - Burnley FC",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Wolverhampton Wanderers",
+    "homeId": "Wolverhampton Wanderers",
+    "away": "Burnley FC",
+    "awayId": "Burnley FC",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "rQPC3YA5hkGjgByzha1nt6eLI9uQB5yUmQpN8AxG@maak-agenda.nl",
+    "title": "Hellas Verona FC - Cagliari",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Hellas Verona FC",
+    "homeId": "Hellas Verona FC",
+    "away": "Cagliari",
+    "awayId": "Cagliari",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "oBCf81v9dGSNP7tPdQAnEFmEm0JP4MBZLQeuZNqG@maak-agenda.nl",
+    "title": "US Sassuolo - AS Roma",
+    "start": "2025-10-26T14:00:00.000Z",
+    "end": "2025-10-26T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "US Sassuolo",
+    "homeId": "US Sassuolo",
+    "away": "AS Roma",
+    "awayId": "AS Roma",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "xo5i446YAXDNuTKumKWTrygsEvI3ITT2bXK1PRpO@maak-agenda.nl",
+    "title": "Athletic de Bilbao - Getafe",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Athletic de Bilbao",
+    "homeId": "Athletic de Bilbao",
+    "away": "Getafe",
+    "awayId": "Getafe",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "kCZRqqGSeCq6DmpO2Meh1oLRD8R3ecu7HRMZiB3Y@maak-agenda.nl",
+    "title": "Girona FC - Real Oviedo",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Girona FC",
+    "homeId": "Girona FC",
+    "away": "Real Oviedo",
+    "awayId": "Real Oviedo",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "tfyy2mTc9sHoT9PdZwwlixKeTDs1zkfgdzxiQxOb@maak-agenda.nl",
+    "title": "Real Sociedad - Sevilla FC",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Sociedad",
+    "homeId": "Real Sociedad",
+    "away": "Sevilla FC",
+    "awayId": "Sevilla FC",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "UGgxKt8MaWXH7TRXs7liM7ySjmxOPsLvXJUmd8Cy@maak-agenda.nl",
+    "title": "Valencia - Villarreal",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Valencia",
+    "homeId": "Valencia",
+    "away": "Villarreal",
+    "awayId": "Villarreal",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "fz0VdO7XDVMSYObIKWWop91pBARwPncpiFVkdBc7@maak-agenda.nl",
+    "title": "Rayo Vallecano - Deportivo Alavés",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Rayo Vallecano",
+    "homeId": "Rayo Vallecano",
+    "away": "Deportivo Alavés",
+    "awayId": "Deportivo Alavés",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Siui1Eawi26tUAuNT75c7JPCV4v4X9BY6d0OFKy5@maak-agenda.nl",
+    "title": "Real Betis - Atlético Madrid",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Betis",
+    "homeId": "Real Betis",
+    "away": "Atlético Madrid",
+    "awayId": "Atlético Madrid",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Ktk4n4ZlpCouxvNLmvEYzCycrAuHCiljHaR3QuRT@maak-agenda.nl",
+    "title": "Real Madrid - FC Barcelona",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Madrid",
+    "homeId": "Real Madrid",
+    "away": "FC Barcelona",
+    "awayId": "FC Barcelona",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "H5fwr7WcP38IYDmi3crpLD1dTLAJTDimHlbfLOzE@maak-agenda.nl",
+    "title": "CA Osasuna - Celta de Vigo",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "CA Osasuna",
+    "homeId": "CA Osasuna",
+    "away": "Celta de Vigo",
+    "awayId": "Celta de Vigo",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Gl8yanLoG8bzQe3Is1bWpI971N1yvaIfSYbujmle@maak-agenda.nl",
+    "title": "Espanyol - Elche CF",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Espanyol",
+    "homeId": "Espanyol",
+    "away": "Elche CF",
+    "awayId": "Elche CF",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "zvdlbQFdCQRQttz3zEYlWePEzN3P17ptbzcMwK3j@maak-agenda.nl",
+    "title": "Real Mallorca - Levante",
+    "start": "2025-10-26T15:00:00.000Z",
+    "end": "2025-10-26T16:45:00.000Z",
+    "sport": "football",
+    "competition": "LaLiga",
+    "home": "Real Mallorca",
+    "homeId": "Real Mallorca",
+    "away": "Levante",
+    "awayId": "Levante",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "a83MfTLLlnaBSZHQJqMakCclBaR3SdKbaVUZEbqS@maak-agenda.nl",
+    "title": "Auxerre - Le Havre",
+    "start": "2025-10-26T16:15:00.000Z",
+    "end": "2025-10-26T18:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Auxerre",
+    "homeId": "Auxerre",
+    "away": "Le Havre",
+    "awayId": "Le Havre",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "8wAtJLdTHAlUKe2QI8EA7rqbd60pnQEqN13H4BnU@maak-agenda.nl",
+    "title": "Stade Rennais - OGC Nice",
+    "start": "2025-10-26T16:15:00.000Z",
+    "end": "2025-10-26T18:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Stade Rennais",
+    "homeId": "Stade Rennais",
+    "away": "OGC Nice",
+    "awayId": "OGC Nice",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "RO3u7XeKP98rdRNee0wmBKJNkRZsxP2gES7Ivfqy@maak-agenda.nl",
+    "title": "Angers SCO - Lorient",
+    "start": "2025-10-26T16:15:00.000Z",
+    "end": "2025-10-26T18:00:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Angers SCO",
+    "homeId": "Angers SCO",
+    "away": "Lorient",
+    "awayId": "Lorient",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "Zx11y7quLQMuNxOPNlX4HNqv5QAWDgC1u1YplifJ@maak-agenda.nl",
+    "title": "Everton - Tottenham Hotspur",
+    "start": "2025-10-26T16:30:00.000Z",
+    "end": "2025-10-26T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Everton",
+    "homeId": "Everton",
+    "away": "Tottenham Hotspur",
+    "awayId": "Tottenham Hotspur",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "c5WncPqS3P8r8c0mRN0VPb4wtdoWbXQtC6IvcWUv@maak-agenda.nl",
+    "title": "Fiorentina - Bologna",
+    "start": "2025-10-26T17:00:00.000Z",
+    "end": "2025-10-26T18:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Fiorentina",
+    "homeId": "Fiorentina",
+    "away": "Bologna",
+    "awayId": "Bologna",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "y9HD6jZurdJYSJazQNGH8Q51UNOXGJyAhl3dcSHu@maak-agenda.nl",
+    "title": "Olympique Lyonnais - RC Strasbourg",
+    "start": "2025-10-26T19:45:00.000Z",
+    "end": "2025-10-26T21:30:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Olympique Lyonnais",
+    "homeId": "Olympique Lyonnais",
+    "away": "RC Strasbourg",
+    "awayId": "RC Strasbourg",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "DxS0HcuVJfnzyW2pKRIQ3XBQ9k9ibkaITkuACIf9@maak-agenda.nl",
+    "title": "S.S. Lazio - Juventus",
+    "start": "2025-10-26T19:45:00.000Z",
+    "end": "2025-10-26T21:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "S.S. Lazio",
+    "homeId": "S.S. Lazio",
+    "away": "Juventus",
+    "awayId": "Juventus",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "68f437d9da30e@tv-sports.fr",
+    "title": "Grand Prix du Mexique - Formule 1",
+    "start": "2025-10-26T20:00:00.000Z",
+    "end": "2025-10-26T21:40:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "Grand Prix du Mexique",
+    "homeId": "Grand Prix du Mexique",
+    "away": "Formule 1",
+    "awayId": "Formule 1",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "68f437d9dabfb@tv-sports.fr",
+    "title": "Stade Toulousain - Toulon",
+    "start": "2025-10-26T20:05:00.000Z",
+    "end": "2025-10-26T22:05:00.000Z",
+    "sport": "rugby",
+    "competition": "Rugby",
+    "home": "Stade Toulousain",
+    "homeId": "Stade Toulousain",
+    "away": "Toulon",
+    "awayId": "Toulon",
+    "broadcasters": [
+      "Canal+"
+    ]
+  }
+]

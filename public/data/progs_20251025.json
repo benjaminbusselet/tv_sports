@@ -1,0 +1,317 @@
+[
+  {
+    "uid": "J6VLz47zUTdSdfzuNYMWau3k1sKTXg7A6Zqf5StT@maak-agenda.nl",
+    "title": "Parma - Como",
+    "start": "2025-10-25T13:00:00.000Z",
+    "end": "2025-10-25T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Parma",
+    "homeId": "Parma",
+    "away": "Como",
+    "awayId": "Como",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "ITsfVnr7NPLD8SdrE6nemBSqzbRvWzKUWA7KHpMN@maak-agenda.nl",
+    "title": "Udinese - Lecce",
+    "start": "2025-10-25T13:00:00.000Z",
+    "end": "2025-10-25T14:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Udinese",
+    "homeId": "Udinese",
+    "away": "Lecce",
+    "awayId": "Lecce",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "NDDtQpl4SGg5R31UrA5ndJvNYFbekLSm8XxCTokK@maak-agenda.nl",
+    "title": "Hamburger SV - VFL Wolfsburg",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Hamburger SV",
+    "homeId": "Hamburger SV",
+    "away": "VFL Wolfsburg",
+    "awayId": "VFL Wolfsburg",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "fgWcKeq4MsETzclHzCfZvN8Kar7QuW3tLfXxgfTu@maak-agenda.nl",
+    "title": "1899 Hoffenheim - 1.FC Heidenheim",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "1899 Hoffenheim",
+    "homeId": "1899 Hoffenheim",
+    "away": "1.FC Heidenheim",
+    "awayId": "1.FC Heidenheim",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Wc1Rqix9pUPoaxBPBP2yRLhH8zLRCblyNw40PWnE@maak-agenda.nl",
+    "title": "Borussia Mönchengladbach - Bayern München",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Borussia Mönchengladbach",
+    "homeId": "Borussia Mönchengladbach",
+    "away": "Bayern München",
+    "awayId": "Bayern München",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "NmDzl9CZYFOHrG7ZUwS9FzmJGc0MFcxqWoKTtn8H@maak-agenda.nl",
+    "title": "FC Augsburg - RB Leipzig",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "FC Augsburg",
+    "homeId": "FC Augsburg",
+    "away": "RB Leipzig",
+    "awayId": "RB Leipzig",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "aOZVe1o2IewoZi0KsYoXPNPXCPeiJmzAcaGfjXiO@maak-agenda.nl",
+    "title": "Bayer Leverkusen - SC Freiburg",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Bayer Leverkusen",
+    "homeId": "Bayer Leverkusen",
+    "away": "SC Freiburg",
+    "awayId": "SC Freiburg",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "zjTkR82I98N56jk5lYo8mf1Pwg9qossTAG66QLF4@maak-agenda.nl",
+    "title": "Eintracht Frankfurt - FC St. Pauli",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Eintracht Frankfurt",
+    "homeId": "Eintracht Frankfurt",
+    "away": "FC St. Pauli",
+    "awayId": "FC St. Pauli",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "gb6bClISG2PpGPszVg1UljviRChNwrbp4wSBimod@maak-agenda.nl",
+    "title": "VfB Stuttgart - FSV Mainz 05",
+    "start": "2025-10-25T13:30:00.000Z",
+    "end": "2025-10-25T15:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "VfB Stuttgart",
+    "homeId": "VfB Stuttgart",
+    "away": "FSV Mainz 05",
+    "awayId": "FSV Mainz 05",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "2Y7L8Rjg8CNbFduIOGlNgVI5veXf7ogT28sQ9Oqx@maak-agenda.nl",
+    "title": "Chelsea - Sunderland",
+    "start": "2025-10-25T14:00:00.000Z",
+    "end": "2025-10-25T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Chelsea",
+    "homeId": "Chelsea",
+    "away": "Sunderland",
+    "awayId": "Sunderland",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "61G1xc4uttgieoQRVVQND5OfGQuRNPPaBrkBY4A3@maak-agenda.nl",
+    "title": "Newcastle United - Fulham",
+    "start": "2025-10-25T14:00:00.000Z",
+    "end": "2025-10-25T15:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Newcastle United",
+    "homeId": "Newcastle United",
+    "away": "Fulham",
+    "awayId": "Fulham",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "yyY18irnzvm6J5u37un30zRARF0ixzeIUMRICB80@maak-agenda.nl",
+    "title": "Stade Brestois 29 - Paris Saint-Germain",
+    "start": "2025-10-25T15:00:00.000Z",
+    "end": "2025-10-25T16:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Stade Brestois 29",
+    "homeId": "Stade Brestois 29",
+    "away": "Paris Saint-Germain",
+    "awayId": "Paris Saint-Germain",
+    "broadcasters": [
+      "beIN SPORTS 1"
+    ]
+  },
+  {
+    "uid": "rgjOMco8mHVbdV9ybo2rVmt9tNt4zEo1HklsW395@maak-agenda.nl",
+    "title": "Napoli - Inter",
+    "start": "2025-10-25T16:00:00.000Z",
+    "end": "2025-10-25T17:45:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Napoli",
+    "homeId": "Napoli",
+    "away": "Inter",
+    "awayId": "Inter",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "UZiafnXHus2OGi8BI9nMge4LlsM8vyICi87xnHsA@maak-agenda.nl",
+    "title": "Borussia Dortmund - 1.FC Köln",
+    "start": "2025-10-25T16:30:00.000Z",
+    "end": "2025-10-25T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Bundesliga",
+    "home": "Borussia Dortmund",
+    "homeId": "Borussia Dortmund",
+    "away": "1.FC Köln",
+    "awayId": "1.FC Köln",
+    "broadcasters": [
+      "beIN Sports"
+    ]
+  },
+  {
+    "uid": "Pif1dOL5Xf2TEnzaTFiym5RgV2dQKdo5NIqn7bWt@maak-agenda.nl",
+    "title": "Manchester United - Brighton & Hove Albion FC",
+    "start": "2025-10-25T16:30:00.000Z",
+    "end": "2025-10-25T18:15:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Manchester United",
+    "homeId": "Manchester United",
+    "away": "Brighton & Hove Albion FC",
+    "awayId": "Brighton & Hove Albion FC",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "lVOXcdXtP8RREWT2pur5DHDUuyIbMG2uGrCBbGk7@maak-agenda.nl",
+    "title": "AS Monaco - Toulouse",
+    "start": "2025-10-25T17:00:00.000Z",
+    "end": "2025-10-25T18:45:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "AS Monaco",
+    "homeId": "AS Monaco",
+    "away": "Toulouse",
+    "awayId": "Toulouse",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "68f437d9b0762@tv-sports.fr",
+    "title": "Grand Prix du Mexique - Formule 1",
+    "start": "2025-10-25T17:20:00.000Z",
+    "end": "2025-10-25T18:42:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "Grand Prix du Mexique",
+    "homeId": "Grand Prix du Mexique",
+    "away": "Formule 1",
+    "awayId": "Formule 1",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "HgeIkyoZZ8X8AuV2YWK9CahtLL2yadjWmgMJffOR@maak-agenda.nl",
+    "title": "Cremonese - Atalanta",
+    "start": "2025-10-25T18:45:00.000Z",
+    "end": "2025-10-25T20:30:00.000Z",
+    "sport": "football",
+    "competition": "Serie A",
+    "home": "Cremonese",
+    "homeId": "Cremonese",
+    "away": "Atalanta",
+    "awayId": "Atalanta",
+    "broadcasters": [
+      "DAZN"
+    ]
+  },
+  {
+    "uid": "AjTn7I62IMFt1nIspuisI3I7icJSO2OTUEL3nB5W@maak-agenda.nl",
+    "title": "Brentford FC - Liverpool",
+    "start": "2025-10-25T19:00:00.000Z",
+    "end": "2025-10-25T20:45:00.000Z",
+    "sport": "football",
+    "competition": "Premier League",
+    "home": "Brentford FC",
+    "homeId": "Brentford FC",
+    "away": "Liverpool",
+    "awayId": "Liverpool",
+    "broadcasters": [
+      "Canal+"
+    ]
+  },
+  {
+    "uid": "2CxNj5dtQzKlyQuBfOBFX0VQfeDWlSWOZbxps2wl@maak-agenda.nl",
+    "title": "Lens - Olympique Marseille",
+    "start": "2025-10-25T19:05:00.000Z",
+    "end": "2025-10-25T20:50:00.000Z",
+    "sport": "football",
+    "competition": "Ligue 1",
+    "home": "Lens",
+    "homeId": "Lens",
+    "away": "Olympique Marseille",
+    "awayId": "Olympique Marseille",
+    "broadcasters": [
+      "Ligue 1+"
+    ]
+  },
+  {
+    "uid": "68f437d9b7a73@tv-sports.fr",
+    "title": "Grand Prix du Mexique - Formule 1",
+    "start": "2025-10-25T20:40:00.000Z",
+    "end": "2025-10-25T22:21:00.000Z",
+    "sport": "f1",
+    "competition": "Formule 1",
+    "home": "Grand Prix du Mexique",
+    "homeId": "Grand Prix du Mexique",
+    "away": "Formule 1",
+    "awayId": "Formule 1",
+    "broadcasters": [
+      "Canal+"
+    ]
+  }
+]
