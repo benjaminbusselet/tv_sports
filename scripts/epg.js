@@ -134,7 +134,7 @@ export async function fetchEpg(ymd) {
 
   const [channelsJson] = await Promise.all([
     fs
-      .readFile(path.join(__dirname, "../config/channels.json"), "utf-8")
+      .readFile(path.join(__dirname, "../public/config/channels.json"), "utf-8")
       .then(JSON.parse),
   ]);
 
