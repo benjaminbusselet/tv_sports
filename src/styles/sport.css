@@ -1,0 +1,114 @@
+/* ===============================
+   THÈME SPORT — Styles composants
+   Écrase les effets glass pour data-brand="sport"
+   =============================== */
+
+@layer components {
+
+  /* --- Header --- */
+  [data-brand="sport"] .header {
+    background: var(--header-bg);
+    border: 1px solid var(--header-border);
+    box-shadow: var(--header-shadow);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 1;
+  }
+
+  /* --- Barre de tabs --- */
+  [data-brand="sport"] .tabs {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ui-border);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 1;
+    border-radius: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  /* --- Chips et Tabs — style flat avec indicateur actif --- */
+  [data-brand="sport"] .chip,
+  [data-brand="sport"] .tab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    color: var(--ui-text);
+    opacity: 0.55;
+    filter: none;
+    font-weight: var(--font-medium);
+    padding-bottom: 0.6rem;
+    transition: opacity 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  [data-brand="sport"] .chip::before,
+  [data-brand="sport"] .tab::before {
+    display: none;
+  }
+
+  [data-brand="sport"] .chip:hover,
+  [data-brand="sport"] .chip:focus,
+  [data-brand="sport"] .tab:hover,
+  [data-brand="sport"] .tab:focus {
+    opacity: 0.85;
+    filter: none;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  [data-brand="sport"] .chip[aria-selected="true"],
+  [data-brand="sport"] .tab[aria-selected="true"] {
+    background: transparent;
+    border-bottom-color: var(--sport-accent);
+    color: var(--ui-text);
+    opacity: 1;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+  }
+
+  [data-brand="sport"] .chip[aria-selected="false"],
+  [data-brand="sport"] .tab[aria-selected="false"] {
+    opacity: 0.55;
+  }
+
+  /* --- Cartes événements — flat avec bordure subtile --- */
+  [data-brand="sport"] .card {
+    background: var(--ui-bg);
+    color: var(--ui-text);
+    border: 1px solid var(--ui-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: background 160ms ease, box-shadow 160ms ease;
+  }
+
+  [data-brand="sport"] .card::before {
+    display: none;
+  }
+
+  [data-brand="sport"] .card:hover,
+  [data-brand="sport"] .card:focus {
+    background: color-mix(in oklab, var(--ui-bg) 95%, var(--sport-accent) 5%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    filter: none;
+    transform: translateY(-1px);
+  }
+
+  /* --- Titre de section --- */
+  [data-brand="sport"] .sectionTitle {
+    color: var(--ui-text);
+    border-color: var(--ui-border);
+    opacity: 0.7;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+}

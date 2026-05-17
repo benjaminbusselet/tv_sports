@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./styles/glass.css";
+@import "./styles/sport.css";
 
 /* ===============================
    BASE STYLES

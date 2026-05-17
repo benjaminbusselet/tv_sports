@@ -1,5 +1,5 @@
 :root {
-  /* === COULEURS === */
+  /* === COULEURS GLASS === */
   --bg-light: #e6f2ff;
   --bg-dark: #1e3a8a;
   --ui-bg-light: #95d9b8;
@@ -8,8 +8,17 @@
   --ui-bg-dark: #0c1632;
   --ui-text-dark: #bbffcc;
   --ui-border-dark: #2360c0;
-  --color-border-light: rgba(30, 58, 138, 0.3);
-  --color-background-light-opacity: 0.9;
+
+  /* === COULEURS SPORT === */
+  --sport-bg-light: #f8fafc;
+  --sport-ui-bg-light: #ffffff;
+  --sport-ui-text-light: #0f1923;
+  --sport-ui-border-light: rgba(0, 0, 0, 0.08);
+  --sport-bg-dark: #0f1923;
+  --sport-ui-bg-dark: #1e2d3d;
+  --sport-ui-text-dark: #e8eaed;
+  --sport-ui-border-dark: rgba(255, 255, 255, 0.1);
+  --sport-accent: #46d369;
 
   /* === OMBRES === */
   --shadow-soft: 0 4px 24px -8px rgba(30, 58, 138, 0.1);
@@ -43,7 +52,7 @@
   --surface-opacity: 0.95;
   --ui-opacity: 0.95;
 
-  /* === VARIABLES DÉRIVÉES (à placer après leurs dépendances) === */
+  /* === VARIABLES ACTIVES — défaut : Glass Light === */
   --bg-color: var(--bg-light);
   --text-from-bg: var(--bg-dark);
   --ui-bg: var(--ui-bg-light);
@@ -54,4 +63,34 @@
   --header-bg: rgba(230, 242, 255, 0.6);
   --header-border: rgba(16, 24, 40, 0.06);
   --focus-ring: rgba(30, 58, 138, 0.12);
+}
+
+/* ================================
+   THÈME SPORT LIGHT
+   ================================ */
+[data-brand="sport"] {
+  --bg-color: var(--sport-bg-light);
+  --text-from-bg: var(--sport-ui-text-light);
+  --ui-bg: var(--sport-ui-bg-light);
+  --ui-text: var(--sport-ui-text-light);
+  --ui-border: var(--sport-ui-border-light);
+  --header-bg: rgba(248, 250, 252, 0.95);
+  --header-border: rgba(0, 0, 0, 0.06);
+  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --focus-ring: rgba(70, 211, 105, 0.35);
+}
+
+/* ================================
+   THÈME SPORT DARK
+   ================================ */
+[data-brand="sport"][data-mode="dark"] {
+  --bg-color: var(--sport-bg-dark);
+  --text-from-bg: var(--sport-ui-text-dark);
+  --ui-bg: var(--sport-ui-bg-dark);
+  --ui-text: var(--sport-ui-text-dark);
+  --ui-border: var(--sport-ui-border-dark);
+  --header-bg: rgba(15, 25, 35, 0.95);
+  --header-border: rgba(255, 255, 255, 0.06);
+  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --focus-ring: rgba(70, 211, 105, 0.35);
 }

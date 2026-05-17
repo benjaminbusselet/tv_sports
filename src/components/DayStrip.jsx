@@ -1,5 +1,4 @@
 import { dayKey, dayLabel } from "../lib/dateUtils.js";
-import "./DayStrip.css";
 
 export default function DayStrip({ value, onChange, countsByDay = {} }) {
   const today = new Date();
