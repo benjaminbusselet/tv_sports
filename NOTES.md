@@ -37,10 +37,11 @@
 
 ---
 
-## Fichiers à nettoyer manuellement (si pas encore fait)
-- `src/components/DayStrip.css` → vide, peut être supprimé
-- `src/components/SportsTabs.css` → vide, peut être supprimé
-- `src/App.css` → vide, peut être supprimé
+## ✅ Nettoyage (terminé)
+- Fichiers CSS vides supprimés (DayStrip.css, SportsTabs.css, App.css)
+- `utilities.css` → `.surface-bar`, `.surface-chip`, `[data-ui-surface]` supprimés (code mort)
+- `utilities.css` → styles `button` globaux déplacés dans `@layer base` (plus de conflit Tailwind, `--ui-primary` retiré)
+- `variables.css` → `--color-border-light`, `--color-background-light-opacity`, `--surface-radius`, `--surface-opacity`, `--surface-shadow`, `--surface-blur` supprimés (orphelins)
 
 ---
 

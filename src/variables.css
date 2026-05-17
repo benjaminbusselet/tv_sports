@@ -48,8 +48,6 @@
   /* === ESPACEMENTS & DIMENSIONS === */
   --radius-corner: 16px;
   --ui-radius: 16px;
-  --surface-radius: var(--radius-corner);
-  --surface-opacity: 0.95;
   --ui-opacity: 0.95;
 
   /* === VARIABLES ACTIVES — défaut : Glass Light === */
@@ -58,8 +56,6 @@
   --ui-bg: var(--ui-bg-light);
   --ui-text: var(--ui-text-light);
   --ui-border: var(--ui-border-light);
-  --surface-shadow: var(--shadow-soft);
-  --surface-blur: var(--backdrop-blur);
   --header-bg: rgba(230, 242, 255, 0.6);
   --header-border: rgba(16, 24, 40, 0.06);
   --focus-ring: rgba(30, 58, 138, 0.12);
