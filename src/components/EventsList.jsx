@@ -43,7 +43,7 @@ export default function EventsList({ events = [], grouped = false }) {
       if (!list || !list.length) return;
 
       elements.push(
-        <div key={"comp-" + comp} className="sectionTitle">
+        <div key={"comp-" + comp} className="sectionTitle text-xl font-semibold mt-6 mb-3 ml-2 pb-2 border-b">
           {comp}
         </div>
       );
@@ -55,25 +55,25 @@ export default function EventsList({ events = [], grouped = false }) {
               minute: "2-digit",
             })
           : "";
-          
+
         elements.push(
-          <article key={(ev.uid || "") + ev.start + ev.title} className="card">
-            <div className="card-time">{time}</div>
-            <div className="card-info">
-              <div className="title">{ev.title}</div>
+          <article key={(ev.uid || "") + ev.start + ev.title} className="card grid grid-cols-[4rem_1fr_12rem] max-[767px]:grid-cols-[2.5rem_1fr_6rem] items-center gap-2 w-full my-2 px-4 py-3 max-[767px]:px-3 max-[767px]:py-2 rounded-2xl">
+            <div className="font-mono text-sm font-semibold opacity-90 max-[767px]:text-[11px]">{time}</div>
+            <div className="overflow-hidden min-w-0">
+              <div className="text-base font-medium overflow-hidden text-ellipsis whitespace-nowrap max-[767px]:text-[13px]">{ev.title}</div>
             </div>
-            <div className="card-broadcaster">{ev.broadcasters?.join(", ") || ""}</div>
+            <div className="text-sm text-right whitespace-nowrap overflow-hidden text-ellipsis flex justify-end items-center gap-2 max-[767px]:text-[10px]">{ev.broadcasters?.join(", ") || ""}</div>
           </article>
         );
       });
     });
 
-    return <div className="events-container">{elements}</div>;
+    return <div className="px-3 w-full max-w-[800px] mx-auto max-[767px]:px-2">{elements}</div>;
   }
 
   // Affichage chronologique simple
   return (
-    <div className="events-container">
+    <div className="px-3 w-full max-w-[800px] mx-auto max-[767px]:px-2">
       {events.map((ev) => {
         const time = ev.start
           ? new Date(ev.start).toLocaleTimeString("fr-FR", {
@@ -84,14 +84,14 @@ export default function EventsList({ events = [], grouped = false }) {
         return (
           <article
             key={ev.uid || ev.start + ev.title}
-            className="card"
+            className="card grid grid-cols-[4rem_1fr_12rem] max-[767px]:grid-cols-[2.5rem_1fr_6rem] items-center gap-2 w-full my-2 px-4 py-3 max-[767px]:px-3 max-[767px]:py-2 rounded-2xl"
             tabIndex={0}
           >
-            <div className="card-time">{time}</div>
-            <div className="card-info">
-              <div className="title">{ev.title}</div>
+            <div className="font-mono text-sm font-semibold opacity-90 max-[767px]:text-[11px]">{time}</div>
+            <div className="overflow-hidden min-w-0">
+              <div className="text-base font-medium overflow-hidden text-ellipsis whitespace-nowrap max-[767px]:text-[13px]">{ev.title}</div>
             </div>
-            <div className="card-broadcaster">
+            <div className="text-sm text-right whitespace-nowrap overflow-hidden text-ellipsis flex justify-end items-center gap-2 max-[767px]:text-[10px]">
               {ev.broadcasters?.join(", ") || ""}
               {ev.status && (
                 <span className={`status-badge status-${ev.status}`}>

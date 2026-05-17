@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 // Sert les fichiers statiques de public/ (config + data générés par le pipeline)
-app.use(express.static(join(__dirname, "public")));
+app.use(express.static(join(__dirname, "../public")));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

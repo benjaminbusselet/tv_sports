@@ -4,8 +4,8 @@ import SportsTabs from "./components/SportsTabs.jsx";
 import DayStrip from "./components/DayStrip.jsx";
 import { dayKey } from "./lib/dateUtils.js";
 import EventsList from "./components/EventsList.jsx";
-import ThemeSwitcher from "./utilities/ThemeSwitcher.jsx";
-import LoadingSpinner from "./utilities/LoadingSpinner.jsx";
+import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
+import LoadingSpinner from "./components/LoadingSpinner.jsx";
 import { fetchEvents, fetchDayCounts } from "./services/api.js";
 import { fetchUserSettings } from "./services/userConfig.js";
 

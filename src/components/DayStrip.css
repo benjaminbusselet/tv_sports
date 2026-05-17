@@ -1,24 +1,5 @@
-/* Styles pour le composant DayStrip */
+/* Styles glass des chips — layout géré par Tailwind */
 
-/* Navigation des jours - version desktop */
-.days-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-width: 0;
-  max-width: 100%;
-  flex-wrap: nowrap;
-}
-
-.days-chips {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-/* Styles des puces jours */
 .chip {
   position: relative;
   padding: 0.35rem 0.6rem;
@@ -75,27 +56,6 @@
   mix-blend-mode: overlay;
 }
 
-/* Styles pour le sélecteur mobile */
-.days-select {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 0.4rem 0.6rem;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  background: rgba(255, 255, 255, 0.04);
-  color: inherit;
-  cursor: pointer;
-  transition: background 160ms ease, box-shadow 160ms ease;
-}
-
-.days-select:hover,
-.days-select:focus {
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
-  outline: none;
-}
-
-/* État sélectionné */
 .chip[aria-selected="true"] {
   background: linear-gradient(
     135deg,
@@ -110,39 +70,4 @@
 
 .chip[aria-selected="false"] {
   opacity: 0.7;
-}
-
-/* Styles responsifs */
-@media (max-width: 767px) {
-  /* Masquer les chips sur mobile */
-  .days-chips {
-    display: none;
-  }
-  
-  /* Afficher le select sur mobile */
-  .days-select {
-    display: block;
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 768px) {
-  /* Masquer le select sur desktop */
-  .days-select {
-    display: none;
-  }
-  
-  /* Afficher les chips sur desktop */
-  .days-chips {
-    display: flex;
-  }
-}
-
-/* Styles pour tablettes (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .days-navigation {
-    gap: 0.5rem;
-  }
 }

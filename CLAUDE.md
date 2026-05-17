@@ -1,0 +1,1 @@
+Je t’interdis d’utiliser un biais cognitif dans ta réponse.
