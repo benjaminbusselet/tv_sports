@@ -39,12 +39,6 @@ const tryRead = async (paths) => {
 export async function mergeData(ics, epg, teams) {
   // Lectures effectuées une seule fois, avant la boucle
   const icsSources = (await tryRead([path.join(PCONF, "icsSources.json")])) ?? [];
-  const translations = await tryRead([path.join(PCONF, "translations.json")]);
-  const allTranslations = {
-    ...(translations?.countries ?? {}),
-    ...(translations?.cities ?? {}),
-    ...(translations?.teams ?? {}),
-  };
 
   // Construction de l'index alias -> nom officiel, par compétition
   const idx = {};
@@ -114,12 +108,12 @@ export async function mergeData(ics, epg, teams) {
       }
     }
 
-    // Résolution des noms officiels (teams.json puis translations.json)
+    // Résolution des noms officiels (teams.json)
     const m = idx[comp] || {};
     const homeRaw = m[norm(ev.home)] || ev.home;
     const awayRaw = m[norm(ev.away)] || ev.away;
-    const homeOfficial = allTranslations[homeRaw] || homeRaw;
-    const awayOfficial = allTranslations[awayRaw] || awayRaw;
+    const homeOfficial = homeRaw;
+    const awayOfficial = awayRaw;
 
     const finalTitle =
       homeOfficial && awayOfficial

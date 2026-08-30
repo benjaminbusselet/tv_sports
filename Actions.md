@@ -8,7 +8,6 @@ Issu de l'audit du 2026-08-30.
 - [ ] Envisager de découper `src/App.jsx` (état + logique de tri/filtre concentrés dans un seul composant de 150 lignes) si le composant continue de grossir.
 - [ ] Logique de date Europe/Paris (`fmtParis`/`ymdParis`/`addDaysYMD`) dupliquée 4 fois : bloc identique copié-collé entre `build.js` et `dev-check.js`, et réimplémentation différente (locale `fr-FR` + split) dans `epg.js`/`ics.js`. À extraire dans un module partagé (ex. `scripts/lib/dates.js`).
 - [ ] Double source de vérité sur les alias "Stade Toulousain" : `merge.js` (lignes ~76 et ~79) hardcode `["stade toulousain", "toulouse", "toulouse rugby"]` pour deviner la compétition, alors que `teams.json` a déjà la liste d'alias officielle. Risque de désync silencieuse (même catégorie de bug que celui corrigé sur France Rugby).
-- [ ] `translations.json` référencé dans `merge.js` (`countries`/`cities`/`teams`) mais le fichier n'existe pas dans `public/config/` — dégradation silencieuse actuellement (pas cassé), mais fonctionnalité fantôme à clarifier (implémenter ou retirer la référence).
 
 ## Améliorations futures
 
@@ -46,3 +45,7 @@ Issu de l'audit du 2026-08-30.
 
 - [x] `NOTES.md` supprimé (journal de migration périmé, historique conservé dans git).
 - [x] `README.md` corrigé : Stack (CSS natif → Tailwind, PWA → service worker basique sans offline réel) et Déploiement (gh-pages branch → déploiement natif GitHub Pages via `deploy-pages`).
+
+## Nettoyage code
+
+- [x] `translations.json` : décision prise de ne pas implémenter (pas de traduction prévue). Code mort retiré de `merge.js` (lecture du fichier, fusion `countries`/`cities`/`teams`, indirection `allTranslations[...]`) — `homeOfficial`/`awayOfficial` utilisent directement le nom résolu par `teams.json`.
