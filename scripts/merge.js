@@ -25,18 +25,6 @@ const tms = (s) => new Date(s).getTime();
 const near = (a, b, ms = 60 * 60 * 1000) =>
   a && b && Math.abs(tms(a) - tms(b)) <= ms;
 
-// Vérifie si un événement a lieu un samedi à 17h00 (Europe/Paris)
-const isSat17Paris = (iso) => {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/Paris",
-    weekday: "short",
-    hour: "2-digit",
-    hour12: false,
-  }).formatToParts(new Date(iso));
-  const m = Object.fromEntries(parts.map((x) => [x.type, x.value]));
-  return m.weekday === "Sat" && m.hour === "17";
-};
-
 // Lecture JSON tolérante : retourne null si absent ou erreur
 const tryRead = async (paths) => {
   for (const p of paths) {
@@ -122,11 +110,7 @@ export async function mergeData(ics, epg, teams) {
       });
 
       if (src?.defaultBroadcasters?.length > 0) {
-        // Cas spécial : Ligue 1 le samedi à 17h → beIN SPORTS 1
-        chan =
-          comp === "Ligue 1" && isSat17Paris(ev.start)
-            ? "beIN SPORTS 1"
-            : src.defaultBroadcasters[0];
+        chan = src.defaultBroadcasters[0];
       }
     }
 

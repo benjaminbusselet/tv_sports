@@ -65,7 +65,7 @@
     "sport": "football",
     "name": "Ligue 1",
     "url": "https://ics.fixtur.es/v2/league/ligue-1.ics",
-    "defaultBroadcasters": ["Ligue 1+", "beIN Sports"],
+    "defaultBroadcasters": ["Ligue 1+"],
     "notifications": {
       "enabled": false,
       "advance": 30
@@ -77,7 +77,7 @@
     "sport": "football",
     "name": "LaLiga",
     "url": "https://ics.fixtur.es/v2/league/primera-division.ics",
-    "defaultBroadcasters": ["beIN Sports"],
+    "defaultBroadcasters": ["Disney+"],
     "notifications": {
       "enabled": false,
       "advance": 30
