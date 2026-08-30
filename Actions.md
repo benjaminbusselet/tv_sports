@@ -4,9 +4,9 @@ Issu de l'audit du 2026-08-30.
 
 ## Nettoyage code
 
-- [ ] Supprimer `src/services/sources.js` (non importé nulle part) ou l'intégrer si prévu pour un usage futur.
 - [ ] Envisager de découper `src/App.jsx` (état + logique de tri/filtre concentrés dans un seul composant de 150 lignes) si le composant continue de grossir.
 - [ ] Logique de date Europe/Paris (`fmtParis`/`ymdParis`/`addDaysYMD`) dupliquée 4 fois : bloc identique copié-collé entre `build.js` et `dev-check.js`, et réimplémentation différente (locale `fr-FR` + split) dans `epg.js`/`ics.js`. À extraire dans un module partagé (ex. `scripts/lib/dates.js`).
+
 ## Améliorations futures
 
 - [ ] `favorites.competitions` (`userSettings.json`, ex. `["Formule 1", "Top 14", "Ligue 1"]`) existe dans la config mais n'a aucun effet dans le code actuellement — décision prise de ne pas le supprimer, en garder l'usage pour plus tard (onglet/filtre "toute une compétition favorite", en plus du filtre par équipe existant).
@@ -54,3 +54,4 @@ Issu de l'audit du 2026-08-30.
   - `teams.json` : section `Rugby` unique restructurée en sections par compétition (`Top 14`, `Champions Cup`, `Tournoi des 6 Nations`, `Summer Nations Series`, `Autumn Nations Series`) — cohérent avec le fait que ces flux n'ont pas de tag `[...]` dans leurs titres, donc `ev.competition` est déjà le nom exact de la source.
   - `merge.js` : suppression du hack codé en dur qui forçait `comp = "Rugby"`/`"Ligue 1"` pour Toulouse — devenu inutile (et faux, écrasait le vrai nom de compétition) puisque les nouvelles sources fournissent déjà la bonne compétition nativement.
   - Testé en réel : `build.js` sur 3 jours (19 sources, aucune erreur), matching des favoris (OM/Barcelona) toujours fonctionnel via les flux championnat existants. `npm test` (11/11), `npm run lint` (0 erreur).
+- [x] `src/services/sources.js` supprimé (non importé nulle part, et cassé de toute façon : filtrait sur `source.enabled`, un champ qui n'existe pas dans `icsSources.json` — l'activation se fait via `userSettings.json`).
