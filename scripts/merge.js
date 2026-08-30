@@ -60,18 +60,9 @@ export async function mergeData(ics, epg, teams) {
 
   const out = [];
   for (const ev of ics || []) {
-    let comp = ev.competition;
+    const comp = ev.competition;
     const H = norm(ev.home),
       A = norm(ev.away);
-
-    // Correction du mapping compétition
-    if (ev.sport === "rugby") {
-      if (!idx[comp]) comp = "Rugby";
-      if (["stade toulousain", "toulouse", "toulouse rugby"].includes(H))
-        comp = "Rugby";
-    } else if (ev.sport === "football") {
-      if (["toulouse fc", "toulouse"].includes(H)) comp = "Ligue 1";
-    }
 
     // 1. Chercher un match EPG (chaîne confirmée par le guide TV)
     const cand = (epg || [])

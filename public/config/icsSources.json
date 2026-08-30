@@ -36,30 +36,6 @@
     }
   },
   {
-    "id": "team_barcelone",
-    "type": "team",
-    "sport": "football",
-    "name": "FC Barcelona",
-    "url": "https://ics.fixtur.es/v2/team/barcelona.ics",
-    "defaultBroadcasters": ["beIN Sports"],
-    "notifications": {
-      "enabled": false,
-      "advance": 30
-    }
-  },
-  {
-    "id": "team_om",
-    "type": "team",
-    "sport": "football",
-    "name": "Olympique de Marseille",
-    "url": "https://ics.fixtur.es/v2/team/marseille.ics",
-    "defaultBroadcasters": ["Ligue 1+", "Canal+"],
-    "notifications": {
-      "enabled": false,
-      "advance": 30
-    }
-  },
-  {
     "id": "football_ligue1",
     "type": "competition",
     "sport": "football",
@@ -120,11 +96,71 @@
     }
   },
   {
-    "id": "team_toulouse_rugby",
-    "type": "team",
+    "id": "football_champions_league",
+    "type": "competition",
+    "sport": "football",
+    "name": "Champions League",
+    "url": "https://ics.fixtur.es/v2/league/champions-league.ics",
+    "defaultBroadcasters": ["Canal+", "beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_europa_league",
+    "type": "competition",
+    "sport": "football",
+    "name": "Europa League",
+    "url": "https://ics.fixtur.es/v2/league/europa-league.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_coupe_de_france",
+    "type": "competition",
+    "sport": "football",
+    "name": "Coupe de France",
+    "url": "https://ics.fixtur.es/v2/league/coupe-de-france.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_coupe_de_la_ligue",
+    "type": "competition",
+    "sport": "football",
+    "name": "Coupe de la Ligue",
+    "url": "https://ics.fixtur.es/v2/league/coupe-de-la-ligue.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "football_copa_del_rey",
+    "type": "competition",
+    "sport": "football",
+    "name": "Copa del Rey",
+    "url": "https://ics.fixtur.es/v2/league/copa-del-rey.ics",
+    "defaultBroadcasters": ["beIN Sports"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "rugby_top14",
+    "type": "competition",
     "sport": "rugby",
-    "name": "Stade Toulousain",
-    "url": "https://tv-sports.fr/calendrier/equipe/176/toulouse?direct=1",
+    "name": "Top 14",
+    "url": "https://tv-sports.fr/calendrier/competition/153/top-14?direct=1",
     "defaultBroadcasters": ["Canal+"],
     "notifications": {
       "enabled": false,
@@ -132,11 +168,59 @@
     }
   },
   {
-    "id": "team_france_rugby",
-    "type": "team",
+    "id": "rugby_pro_d2",
+    "type": "competition",
     "sport": "rugby",
-    "name": "France Rugby",
-    "url": "https://tv-sports.fr/calendrier/equipe/153/france?direct=1",
+    "name": "Pro D2",
+    "url": "https://tv-sports.fr/calendrier/competition/161/pro-d2?direct=1",
+    "defaultBroadcasters": ["Canal+"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "rugby_champions_cup",
+    "type": "competition",
+    "sport": "rugby",
+    "name": "Champions Cup",
+    "url": "https://tv-sports.fr/calendrier/competition/266/champions-cup?direct=1",
+    "defaultBroadcasters": ["Canal+"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "rugby_six_nations",
+    "type": "competition",
+    "sport": "rugby",
+    "name": "Tournoi des 6 Nations",
+    "url": "https://tv-sports.fr/calendrier/competition/148/tournoi-des-6-nations?direct=1",
+    "defaultBroadcasters": ["France 2"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "rugby_summer_nations_series",
+    "type": "competition",
+    "sport": "rugby",
+    "name": "Summer Nations Series",
+    "url": "https://tv-sports.fr/calendrier/competition/1599/summer-nations-series?direct=1",
+    "defaultBroadcasters": ["France 2"],
+    "notifications": {
+      "enabled": false,
+      "advance": 30
+    }
+  },
+  {
+    "id": "rugby_autumn_nations_series",
+    "type": "competition",
+    "sport": "rugby",
+    "name": "Autumn Nations Series",
+    "url": "https://tv-sports.fr/calendrier/competition/1472/autumn-nations-series?direct=1",
     "defaultBroadcasters": ["France 2"],
     "notifications": {
       "enabled": false,

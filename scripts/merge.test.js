@@ -86,14 +86,14 @@ describe("mergeData", () => {
         start: "2026-08-30T20:00:00.000Z",
         end: "2026-08-30T22:00:00.000Z",
         sport: "rugby",
-        competition: "Rugby",
+        competition: "Top 14",
         home: "Toulouse",
         away: "La Rochelle",
       },
     ];
     const teams = {
       "Ligue 1": { Toulouse: [] },
-      Rugby: { "Stade Toulousain": ["Stade Toulousain", "Toulouse"] },
+      "Top 14": { "Stade Toulousain": ["Stade Toulousain", "Toulouse"] },
     };
 
     const result = await mergeData(ics, [], teams);

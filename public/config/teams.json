@@ -113,8 +113,19 @@
     "France": ["France"],
     "Espagne": ["Spain", "España"]
   },
-  "Rugby": {
-    "Stade Toulousain": ["Stade Toulousain", "Toulouse", "Toulouse Rugby", "Stade Toulousain Rugby"],
+  "Top 14": {
+    "Stade Toulousain": ["Stade Toulousain", "Toulouse", "Toulouse Rugby", "Stade Toulousain Rugby"]
+  },
+  "Champions Cup": {
+    "Stade Toulousain": ["Stade Toulousain", "Toulouse", "Toulouse Rugby", "Stade Toulousain Rugby"]
+  },
+  "Tournoi des 6 Nations": {
+    "France Rugby": ["France"]
+  },
+  "Summer Nations Series": {
+    "France Rugby": ["France"]
+  },
+  "Autumn Nations Series": {
     "France Rugby": ["France"]
   }
 }
