@@ -2,10 +2,6 @@
 
 Issu de l'audit du 2026-08-30.
 
-## Outillage qualité
-
-- [ ] Mettre en place des tests, au minimum sur le pipeline data (`scripts/ics.js`, `scripts/epg.js`, `scripts/merge.js`) qui font du parsing/normalisation sans filet.
-
 ## Bugs
 
 - [ ] `favorites.competitions` (`userSettings.json`) n'est lu nulle part dans `src/` — soit l'implémenter (favoriser une compétition entière, pas juste des équipes), soit le supprimer pour ne pas laisser croire qu'il a un effet.
@@ -26,6 +22,7 @@ Issu de l'audit du 2026-08-30.
 
 - [x] ESLint réparé : `eslint.config.js` (flat config ESLint 9) remplace `.eslintrc.json` cassé, `eslint-plugin-react` ajouté (nécessaire pour la détection JSX), scripts `"lint"`/`"lint:js"` ajoutés. 3 vrais problèmes trouvés et corrigés au passage (variable morte, 2 `catch {}` volontaires reconfigurés proprement).
 - [x] Stylelint réparé : `.stylelintrc.json` ajouté (`stylelint-config-standard` + `config-prettier`), overrides alignés sur les conventions existantes du projet plutôt que réécriture du CSS. 2 vrais problèmes corrigés (`.sectionTitle` → `.section-title`, déclarations multi-props éclatées). Script `"lint:css"` ajouté, `"lint"` enchaîne JS + CSS.
+- [x] Tests mis en place (Vitest) sur le pipeline data : `epg.test.js`, `ics.test.js`, `merge.test.js` (11 tests), ciblés sur les fonctions déjà responsables de bugs réels (`looksLikeLimitPage`, `extractTeams`, résolution d'alias/cross-check dans `mergeData`). Étape `npm test` ajoutée dans `deploy.yml` avant le build, pour bloquer le déploiement en cas de régression.
 
 ## Bugs
 
