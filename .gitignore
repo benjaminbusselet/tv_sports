@@ -18,6 +18,9 @@ public/data/
 # Archive locale (ne pas commiter)
 archive/
 
+# Instructions personnelles Claude (locales, ne pas commiter)
+CLAUDE.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
