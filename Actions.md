@@ -4,23 +4,11 @@ Issu de l'audit du 2026-08-30.
 
 ## Outillage qualité
 
-- [x] ESLint réparé : `eslint.config.js` (flat config ESLint 9) remplace `.eslintrc.json` cassé, `eslint-plugin-react` ajouté (nécessaire pour la détection JSX), scripts `"lint"`/`"lint:js"` ajoutés. 3 vrais problèmes trouvés et corrigés au passage (variable morte, 2 `catch {}` volontaires reconfigurés proprement).
-- [x] Stylelint réparé : `.stylelintrc.json` ajouté (`stylelint-config-standard` + `config-prettier`), overrides alignés sur les conventions existantes du projet plutôt que réécriture du CSS. 2 vrais problèmes corrigés (`.sectionTitle` → `.section-title`, déclarations multi-props éclatées). Script `"lint:css"` ajouté, `"lint"` enchaîne JS + CSS.
 - [ ] Mettre en place des tests, au minimum sur le pipeline data (`scripts/ics.js`, `scripts/epg.js`, `scripts/merge.js`) qui font du parsing/normalisation sans filet.
 
 ## Bugs
 
-- [x] Onglet Équipes (`sport === "teams"`) : matchs manquants car `favorites.teams` devait correspondre exactement à la clé canonique dans `teams.json`, or une même équipe a des clés différentes selon sport/compétition (ex. `"France"` football vs `"France Rugby"`).
-  - Corrigé : `favorites.teams` (userSettings.json) restructuré en objets `{sport, name}`, matching mis à jour dans `src/services/api.js` (filtre sur `sport` + `homeId`/`awayId`). Testé sur données réelles : les 5 favoris (OM, FC Barcelona, Stade Toulousain, France football, France Rugby) matchent correctement.
-  - Espagne : clé `teams.json` renommée `"Spain"` → `"Espagne"` (aliases `["Spain", "España"]`) pour cohérence, même si non utilisée dans les favoris actuels.
 - [ ] `favorites.competitions` (`userSettings.json`) n'est lu nulle part dans `src/` — soit l'implémenter (favoriser une compétition entière, pas juste des équipes), soit le supprimer pour ne pas laisser croire qu'il a un effet.
-
-## EPG / Diffuseurs
-
-- [x] Droits TV mis à jour : Ligue 1 → `Ligue 1+` uniquement, LaLiga → `Disney+` (`icsSources.json`, `channels.json`), retrait du cas spécial codé en dur "Ligue 1 samedi 17h → beIN SPORTS 1" dans `merge.js`.
-- [x] Gaspillage de quota Open-EPG : `build.js` retéléchargeait le même XML une fois par jour traité (3 requêtes identiques par run). Corrigé : `fetchEpgAll()` télécharge une fois, `filterEpgByDay()` filtre en mémoire par jour.
-- [x] Cache CI ajouté (`actions/cache` sur `epg-raw_france1.xml` dans `deploy.yml`) pour retomber sur un cache réel en cas de blocage Open-EPG.
-- [x] Faux positif critique dans `looksLikeLimitPage()` (`epg.js`) : `!/]/i.test(txt)` était vrai sur **tout** XML EPG valide (le format n'utilise jamais `]`), donc chaque téléchargement réussi était pris à tort pour un blocage de quota — depuis toujours. Remplacé par un test de forme XML (`startsWith("<?xml")`). Vérifié en prod : cross-check EPG réel fonctionnel (diffuseurs précis type "Canal+ Live 1" au lieu des fallbacks génériques).
 
 ## Nettoyage code
 
@@ -29,6 +17,28 @@ Issu de l'audit du 2026-08-30.
 - [ ] Logique de date Europe/Paris (`fmtParis`/`ymdParis`/`addDaysYMD`) dupliquée 4 fois : bloc identique copié-collé entre `build.js` et `dev-check.js`, et réimplémentation différente (locale `fr-FR` + split) dans `epg.js`/`ics.js`. À extraire dans un module partagé (ex. `scripts/lib/dates.js`).
 - [ ] Double source de vérité sur les alias "Stade Toulousain" : `merge.js` (lignes ~76 et ~79) hardcode `["stade toulousain", "toulouse", "toulouse rugby"]` pour deviner la compétition, alors que `teams.json` a déjà la liste d'alias officielle. Risque de désync silencieuse (même catégorie de bug que celui corrigé sur France Rugby).
 - [ ] `translations.json` référencé dans `merge.js` (`countries`/`cities`/`teams`) mais le fichier n'existe pas dans `public/config/` — dégradation silencieuse actuellement (pas cassé), mais fonctionnalité fantôme à clarifier (implémenter ou retirer la référence).
+
+---
+
+# Actions effectuées
+
+## Outillage qualité
+
+- [x] ESLint réparé : `eslint.config.js` (flat config ESLint 9) remplace `.eslintrc.json` cassé, `eslint-plugin-react` ajouté (nécessaire pour la détection JSX), scripts `"lint"`/`"lint:js"` ajoutés. 3 vrais problèmes trouvés et corrigés au passage (variable morte, 2 `catch {}` volontaires reconfigurés proprement).
+- [x] Stylelint réparé : `.stylelintrc.json` ajouté (`stylelint-config-standard` + `config-prettier`), overrides alignés sur les conventions existantes du projet plutôt que réécriture du CSS. 2 vrais problèmes corrigés (`.sectionTitle` → `.section-title`, déclarations multi-props éclatées). Script `"lint:css"` ajouté, `"lint"` enchaîne JS + CSS.
+
+## Bugs
+
+- [x] Onglet Équipes (`sport === "teams"`) : matchs manquants car `favorites.teams` devait correspondre exactement à la clé canonique dans `teams.json`, or une même équipe a des clés différentes selon sport/compétition (ex. `"France"` football vs `"France Rugby"`).
+  - Corrigé : `favorites.teams` (userSettings.json) restructuré en objets `{sport, name}`, matching mis à jour dans `src/services/api.js` (filtre sur `sport` + `homeId`/`awayId`). Testé sur données réelles : les 5 favoris (OM, FC Barcelona, Stade Toulousain, France football, France Rugby) matchent correctement.
+  - Espagne : clé `teams.json` renommée `"Spain"` → `"Espagne"` (aliases `["Spain", "España"]`) pour cohérence, même si non utilisée dans les favoris actuels.
+
+## EPG / Diffuseurs
+
+- [x] Droits TV mis à jour : Ligue 1 → `Ligue 1+` uniquement, LaLiga → `Disney+` (`icsSources.json`, `channels.json`), retrait du cas spécial codé en dur "Ligue 1 samedi 17h → beIN SPORTS 1" dans `merge.js`.
+- [x] Gaspillage de quota Open-EPG : `build.js` retéléchargeait le même XML une fois par jour traité (3 requêtes identiques par run). Corrigé : `fetchEpgAll()` télécharge une fois, `filterEpgByDay()` filtre en mémoire par jour.
+- [x] Cache CI ajouté (`actions/cache` sur `epg-raw_france1.xml` dans `deploy.yml`) pour retomber sur un cache réel en cas de blocage Open-EPG.
+- [x] Faux positif critique dans `looksLikeLimitPage()` (`epg.js`) : `!/]/i.test(txt)` était vrai sur **tout** XML EPG valide (le format n'utilise jamais `]`), donc chaque téléchargement réussi était pris à tort pour un blocage de quota — depuis toujours. Remplacé par un test de forme XML (`startsWith("<?xml")`). Vérifié en prod : cross-check EPG réel fonctionnel (diffuseurs précis type "Canal+ Live 1" au lieu des fallbacks génériques).
 
 ## Git / repo
 
