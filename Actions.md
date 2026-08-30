@@ -4,9 +4,8 @@ Issu de l'audit du 2026-08-30.
 
 ## Outillage qualité
 
-- [ ] Réparer la config ESLint : soit installer les packages manquants (`eslint-plugin-react`, `@typescript-eslint/eslint-plugin`, `eslint-plugin-prettier`, `eslint-config-prettier`), soit migrer vers un `eslint.config.js` (flat config) adapté à ESLint 9 et alléger les plugins réellement nécessaires (pas de TypeScript dans le projet).
-- [ ] Ajouter un script `"lint"` dans `package.json` une fois la config valide.
-- [ ] Ajouter une config Stylelint (`.stylelintrc.json`) ou retirer les dépendances `stylelint*` si non utilisées.
+- [x] ESLint réparé : `eslint.config.js` (flat config ESLint 9) remplace `.eslintrc.json` cassé, `eslint-plugin-react` ajouté (nécessaire pour la détection JSX), scripts `"lint"`/`"lint:js"` ajoutés. 3 vrais problèmes trouvés et corrigés au passage (variable morte, 2 `catch {}` volontaires reconfigurés proprement).
+- [x] Stylelint réparé : `.stylelintrc.json` ajouté (`stylelint-config-standard` + `config-prettier`), overrides alignés sur les conventions existantes du projet plutôt que réécriture du CSS. 2 vrais problèmes corrigés (`.sectionTitle` → `.section-title`, déclarations multi-props éclatées). Script `"lint:css"` ajouté, `"lint"` enchaîne JS + CSS.
 - [ ] Mettre en place des tests, au minimum sur le pipeline data (`scripts/ics.js`, `scripts/epg.js`, `scripts/merge.js`) qui font du parsing/normalisation sans filet.
 
 ## Bugs
