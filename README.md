@@ -6,7 +6,7 @@ Déployé sur [GitHub Pages](https://benjaminbusselet.github.io/tv_sports/) — 
 
 ## Stack
 
-- **Frontend** : React 19 + Vite 7, CSS natif, Service Worker (PWA)
+- **Frontend** : React 19 + Vite 7, Tailwind CSS, Service Worker basique (pas encore de mode hors-ligne, voir Roadmap)
 - **Pipeline** : Node.js — sources ICS + EPG → JSON fusionnés
 - **CI/CD** : GitHub Actions (build + deploy quotidien)
 
@@ -45,7 +45,7 @@ Configurées dans `public/config/` :
 
 ## Déploiement
 
-GitHub Actions lance `node scripts/build.js` puis `vite build` chaque nuit à 1h UTC et pousse le résultat sur la branche `gh-pages`.
+GitHub Actions lance `node scripts/build.js` puis `vite build` chaque nuit à 1h UTC et publie `dist/` via le déploiement natif GitHub Pages (`actions/upload-pages-artifact` + `actions/deploy-pages`, sans branche `gh-pages`).
 
 ## Roadmap
 
