@@ -2,9 +2,9 @@
 
 Issu de l'audit du 2026-08-30.
 
-## Bugs
+## Améliorations futures
 
-- [ ] **Amélioration future** : `favorites.competitions` (`userSettings.json`, ex. `["Formule 1", "Top 14", "Ligue 1"]`) existe dans la config mais n'a aucun effet dans le code actuellement — décision prise de ne pas le supprimer, en garder l'usage pour plus tard (onglet/filtre "toute une compétition favorite", en plus du filtre par équipe existant). Pas un bug, une fonctionnalité pas encore construite.
+- [ ] `favorites.competitions` (`userSettings.json`, ex. `["Formule 1", "Top 14", "Ligue 1"]`) existe dans la config mais n'a aucun effet dans le code actuellement — décision prise de ne pas le supprimer, en garder l'usage pour plus tard (onglet/filtre "toute une compétition favorite", en plus du filtre par équipe existant).
 
 ## Nettoyage code
 
