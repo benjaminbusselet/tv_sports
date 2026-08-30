@@ -98,7 +98,7 @@ function toISO(dt) {
   return dt;
 }
 
-function extractTeams(title = "") {
+export function extractTeams(title = "") {
   // Si c'est un événement de Formule 1 (contient 'Grand Prix' ou '🏎️')
   if (title.includes('Grand Prix') || title.includes('🏎️')) {
     // Extraire le nom du Grand Prix

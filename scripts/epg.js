@@ -84,7 +84,7 @@ const buildWhitelist = (json) => {
 // Ancien heuristique `!/]/i.test(txt)` était toujours vrai : le XML EPG ne
 // contient jamais de "]" (pas de CDATA/DOCTYPE), donc chaque téléchargement
 // réussi était pris à tort pour un blocage. On vérifie la forme du XML.
-const looksLikeLimitPage = (txt) =>
+export const looksLikeLimitPage = (txt) =>
   /You reached the download limit/i.test(txt) ||
   !txt.trim().startsWith("<?xml");
 
