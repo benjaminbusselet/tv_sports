@@ -58,8 +58,16 @@
     background-blend-mode: overlay;
   }
 
-  .chip { padding: 0.35rem 0.6rem; font-size: var(--text-sm); }
-  .tab  { padding: 0.35rem 0.6rem; font-size: var(--text-sm); white-space: nowrap; }
+  .chip {
+    padding: 0.35rem 0.6rem;
+    font-size: var(--text-sm);
+  }
+
+  .tab {
+    padding: 0.35rem 0.6rem;
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
 
   .chip:hover, .chip:focus,
   .tab:hover,  .tab:focus {
@@ -157,7 +165,7 @@
   }
 
   /* --- Titre de section --- */
-  .sectionTitle {
+  .section-title {
     color: var(--ui-text);
     border-color: var(--ui-border);
   }

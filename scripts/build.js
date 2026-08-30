@@ -98,7 +98,6 @@ console.log("");
 for (let i = 0; i < days.length; i++) {
   const ymd = days[i];
   console.log(`📅 Processing day ${i + 1}/${days.length}: ${ymd}`);
-  let daySuccess = true;
 
   try {
     // 1. ICS Fetch - toujours
@@ -137,7 +136,6 @@ for (let i = 0; i < days.length; i++) {
     successfulDays++;
   } catch (e) {
     console.error(`❌ Failed to process day ${ymd}:`, e.message || e);
-    daySuccess = false;
     failedDays.push(ymd);
   }
 

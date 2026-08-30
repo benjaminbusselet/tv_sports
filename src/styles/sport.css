@@ -102,7 +102,7 @@
   }
 
   /* --- Titre de section --- */
-  [data-brand="sport"] .sectionTitle {
+  [data-brand="sport"] .section-title {
     color: var(--ui-text);
     border-color: var(--ui-border);
     opacity: 0.7;

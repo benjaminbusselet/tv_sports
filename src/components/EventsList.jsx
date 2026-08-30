@@ -43,7 +43,7 @@ export default function EventsList({ events = [], grouped = false }) {
       if (!list || !list.length) return;
 
       elements.push(
-        <div key={"comp-" + comp} className="sectionTitle text-xl font-semibold mt-6 mb-3 ml-2 pb-2 border-b">
+        <div key={"comp-" + comp} className="section-title text-xl font-semibold mt-6 mb-3 ml-2 pb-2 border-b">
           {comp}
         </div>
       );
