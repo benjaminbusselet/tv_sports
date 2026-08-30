@@ -16,15 +16,25 @@ Issu de l'audit du 2026-08-30.
   - Espagne : clé `teams.json` renommée `"Spain"` → `"Espagne"` (aliases `["Spain", "España"]`) pour cohérence, même si non utilisée dans les favoris actuels.
 - [ ] `favorites.competitions` (`userSettings.json`) n'est lu nulle part dans `src/` — soit l'implémenter (favoriser une compétition entière, pas juste des équipes), soit le supprimer pour ne pas laisser croire qu'il a un effet.
 
+## EPG / Diffuseurs
+
+- [x] Droits TV mis à jour : Ligue 1 → `Ligue 1+` uniquement, LaLiga → `Disney+` (`icsSources.json`, `channels.json`), retrait du cas spécial codé en dur "Ligue 1 samedi 17h → beIN SPORTS 1" dans `merge.js`.
+- [x] Gaspillage de quota Open-EPG : `build.js` retéléchargeait le même XML une fois par jour traité (3 requêtes identiques par run). Corrigé : `fetchEpgAll()` télécharge une fois, `filterEpgByDay()` filtre en mémoire par jour.
+- [x] Cache CI ajouté (`actions/cache` sur `epg-raw_france1.xml` dans `deploy.yml`) pour retomber sur un cache réel en cas de blocage Open-EPG.
+- [x] Faux positif critique dans `looksLikeLimitPage()` (`epg.js`) : `!/]/i.test(txt)` était vrai sur **tout** XML EPG valide (le format n'utilise jamais `]`), donc chaque téléchargement réussi était pris à tort pour un blocage de quota — depuis toujours. Remplacé par un test de forme XML (`startsWith("<?xml")`). Vérifié en prod : cross-check EPG réel fonctionnel (diffuseurs précis type "Canal+ Live 1" au lieu des fallbacks génériques).
+
 ## Nettoyage code
 
 - [ ] Supprimer `src/services/sources.js` (non importé nulle part) ou l'intégrer si prévu pour un usage futur.
 - [ ] Envisager de découper `src/App.jsx` (état + logique de tri/filtre concentrés dans un seul composant de 150 lignes) si le composant continue de grossir.
+- [ ] Logique de date Europe/Paris (`fmtParis`/`ymdParis`/`addDaysYMD`) dupliquée 4 fois : bloc identique copié-collé entre `build.js` et `dev-check.js`, et réimplémentation différente (locale `fr-FR` + split) dans `epg.js`/`ics.js`. À extraire dans un module partagé (ex. `scripts/lib/dates.js`).
+- [ ] Double source de vérité sur les alias "Stade Toulousain" : `merge.js` (lignes ~76 et ~79) hardcode `["stade toulousain", "toulouse", "toulouse rugby"]` pour deviner la compétition, alors que `teams.json` a déjà la liste d'alias officielle. Risque de désync silencieuse (même catégorie de bug que celui corrigé sur France Rugby).
+- [ ] `translations.json` référencé dans `merge.js` (`countries`/`cities`/`teams`) mais le fichier n'existe pas dans `public/config/` — dégradation silencieuse actuellement (pas cassé), mais fonctionnalité fantôme à clarifier (implémenter ou retirer la référence).
 
 ## Git / repo
 
-- [ ] `git pull` pour rattraper le commit distant.
-- [ ] Statuer sur les fichiers modifiés non commités : `CLAUDE.md`, `public/config/teams.json`, `public/config/userSettings.json` — commit ou revert.
+- [x] `git pull` effectué, branche à jour.
+- [x] `CLAUDE.md` retiré du suivi git (instructions personnelles, ajouté au `.gitignore`). `teams.json` et `userSettings.json` commités avec le fix de l'onglet Équipes.
 
 ## Documentation
 
