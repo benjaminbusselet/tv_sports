@@ -2,10 +2,6 @@
 
 Issu de l'audit du 2026-08-30.
 
-## Améliorations futures
-
-- [ ] `favorites.competitions` (`userSettings.json`, ex. `["Formule 1", "Top 14", "Ligue 1"]`) existe dans la config mais n'a aucun effet dans le code actuellement — décision prise de ne pas le supprimer, en garder l'usage pour plus tard (onglet/filtre "toute une compétition favorite", en plus du filtre par équipe existant).
-
 ## Nettoyage code
 
 - [ ] Supprimer `src/services/sources.js` (non importé nulle part) ou l'intégrer si prévu pour un usage futur.
@@ -13,6 +9,10 @@ Issu de l'audit du 2026-08-30.
 - [ ] Logique de date Europe/Paris (`fmtParis`/`ymdParis`/`addDaysYMD`) dupliquée 4 fois : bloc identique copié-collé entre `build.js` et `dev-check.js`, et réimplémentation différente (locale `fr-FR` + split) dans `epg.js`/`ics.js`. À extraire dans un module partagé (ex. `scripts/lib/dates.js`).
 - [ ] Double source de vérité sur les alias "Stade Toulousain" : `merge.js` (lignes ~76 et ~79) hardcode `["stade toulousain", "toulouse", "toulouse rugby"]` pour deviner la compétition, alors que `teams.json` a déjà la liste d'alias officielle. Risque de désync silencieuse (même catégorie de bug que celui corrigé sur France Rugby).
 - [ ] `translations.json` référencé dans `merge.js` (`countries`/`cities`/`teams`) mais le fichier n'existe pas dans `public/config/` — dégradation silencieuse actuellement (pas cassé), mais fonctionnalité fantôme à clarifier (implémenter ou retirer la référence).
+
+## Améliorations futures
+
+- [ ] `favorites.competitions` (`userSettings.json`, ex. `["Formule 1", "Top 14", "Ligue 1"]`) existe dans la config mais n'a aucun effet dans le code actuellement — décision prise de ne pas le supprimer, en garder l'usage pour plus tard (onglet/filtre "toute une compétition favorite", en plus du filtre par équipe existant).
 
 ---
 
