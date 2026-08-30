@@ -5,7 +5,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fetchIcs } from "./ics.js";
-import { fetchEpg } from "./epg.js";
+import { fetchEpgAll, filterEpgByDay } from "./epg.js";
 import { mergeData } from "./merge.js";
 
 const dateArgs = process.argv.filter((x) => /^\d{8}$/.test(x));
@@ -79,6 +79,11 @@ let totalPROGS = 0;
 let successfulDays = 0;
 let failedDays = [];
 
+// Cache en mémoire du flux EPG complet : téléchargé une seule fois par run
+// (le fichier est identique pour tous les jours J..J+2), rempli au premier
+// jour qui en a besoin.
+let epgAllCache = null;
+
 console.log(
   `🚀 Starting pipeline build for ${days.length} days: ${start} → ${days.at(
     -1
@@ -105,7 +110,10 @@ for (let i = 0; i < days.length; i++) {
     let epgData = [];
     if (i <= 2) {
       console.log(" 📺 Fetching EPG data...");
-      epgData = await fetchEpg(ymd);
+      if (!epgAllCache) {
+        epgAllCache = await fetchEpgAll();
+      }
+      epgData = filterEpgByDay(epgAllCache, ymd);
       console.log(` ✅ EPG fetched (${epgData.length} programs)`);
     } else {
       console.log(" ⏭️ EPG skipped (outside J-2→J+2 window)");

@@ -40,6 +40,17 @@ jobs:
           echo "NPM version: $(npm --version)"
           ls -la public/data/ || echo "No data directory yet"
 
+      - name: Cache EPG XML
+        # Persiste le XML EPG brut entre les runs : si Open-EPG refuse le
+        # téléchargement (quota atteint), le pipeline retombe sur ce cache
+        # au lieu de n'avoir aucune donnée EPG (voir scripts/epg.js).
+        uses: actions/cache@v4
+        with:
+          path: public/data/epg-raw_france1.xml
+          key: epg-xml-${{ github.run_id }}
+          restore-keys: |
+            epg-xml-
+
       - name: Build data pipeline
         run: |
           echo "🚀 Génération des données pour les 7 prochains jours"

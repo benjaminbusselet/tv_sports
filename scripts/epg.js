@@ -107,11 +107,11 @@ async function readFreshCache() {
   return null;
 }
 
-// Fonction principale exportée : pipeline en mémoire
-export async function fetchEpg(ymd) {
-  if (!/^\d{8}$/.test(ymd || ""))
-    throw new Error("fetchEpg(ymd): expected YYYYMMDD");
-
+// Récupère et parse le flux EPG complet, toutes dates confondues (pas de
+// filtre par jour ici). Permet à l'appelant de ne télécharger le XML qu'une
+// seule fois par run même si plusieurs jours consécutifs ont besoin de l'EPG,
+// au lieu de retélécharger le même fichier une fois par jour.
+export async function fetchEpgAll() {
   await fs.mkdir(path.dirname(CACHE_PATH), { recursive: true });
 
   // Récupération du XML EPG (cache ou téléchargement)
@@ -167,12 +167,12 @@ export async function fetchEpg(ymd) {
     if (id) id2name.set(id, name);
   }
 
-  // Filtre : jour, équipes, chaînes whitelist, déduplication
+  // Filtre : équipes, chaînes whitelist, déduplication (pas de filtre jour)
   const out = [],
     seen = new Set();
   for (const p of arr) {
     const start = toISO(p?.["@_start"]);
-    if (!start || ymdParis(start) !== ymd) continue;
+    if (!start) continue;
     const end = toISO(p?.["@_stop"]);
     const title = getTitle(p).trim();
     const channel = canonChannel(id2name.get(p?.["@_channel"]) || p?.["@_channel"]);
@@ -180,7 +180,7 @@ export async function fetchEpg(ymd) {
     if (!wl.has(channel.toLowerCase())) continue;
 
     // Avant de filtrer par séparateur d'équipes
-    const isF1 = (title.toLowerCase().includes("formule 1") || 
+    const isF1 = (title.toLowerCase().includes("formule 1") ||
                    title.toLowerCase().includes("f1")) &&
                   !title.toLowerCase().includes("moto");
 
@@ -216,6 +216,22 @@ export async function fetchEpg(ymd) {
   }
 
   return out.sort((a, b) => a.start.localeCompare(b.start));
+}
+
+// Filtre un jeu de programmes déjà récupéré (fetchEpgAll) pour un jour donné.
+export function filterEpgByDay(programmes, ymd) {
+  return programmes.filter((p) => ymdParis(p.start) === ymd);
+}
+
+// Conserve l'API historique (un jour = un fetch + un filtre) pour le mode CLI.
+// Le pipeline (build.js) doit préférer fetchEpgAll() + filterEpgByDay() pour
+// éviter de retélécharger le même XML une fois par jour.
+export async function fetchEpg(ymd) {
+  if (!/^\d{8}$/.test(ymd || ""))
+    throw new Error("fetchEpg(ymd): expected YYYYMMDD");
+
+  const all = await fetchEpgAll();
+  return filterEpgByDay(all, ymd);
 }
 
 // CLI debug : pour tester et afficher les données EPG
