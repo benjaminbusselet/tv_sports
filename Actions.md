@@ -4,7 +4,7 @@ Issu de l'audit du 2026-08-30.
 
 ## Bugs
 
-- [ ] `favorites.competitions` (`userSettings.json`) n'est lu nulle part dans `src/` — soit l'implémenter (favoriser une compétition entière, pas juste des équipes), soit le supprimer pour ne pas laisser croire qu'il a un effet.
+- [ ] **Amélioration future** : `favorites.competitions` (`userSettings.json`, ex. `["Formule 1", "Top 14", "Ligue 1"]`) existe dans la config mais n'a aucun effet dans le code actuellement — décision prise de ne pas le supprimer, en garder l'usage pour plus tard (onglet/filtre "toute une compétition favorite", en plus du filtre par équipe existant). Pas un bug, une fonctionnalité pas encore construite.
 
 ## Nettoyage code
 
