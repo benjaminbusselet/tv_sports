@@ -80,8 +80,13 @@ const buildWhitelist = (json) => {
   );
 };
 
+// Détecte une page de blocage (quota réel) plutôt qu'un vrai flux XML.
+// Ancien heuristique `!/]/i.test(txt)` était toujours vrai : le XML EPG ne
+// contient jamais de "]" (pas de CDATA/DOCTYPE), donc chaque téléchargement
+// réussi était pris à tort pour un blocage. On vérifie la forme du XML.
 const looksLikeLimitPage = (txt) =>
-  /You reached the download limit/i.test(txt) || !/]/i.test(txt);
+  /You reached the download limit/i.test(txt) ||
+  !txt.trim().startsWith("<?xml");
 
 // Utilitaire : télécharge le XML, utilise le cache pour limiter les appels
 async function fetchRawXmlOnce() {
