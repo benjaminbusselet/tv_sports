@@ -31,11 +31,13 @@ export async function fetchEvents({ day, sport }) {
         // Ignorer les événements sans identifiant d'équipe (F1, etc.)
         if (!event.homeId && !event.awayId) return false;
 
-        // Matching fiable avec les identifiants uniques
-        const homeMatch = event.homeId && favoriteTeams.includes(event.homeId);
-        const awayMatch = event.awayId && favoriteTeams.includes(event.awayId);
-
-        return homeMatch || awayMatch;
+        // Matching sur sport + identifiant : une même équipe peut avoir des
+        // clés différentes selon le sport (ex. "France" football vs "France Rugby")
+        return favoriteTeams.some(
+          (fav) =>
+            fav.sport === event.sport &&
+            (event.homeId === fav.name || event.awayId === fav.name)
+        );
       });
       return teamEvents;
     }

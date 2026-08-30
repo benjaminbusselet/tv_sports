@@ -26,7 +26,13 @@
     "sortPreference": "time"
   },
   "favorites": {
-    "teams": ["France", "Espagne", "Stade Toulousain", "FC Barcelona"],
+    "teams": [
+      { "sport": "football", "name": "Olympique de Marseille" },
+      { "sport": "football", "name": "FC Barcelona" },
+      { "sport": "rugby", "name": "Stade Toulousain" },
+      { "sport": "football", "name": "France" },
+      { "sport": "rugby", "name": "France Rugby" }
+    ],
     "competitions": ["Formule 1", "Top 14", "Ligue 1"]
   }
 }

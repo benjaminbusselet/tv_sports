@@ -9,6 +9,13 @@ Issu de l'audit du 2026-08-30.
 - [ ] Ajouter une config Stylelint (`.stylelintrc.json`) ou retirer les dépendances `stylelint*` si non utilisées.
 - [ ] Mettre en place des tests, au minimum sur le pipeline data (`scripts/ics.js`, `scripts/epg.js`, `scripts/merge.js`) qui font du parsing/normalisation sans filet.
 
+## Bugs
+
+- [x] Onglet Équipes (`sport === "teams"`) : matchs manquants car `favorites.teams` devait correspondre exactement à la clé canonique dans `teams.json`, or une même équipe a des clés différentes selon sport/compétition (ex. `"France"` football vs `"France Rugby"`).
+  - Corrigé : `favorites.teams` (userSettings.json) restructuré en objets `{sport, name}`, matching mis à jour dans `src/services/api.js` (filtre sur `sport` + `homeId`/`awayId`). Testé sur données réelles : les 5 favoris (OM, FC Barcelona, Stade Toulousain, France football, France Rugby) matchent correctement.
+  - Espagne : clé `teams.json` renommée `"Spain"` → `"Espagne"` (aliases `["Spain", "España"]`) pour cohérence, même si non utilisée dans les favoris actuels.
+- [ ] `favorites.competitions` (`userSettings.json`) n'est lu nulle part dans `src/` — soit l'implémenter (favoriser une compétition entière, pas juste des équipes), soit le supprimer pour ne pas laisser croire qu'il a un effet.
+
 ## Nettoyage code
 
 - [ ] Supprimer `src/services/sources.js` (non importé nulle part) ou l'intégrer si prévu pour un usage futur.
