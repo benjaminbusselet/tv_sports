@@ -14,6 +14,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import zlib from "node:zlib";
 import { XMLParser } from "fast-xml-parser";
+import { ymdParis } from "./lib/dates.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,18 +44,6 @@ const toISO = (s) => {
     t -= sg * (hh * 60 + mm) * 60000;
   }
   return new Date(t).toISOString();
-};
-
-const ymdParis = (iso) => {
-  const d = new Date(iso);
-  const f = new Intl.DateTimeFormat("fr-FR", {
-    timeZone: "Europe/Paris",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-  const [dd, mm, yy] = f.format(d).split("/");
-  return `${yy}${mm}${dd}`; // YYYYMMDD
 };
 
 const canonChannel = (s) => String(s || "").replace(/\.[a-z]{2}$/i, "");

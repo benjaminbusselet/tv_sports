@@ -9,27 +9,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
+import { todayParisYMD, addDaysYMD } from "./lib/dates.js";
 
 const dataDir = path.join("public", "data");
-
-// Utiliser la même logique de dates que build.js
-const fmtParis = new Intl.DateTimeFormat("sv-SE", {
-  timeZone: "Europe/Paris",
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-});
-
-const ymdParis = (d) => fmtParis.format(d).replaceAll("-", "");
-const todayParisYMD = () => ymdParis(new Date());
-
-const addDaysYMD = (ymd, n) => {
-  const y = +ymd.slice(0, 4),
-    m = +ymd.slice(4, 6),
-    d = +ymd.slice(6, 8);
-  const t = Date.UTC(y, m - 1, d) + n * 86400000;
-  return ymdParis(new Date(t));
-};
 
 // Vérifier les fichiers JSON nécessaires
 async function checkDataFiles() {

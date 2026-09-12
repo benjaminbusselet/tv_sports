@@ -7,6 +7,7 @@ import path from "node:path";
 import { fetchIcs } from "./ics.js";
 import { fetchEpgAll, filterEpgByDay } from "./epg.js";
 import { mergeData } from "./merge.js";
+import { ymdParis, todayParisYMD, addDaysYMD } from "./lib/dates.js";
 
 const dateArgs = process.argv.filter((x) => /^\d{8}$/.test(x));
 const startArg = dateArgs[0] || null;
@@ -42,24 +43,6 @@ async function cleanupOldFiles() {
     console.warn(`⚠️  Warning: Could not cleanup old files:`, error.message);
   }
 }
-
-const fmtParis = new Intl.DateTimeFormat("sv-SE", {
-  timeZone: "Europe/Paris",
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-});
-
-const ymdParis = (d) => fmtParis.format(d).replaceAll("-", "");
-const todayParisYMD = () => ymdParis(new Date());
-
-const addDaysYMD = (ymd, n) => {
-  const y = +ymd.slice(0, 4),
-    m = +ymd.slice(4, 6),
-    d = +ymd.slice(6, 8);
-  const t = Date.UTC(y, m - 1, d) + n * 86400000;
-  return ymdParis(new Date(t));
-};
 
 // Utiliser les arguments CLI si fournis, sinon today → today+7
 const start = startArg || todayParisYMD();

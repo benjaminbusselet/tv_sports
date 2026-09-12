@@ -2,8 +2,8 @@
   "sources": {
     "enabled": [
       "formula1_calendar",
-      "team_france_football",
-      "team_espagne",
+      "football_nations_league",
+      "football_world_cup_qualifiers",
       "football_ligue1",
       "football_laliga",
       "football_premier_league",
@@ -12,7 +12,6 @@
       "football_champions_league",
       "football_europa_league",
       "football_coupe_de_france",
-      "football_coupe_de_la_ligue",
       "football_copa_del_rey",
       "rugby_top14",
       "rugby_pro_d2",
@@ -21,11 +20,6 @@
       "rugby_summer_nations_series",
       "rugby_autumn_nations_series"
     ]
-  },
-  "notifications": {
-    "enabled": true,
-    "advance": 30,
-    "sports": ["f1", "rugby", "football"]
   },
   "display": {
     "theme": "retro",
@@ -36,8 +30,8 @@
     "teams": [
       { "sport": "football", "name": "Olympique de Marseille" },
       { "sport": "football", "name": "FC Barcelona" },
-      { "sport": "rugby", "name": "Stade Toulousain" },
       { "sport": "football", "name": "France" },
+      { "sport": "rugby", "name": "Stade Toulousain" },
       { "sport": "rugby", "name": "France Rugby" }
     ],
     "competitions": ["Formule 1", "Top 14", "Ligue 1"]
